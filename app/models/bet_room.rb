@@ -1,0 +1,2 @@
+class BetRoom < ApplicationRecord
+end
