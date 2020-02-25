@@ -4,11 +4,19 @@ class BetRoomPolicy < ApplicationPolicy
       scope.all
     end
 
-    def index
+    def index?
       true
     end
 
-    def show
+    def show?
+      true
+    end
+
+    def new?
+      true
+    end
+
+    def create?
       true
     end
 
