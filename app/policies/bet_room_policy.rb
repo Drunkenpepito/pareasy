@@ -6,7 +6,14 @@ class BetRoomPolicy < ApplicationPolicy
   end
 
   def show?
-    # record.users.include?(user)
+    true
+  end
+
+  def create?
+    true
+  end
+
+  def new?
     true
   end
 end
