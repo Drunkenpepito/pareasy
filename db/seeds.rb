@@ -15,7 +15,7 @@ Bet.destroy_all
 puts 'Creating users'
 
 pierre = User.create!(email: "pierre@pareasy.com", password: "password", username: "Drukenpepito", phone_number: "0756789867")
-edouard = User.create!(email: "edouard@pareasy.com", password: "password", username: "Doud", phone_number: "0755678976")
+edouard = User.create!(email: "edouard@pareasy.fr", password: "123456", username: "Doud", phone_number: "0755678976")
 benjamin = User.create!(email: "benjamin@pareasy.com", password: "password", username: "Ben", phone_number: "0687567843")
 xavier = User.create!(email: "xavier@pareasy.com", password: "password", username: "Xav", phone_number: "0750239807")
 
