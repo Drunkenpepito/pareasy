@@ -5,7 +5,7 @@
   <div class="form">
     <%= simple_form_for(@bet_room) do |f| %>
       <%= f.input :name, placeholder: 'My Bet Room', label: "Nom du groupe" %>
-<!--       <%#= f.association :user %> -->
+      <%= f.association :users, label_method: :username, collection: @users, label: "Amis"%>
       <%= f.input :photo, as: :file %>
       <%= f.button :submit, "Go!", class: "btn btn-gradient"%>
     <% end %>
