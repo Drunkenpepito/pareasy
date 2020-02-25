@@ -1,24 +1,20 @@
-<table class="table table-hover">
-  <thead>
-    <tr>
 
-      <th scope="col">#</th>
-      <th scope="col">BET ROOM</th>
-      <th scope="col">Gamers</th>
-      <th scope="col">STATUS</th>
-    </tr>
-  </thead>
-  <tbody>
-     <% @bet_rooms.each do |room| %>
-      <tr>
-        <th scope="row">1</th>
-        <td>"<%=room.name%>"</td>
-        <td><%=room.users.count%></td>
-        <td>game on</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<div class="container text-center">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Ballade toi en une salle de jeu 🙄 ...
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <% @bet_rooms.each do |room| %>
+        <a class="dropdown-item" href="#"><%=room.name%> ⚽️ <%=room.users.count%> gamers 🏆 </a>
+      <% end %>
+    </div>
+  </div>
+</div>
+</br>
+</br>
+
 
 <div class="container">
     <div class="cards">
@@ -28,8 +24,8 @@
             <div class=" text-white mb-3" style="max-width: 18rem";>
               <div class="card-header"><%=room.name%></div>
               <div class="card-body">
+                <%= cl_image_tag("erhb38sl8zo9dv0hb87giocwr7i0",width: 400, height: 300, crop: :fill) %>
                 <%= link_to 'BET now!', bet_room_path(room), class: "btn pierre" %>
-                <!-- <button class = "btn pierre"> <%#= link_to 'BET now!', bet_rooms_path(room) %> </button> -->
                 <p class="card-text"><%=room.users.count%> gamers</p>
               </div>
             </div>
