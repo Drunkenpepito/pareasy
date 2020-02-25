@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :bet_rooms, only: [:new]
+  resources :bet_rooms, only: [:new] do
+    resources :events, only: [:sport, :game, :new]
+  end
 end
