@@ -19,4 +19,9 @@
   Basket
 </div>
 
+<%= simple_form_for [@event] do |f| %>
+  <%= f.input :sport %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
+
 
