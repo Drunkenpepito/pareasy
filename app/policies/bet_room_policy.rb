@@ -3,14 +3,10 @@ class BetRoomPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
-    def index
-      true
-    end
-
-    def show
-      true
-    end
-
+  def show?
+    # record.users.include?(user)
+    true
   end
 end
