@@ -10,7 +10,7 @@ class BetRoomsController < ApplicationController
 
   def new
     @bet_room = BetRoom.new
-    @users = User.all
+    @users = User.where.not(id: current_user.id)
     authorize @bet_room
 
   end
