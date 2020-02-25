@@ -1,2 +1,6 @@
 <h2>Selectionnez un match</h2>
 
+<%= simple_form_for([@bet_room, @event], url: description_bet_room_events_path, method: :post) do |f| %>
+  <%= f.input :game, collection: ["PSG-OM", "OL-Monaco", "Saint-Etienne-Bordeaux"] %>
+  <%= f.button :submit, "Next"  %>
+<% end %>

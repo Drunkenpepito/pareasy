@@ -1,0 +1,6 @@
+<h2>Choisissez votre Pari 😜</h2>
+
+<%= simple_form_for([@bet_room, @event], url: bet_room_events_path, method: :post) do |f| %>
+  <%= f.input :game, collection: ["1 - 0", "2 - 0", "3 - 0"] %>
+  <%= f.button :submit, "Next"  %>
+<% end %>

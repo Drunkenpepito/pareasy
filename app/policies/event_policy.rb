@@ -8,4 +8,16 @@ class EventPolicy < ApplicationPolicy
   def sport?
     return true
   end
+
+  def game?
+    return true
+  end
+
+  def description?
+    return true
+  end
+
+  def create?
+    return true
+  end
 end
