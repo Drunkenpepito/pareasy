@@ -10,6 +10,7 @@ class BetRoomsController < ApplicationController
 
   def new
     @bet_room = BetRoom.new
+    @users = User.all
     authorize @bet_room
 
   end
@@ -28,7 +29,7 @@ class BetRoomsController < ApplicationController
   private
 
   def bet_room_params
-    params.require(:bet_room).permit(:name, :photo)
+    params.require(:bet_room).permit(:name, :photo, :user)
   end
 
 end

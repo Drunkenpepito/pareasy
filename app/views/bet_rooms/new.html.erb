@@ -1,1 +1,18 @@
-<h1>Creer votre betrrom<%= @bet_room.name %> </h1>
+
+<div class= "container col-5">
+
+  <h1>Creez votre Bet Room et invitez vos amis</h1>
+  <div class="form">
+    <%= simple_form_for(@bet_room) do |f| %>
+      <%= f.input :name, placeholder: 'My Bet Room', label: "Nom du groupe" %>
+<!--       <%#= f.association :user %> -->
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, "Go!", class: "btn btn-gradient"%>
+    <% end %>
+  </div>
+    <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
+  <span>☝🏽Entre <strong>2</strong> et <strong>20</strong> participants.<a href="#"></a> </span>
+  <a data-dismiss="alert" aria-label="Close">
+    <i class="fas fa-times"></i>
+  </a>
+</div>
