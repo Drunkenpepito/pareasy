@@ -19,13 +19,12 @@
 <div class="container">
     <div class="cards">
       <% @bet_rooms.each do |room| %>
-        <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_url "rooney.jpg" %>') ;">
+        <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path room.photo.key %>') ">
           <div class="card-category">
             <div class=" text-white mb-3" style="max-width: 18rem";>
               <div class="card-header"><%=room.name%></div>
               <div class="card-body">
-                <%= cl_image_tag("erhb38sl8zo9dv0hb87giocwr7i0",width: 400, height: 300, crop: :fill) %>
-                <%= link_to 'BET now!', bet_room_path(room), class: "btn pierre" %>
+                <%= link_to 'BET now!',"bet_room_path(room)" , class: "btn pierre" %>
                 <p class="card-text"><%=room.users.count%> gamers</p>
               </div>
             </div>
