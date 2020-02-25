@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :bet_rooms, only: [:new, :create, :show, :index] do
-    resources :events, only: [:sport, :game, :new]
+    resources :events, only: [] do
+      collection do
+        get "/sport", to: "events#sport"
+        post "/game", to: "events#game"
+        post "/description", to: "events#description"
+      end
+    end
   end
 end

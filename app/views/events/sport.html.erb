@@ -3,25 +3,13 @@
 
 <h2>Tous les sports</h2>
 
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  Football
-</div>
 
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  Rugby
-</div>
 
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  Tennis
-</div>
-
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  Basket
-</div>
-
-<%= simple_form_for [@event] do |f| %>
-  <%= f.input :sport %>
-  <%= f.button :submit, class: "btn btn-primary" %>
+<%= simple_form_for([@bet_room, @event], url: game_bet_room_events_path, method: :post) do |f| %>
+  <%= f.input :sport, collection: ["Foot", "Rugby", "Tennis"] %>
+  <%= f.button :submit, "Next"  %>
 <% end %>
+
+
 
 
