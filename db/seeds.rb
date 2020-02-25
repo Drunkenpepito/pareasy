@@ -21,6 +21,7 @@ xavier = User.create!(email: "xavier@pareasy.com", password: "password", usernam
 
 puts "Creating bet rooms"
 bet_room = BetRoom.new(name: "Paris entre copains")
+URI.open("https://image.shutterstock.com/image-photo/four-friends-taking-selfie-together-260nw-641463781.jpg")
 bet_room.save!
 
 puts "Creating participation"
@@ -87,5 +88,5 @@ federer_nadal = Bet.new(amount_cents: "3", result: false, event: fn_psf, user: b
 federer_nadal.save!
 france_angleterre = Bet.new(amount_cents: "0", result: true, event: fa_bo, user: pierre)
 france_angleterre.save!
-gpm = Bet.new(amount_cents: "2", result: true, event: f1_f, user: edouard)
+gpm = Bet.new(amount_cents: "2", result: false, event: f1_f, user: edouard)
 gpm.save!
