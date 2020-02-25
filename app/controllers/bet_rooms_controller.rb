@@ -1,5 +1,6 @@
 class BetRoomsController < ApplicationController
   def index
+    @bet_rooms = policy_scope(Bet_room)
   end
 
   def show
