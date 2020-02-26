@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Cleaning Users, Participations, Events and Bets database...'
 User.destroy_all
+User.all.each do |user|
+  user.photo.purge
+end
 BetRoom.destroy_all
 Participation.destroy_all
 Event.destroy_all
@@ -14,13 +17,114 @@ Bet.destroy_all
 
 puts 'Creating users'
 
-pierre = User.create!(email: "pierre@pareasy.com", password: "password", username: "Drukenpepito", phone_number: "0756789867")
-edouard = User.create!(email: "edouard@pareasy.fr", password: "123456", username: "Doud", phone_number: "0755678976")
-benjamin = User.create!(email: "benjamin@pareasy.com", password: "password", username: "Ben", phone_number: "0687567843")
-xavier = User.create!(email: "xavier@pareasy.com", password: "password", username: "Xav", phone_number: "0750239807")
+pierre = User.new(email: "pierre@pareasy.com", password: "password", username: "Drukenpepito", phone_number: "0756789867")
+pierre_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+pierre.photo.attach(io: pierre_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+pierre.save!
+
+edouard = User.new(email: "edouard@pareasy.fr", password: "123456", username: "Doud", phone_number: "0755678976")
+edouard_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+edouard.photo.attach(io: edouard_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+edouard.save!
+
+benjamin = User.new(email: "benjamin@pareasy.com", password: "password", username: "Ben", phone_number: "0687567843")
+benjamin_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+benjamin.photo.attach(io: benjamin_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+benjamin.save!
+
+xavier = User.new(email: "xavier@pareasy.com", password: "password", username: "Xav", phone_number: "0750239807")
+xavier_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+xavier.photo.attach(io: xavier_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+xavier.save!
+
+jean = User.new(email: "jean@pareasy.com", password: "password", username: "janno", phone_number: "0750230417")
+jean_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+jean.photo.attach(io: jean_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+jean.save!
+
+
+paul = User.new(email: "paul@pareasy.com", password: "password", username: "Polo", phone_number: "0750239075")
+paul_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+paul.photo.attach(io: paul_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+paul.save!
+
+
+marie = User.new(email: "marie@pareasy.com", password: "password", username: "mary", phone_number: "0750231285")
+marie_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+marie.photo.attach(io: marie_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+marie.save!
+
+hugues = User.new(email: "hugues@pareasy.com", password: "password", username: "Hug", phone_number: "0750230376")
+hugues_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+hugues.photo.attach(io: hugues_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+hugues.save!
+
+tom = User.new(email: "tom@pareasy.com", password: "password", username: "Tom", phone_number: "0750234321")
+tom_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+tom.photo.attach(io: tom_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+tom.save!
+
+pauline = User.new(email: "pauline@pareasy.com", password: "password", username: "Line", phone_number: "0750235324")
+pauline_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+pauline.photo.attach(io: pauline_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+pauline.save!
+
+diane = User.new(email: "diane@pareasy.com", password: "password", username: "Didi", phone_number: "0750230980")
+diane_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+diane.photo.attach(io: diane_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+diane.save!
+
+astrid = User.new(email: "astrid@pareasy.com", password: "password", username: "Astr", phone_number: "0750237327")
+astrid_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+astrid.photo.attach(io: astrid_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+astrid.save!
+
+elena = User.new(email: "elena@pareasy.com", password: "password", username: "Ele", phone_number: "0750230953")
+elena_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+elena.photo.attach(io: elena_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+elena.save!
+
+francois = User.new(email: "francois@pareasy.com", password: "password", username: "Francky", phone_number: "0750236316")
+francois_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+francois.photo.attach(io: francois_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+francois.save!
+
+alexandre = User.new(email: "alexandre@pareasy.com", password: "password", username: "Alex", phone_number: "0750289067")
+alexandre_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+alexandre.photo.attach(io: alexandre_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+alexandre.save!
+
+guillaume = User.new(email: "guillaume@pareasy.com", password: "password", username: "Gui", phone_number: "075023758")
+guillaume_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+guillaume.photo.attach(io: guillaume_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+guillaume.save!
+
+florent = User.new(email: "florent@pareasy.com", password: "password", username: "Floflo", phone_number: "0750239847")
+florent_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+florent.photo.attach(io: florent_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+florent.save!
+
+nicolas = User.new(email: "nicolas@pareasy.com", password: "password", username: "Nico", phone_number: "0750232345")
+nicolas_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+nicolas.photo.attach(io: nicolas_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+nicolas.save!
+
+laure = User.new(email: "laure@pareasy.com", password: "password", username: "Lolo", phone_number: "0750239507")
+laure_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+laure.photo.attach(io: laure_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+laure.save!
+
+amalia = User.new(email: "amalia@pareasy.com", password: "password", username: "Ama", phone_number: "0750236789")
+amalia_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
+amalia.photo.attach(io: amalia_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+amalia.save!
+
 
 puts "Creating bet rooms"
 bet_room = BetRoom.new(name: "Paris entre copains")
+bet_room_pic = URI.open("https://image.shutterstock.com/image-photo/four-friends-taking-selfie-together-260nw-641463781.jpg")
+bet_room.photo.attach(io: bet_room_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+
 bet_room.save!
 
 puts "Creating participation"
@@ -87,5 +191,5 @@ federer_nadal = Bet.new(amount_cents: "3", result: false, event: fn_psf, user: b
 federer_nadal.save!
 france_angleterre = Bet.new(amount_cents: "0", result: true, event: fa_bo, user: pierre)
 france_angleterre.save!
-gpm = Bet.new(amount_cents: "2", result: true, event: f1_f, user: edouard)
+gpm = Bet.new(amount_cents: "2", result: false, event: f1_f, user: edouard)
 gpm.save!
