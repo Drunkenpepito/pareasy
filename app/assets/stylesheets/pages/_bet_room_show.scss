@@ -2,7 +2,7 @@
   display: flex;
   div {
     flex-grow: 1;
-    // text-align: center;
+    text-align: center;
     background-color: black;
     color: white;
     padding: 10px;
@@ -12,5 +12,38 @@
   }
   .event-bet {
     flex-basis: 100px;
+  }
+}
+
+.event-table-body {
+  display: flex;
+  div{
+    flex-grow: 1;
+    border: solid black;
+    background-color: grey;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    padding-top: auto;
+    padding-bottom: auto;
+
+  }
+  .event-id{
+    flex-basis: 150px;
+  }
+  .event-sport{
+    flex-basis: 150px;
+  }
+  .event-game{
+    flex-basis: 150px;
+  }
+  .event-descr{
+    flex-basis: 150px;
+  }
+  .event-amount{
+    flex-basis: 150px;
+  }
+  .event-bet{
+    flex-basis: 150px;
   }
 }
