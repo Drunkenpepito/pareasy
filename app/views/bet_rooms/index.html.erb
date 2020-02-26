@@ -10,9 +10,7 @@
 
   <div class="container text-center">
     <div class="dropdown">
-     <!--  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Tes salles de jeux live 👇
-      </button> -->
+
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <% @bet_rooms.each do |room| %>
           <a class="dropdown-item" href="#"><%=room.name%> ⚽️ <%=room.users.count%> gamers 🏆 </a>
@@ -34,7 +32,6 @@
                 <div class="card-body">
 
                   <%= link_to 'BET now!', bet_room_path(room) , class: "btn pierre" %>
-                  <%= link_to 'BET now!',bet_room_path(room) , class: "btn pierre" %>
 
                   <p class="card-text"><%=room.users.count%> gamers</p>
                 </div>
@@ -45,7 +42,16 @@
     </div>
   </div>
 
-    <h2 class="mes_paris_font">Mes anciens paris</h2>
+<!--     <h2 class="mes_paris_font">Mes anciens paris</h2>
+ -->
+   <button class="btn btn-secondary dropdown-toggle" type="  button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Tes anciens paris 👇
+   </button>
 
+   <div class="navbar">
+  <a href="#home" class="active">Home</a>
+  <a href="#news" class="active">News</a>
+  <a href="#contact" class="active">Contact</a>
+  </div>
 
 </div>
