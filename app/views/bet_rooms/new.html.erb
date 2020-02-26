@@ -7,7 +7,7 @@
       <%= f.input :name, placeholder: 'My Bet Room', label: "Nom du groupe" %>
       <%= f.association :users, label_method: :username, collection: @users, label: "Amis"%>
       <%= f.input :photo, as: :file %>
-      <%= f.button :submit, "Go!", class: "btn btn-gradient"%>
+      <%= f.button :submit, "Go!", class: "btn btn-flat"%>
     <% end %>
   </div>
     <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
@@ -16,3 +16,5 @@
     <i class="fas fa-times"></i>
   </a>
 </div>
+
+<%= link_to "Retour en arrière", root_path, class: "btn btn-flat" %>
