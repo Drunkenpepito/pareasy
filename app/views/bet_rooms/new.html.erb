@@ -1,20 +1,31 @@
 
-<div class= "container col-5">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-login">
 
-  <h1>Creez votre Bet Room et invitez vos amis</h1>
-  <div class="form">
-    <%= simple_form_for(@bet_room) do |f| %>
-      <%= f.input :name, placeholder: 'My Bet Room', label: "Nom du groupe" %>
-      <%= f.association :users, label_method: :username, collection: @users, label: "Amis"%>
-      <%= f.input :photo, as: :file %>
-      <%= f.button :submit, "Go!", class: "btn btn-flat"%>
-    <% end %>
+
+
+        <h2>Creez votre Bet Room et invitez vos amis</h2>
+        <div class="form">
+         <%= simple_form_for(@bet_room) do |f| %>
+           <%= f.input :name, placeholder: 'My Bet Room', label: "Nom du groupe" %>
+           <%= f.association :users, label_method: :username, collection: @users, label: "Amis"%>
+           <%= f.input :photo, as: :file %>
+           <%= f.button :submit, "Go!", class: "btn btn-flat"%>
+         <% end %>
+        </div>
+        <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
+          <span>☝🏽Entre <strong>2</strong> et <strong>20</strong> participants.<a href="#"></a> </span>
+          <a data-dismiss="alert" aria-label="Close">
+            <i class="fas fa-times"></i>
+          </a>
+        </div>
+
+        <%= link_to "Retour en arrière", root_path, class: "btn btn-flat" %>
+
+      </div>
+    </div>
   </div>
-    <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
-  <span>☝🏽Entre <strong>2</strong> et <strong>20</strong> participants.<a href="#"></a> </span>
-  <a data-dismiss="alert" aria-label="Close">
-    <i class="fas fa-times"></i>
-  </a>
 </div>
 
-<%= link_to "Retour en arrière", root_path, class: "btn btn-flat" %>
