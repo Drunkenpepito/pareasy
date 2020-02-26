@@ -79,11 +79,13 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   margin-top: 32px;
-  border: solid lightblue 2px;
+  border: solid black 4px;
+  letter-spacing: 2px;
+  background-color: grey;
 
     .card-event-line1{
       display:flex;
-      color:red;
+      color:black;
       justify-content: space-between;
       font-size: 16px;
       font-weight: bold;
@@ -95,16 +97,16 @@
     }
     .card-event-line2{
       display:flex;
-      color:green;
+      color:white;
       justify-content: center;
-      font-size: 25px;
+      font-size: 20px;
       font-weight: bold;
       margin: 0;
 
     }
     .card-event-line3{
       display:flex;
-      color:blue;
+      color:white;
       justify-content: center;
       font-size: 45px;
       font-weight: bold;
@@ -118,6 +120,11 @@
       font-size: 25px;
       font-weight: bold;
       margin: 0;
+      padding-bottom:5px;
+
+      .btn{
+        border:solid white 2px;
+      }
     }
   }
 
