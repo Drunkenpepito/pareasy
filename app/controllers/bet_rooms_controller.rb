@@ -17,9 +17,10 @@ class BetRoomsController < ApplicationController
 
   def create
     @bet_room = BetRoom.new(bet_room_params)
-    # @star.user = current_user
+    # @bet_room.users.push(current_user)
     authorize @bet_room
     if @bet_room.save
+      # Cloudinary::Uploader.upload(params[:photo])
       redirect_to bet_room_path(@bet_room)
     else
       render :new
