@@ -1,0 +1,17 @@
+<h1>Valide ton Pari et défie tes potes 👍</h1>
+
+<h2>Récapitulatif du Pari</h2>
+<%= @event.sport %>
+<%= @event.game %>
+<%= @event.description %>
+
+<h2>Cet événement va se passer ou non ?</h2>
+<%= simple_form_for [@event, @bet] do |f| %>
+  <%= f.input :amount_cents, label: "Amount", input_html: { min: '0', max: '10' } %>
+  <%= f.input :result, as: :boolean, checked_value: true, unchecked_value: false %>
+  <%= f.button :submit, "Next"  %>
+<% end %>
+
+
+
+

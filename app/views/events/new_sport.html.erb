@@ -1,0 +1,19 @@
+<div class = "arrow-left">
+  <%= link_to "", bet_room_path(@bet_room), class:"fas fa-arrow-left" %>
+</div>
+
+<h2>Evénement Spécial</h2>
+
+
+<h2>Tous les sports</h2>
+
+
+
+<%= simple_form_for([@bet_room, @event], url: create_sport_bet_room_events_path(@bet_room), method: :post) do |f| %>
+  <%= f.input :sport, collection: ["Foot", "Rugby", "Tennis"] %>
+  <%= f.button :submit, "Next"  %>
+<% end %>
+
+
+
+
