@@ -42,10 +42,16 @@
 }
 .btn-flat {
   color: white;
-  padding: 8px 24px;
+  padding: 50px 50px;
+  font-size: 30px;
   border-radius: 4px;
   background: #1EDD88;
   transition: background 0.3s ease;
+  margin-top: 200px;
+  margin-bottom: 150px;
+  border-radius: 20px;
+  font-family: Georgia, serif;
+  font-weight: bold;
 }
 
 .btn-flat:hover {
@@ -53,4 +59,7 @@
   color: white;
 }
 
-
+.mes_paris_font {
+  font-size: 50px;
+  margin-top: 40px;
+}

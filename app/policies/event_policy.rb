@@ -33,7 +33,8 @@ class EventPolicy < ApplicationPolicy
     return true
   end
 
-  def create?
+  def update?
     return true
   end
+
 end
