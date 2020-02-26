@@ -6,5 +6,55 @@
 <%= link_to "Lance un Pari ", sport_bet_room_events_path(@bet_room), class: "btn btn-flat" %>
 
 
-
 <h1>CHAT</h1>
+
+
+  <div class="text-center"><h1 id="banner-typed-text"><strong> Choisis ta salle de jeu</strong> </h1>
+  </div>
+  <table class="table table-responsive table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"class="text-center">Sport</th>
+        <th scope="col"class="text-center">Game</th>
+        <th scope="col"class="text-center">Description</th>
+        <th scope="col" class = "text-center">Bet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |event| %>
+        <% if event.description? %>
+          <tr>
+            <th scope="row" class="text-center"><%=event.id%></th>
+            <td class="text-center"><%=event.sport%></td>
+            <td class="text-center"><%=event.game %> </td>
+            <td class="text-center"><%= event.description%> </td>
+            <td class="text-center"><button class="btn btn-success"> I bet Yes!</button>-<button class="btn btn-danger"> No way!</button></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+<div class="container">
+  <div class="event-table-header">
+    <div class="event-id"></div>
+    <div class="event-sport">Sport</div>
+    <div class="event-game">Game</div>
+    <div class="event-descr">Description</div>
+    <div class="event-bet">Bet</div>
+    <div class="event-amount">Amount</div>
+  </div>
+  <% @events.each do |event| %>
+    <% if event.description? %>
+      <tr>
+        <th scope="row" class="text-center"><%=event.id%></th>
+        <td class="text-center"><%=event.sport%></td>
+        <td class="text-center"><%=event.game %> </td>
+        <td class="text-center"><%= event.description%> </td>
+        <td class="text-center"><button class="btn btn-success"> I bet Yes!</button>-<button class="btn btn-danger"> No way!</button></td>
+      </tr>
+    <% end %>
+  <% end %>
+</div>
+

@@ -1,0 +1,13 @@
+.event-table-header {
+  display: flex;
+  div {
+    flex-grow: 1;
+    // text-align: center;
+    background-color: black;
+    color: white;
+    padding: 10px;
+  }
+  .event-bet {
+    flex-basis: 200px;
+  }
+}
