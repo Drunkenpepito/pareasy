@@ -6,6 +6,7 @@
     background-color: black;
     color: white;
     padding: 10px;
+    justify-content: center;
   }
   .event-bet {
     flex-basis: 100px;
@@ -19,7 +20,7 @@
   display: flex;
   div{
     flex-grow: 1;
-    border: solid black;
+    border: solid black 1px;
     background-color: grey;
     color: white;
     padding: 10px;

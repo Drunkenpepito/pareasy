@@ -11,31 +11,37 @@
   <div class="text-center"><h1 id="banner-typed-text"><strong> Paris en cours ...</strong> </h1>
   </div>
 
-<div class="container">
-  <div class="event-table-header">
-    <div class="event-id"></div>
-    <div class="event-sport">Sport</div>
-    <div class="event-game">Game</div>
-    <div class="event-descr">Description</div>
-    <div class="event-amount">€</div>
-    <div class="event-bet">Bet</div>
-  </div>
-  <% @events.each do |event| %>
-    <% if event.description? %>
-      <div class="event-table-body">
-        <div class="event-id"><%=event.id%></div>
-        <div class="event-sport"><%=event.sport%></div>
-        <div class="event-game"><%=event.game %> </div>
-        <div class="event-descr"><%= event.description%> </div>
-        <div class="event-descr">2€</div>
-        <div class="event-bet"><button class="btn btn-success"> I bet Yes!</button>-<button class="btn btn-danger"> No way!</button></div>
+
+  <div class="cards">
+    <% @events.each do |event| %>
+      <div class="card-event">
+        <div class="card-event-line1">
+          <span><%=event.sport %></span>
+          <span>
+            <% if event.bets.count > 0 %>
+              Gamer <%=event.bets.first.user_id%>
+            <% else %>
+              user incognito
+            <% end %>
+          </span>
+          <span>
+            <% if event.bets.count > 0 %>
+              <%= event.bets.first.amount_cents %>
+            <% else %>
+              0€
+            <% end %>
+          </span>
+        </div>
+        <div class="card-event-line2"><%=event.game %></div>
+        <div class="card-event-line3"><%=event.description %></div>
+        <div class="card-event-line4"><button class="btn btn-success">Yes !</button><button class="btn btn-danger">No way</button></div>
       </div>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
 </br>
 </br>
 </br>
 
 <div class="container text-center"><h1>CHAT</h1></div>
+
