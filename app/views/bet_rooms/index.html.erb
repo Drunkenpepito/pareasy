@@ -1,47 +1,51 @@
-<h2>Mes Groupes</h2>
 
-<%= link_to "Créer un groupe", new_bet_room_path, class: "btn btn-flat" %>
-
-<h2>Mes Paris</h2>
+<div class="container1 text-center">
 
 
+ <%= link_to "Créer un pari !", new_bet_room_path, class: "btn btn-flat" %>
 
-<div class="container text-center">
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Ballade toi en une salle de jeu 🙄 ...
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <% @bet_rooms.each do |room| %>
-        <a class="dropdown-item" href="#"><%=room.name%> ⚽️ <%=room.users.count%> gamers 🏆 </a>
-      <% end %>
+
+  <h2 class="mes_paris_font">Mes paris</h2>
+
+
+  <div class="container text-center">
+    <div class="dropdown">
+     <!--  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Tes salles de jeux live 👇
+      </button> -->
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <% @bet_rooms.each do |room| %>
+          <a class="dropdown-item" href="#"><%=room.name%> ⚽️ <%=room.users.count%> gamers 🏆 </a>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-</br>
-</br>
+  </br>
+  </br>
 
 
-<div class="container">
-    <div class="cards">
-      <% @bet_rooms.each do |room| %>
-        <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path room.photo.key %>') ">
-          <div class="card-category">
-            <div class=" text-white mb-3" style="max-width: 18rem">
-              <div class="card-header"><%=room.name%></div>
-              <div class="card-body">
-<<<<<<< HEAD
-                <%= link_to 'BET now!', bet_room_path(room) , class: "btn pierre" %>
-=======
-                <%= link_to 'BET now!',bet_room_path(room) , class: "btn pierre" %>
->>>>>>> mardi
-                <p class="card-text"><%=room.users.count%> gamers</p>
+  <div class="container_cards">
+      <div class="cards">
+        <% @bet_rooms.each do |room| %>
+          <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path room.photo.key %>') ">
+            <div class="card-category">
+              <div class=" text-white mb-3" style="max-width: 18rem">
+                <div class="card-header"><%=room.name%></div>
+                <div class="card-body">
+
+                  <%= link_to 'BET now!', bet_room_path(room) , class: "btn pierre" %>
+                  <%= link_to 'BET now!',bet_room_path(room) , class: "btn pierre" %>
+
+                  <p class="card-text"><%=room.users.count%> gamers</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+    </div>
   </div>
+
+    <h2 class="mes_paris_font">Mes anciens paris</h2>
+
+
 </div>
-
-
