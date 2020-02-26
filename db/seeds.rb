@@ -18,10 +18,26 @@ pierre = User.create!(email: "pierre@pareasy.com", password: "password", usernam
 edouard = User.create!(email: "edouard@pareasy.com", password: "password", username: "Doud", phone_number: "0755678976")
 benjamin = User.create!(email: "benjamin@pareasy.com", password: "password", username: "Ben", phone_number: "0687567843")
 xavier = User.create!(email: "xavier@pareasy.com", password: "password", username: "Xav", phone_number: "0750239807")
+jean = User.create!(email: "jean@pareasy.com", password: "password", username: "janno", phone_number: "0750230417")
+paul = User.create!(email: "paul@pareasy.com", password: "password", username: "Polo", phone_number: "0750239075")
+marie = User.create!(email: "marie@pareasy.com", password: "password", username: "mary", phone_number: "0750231285")
+hugues = User.create!(email: "hugues@pareasy.com", password: "password", username: "Xav", phone_number: "0750230376")
+tom = User.create!(email: "tom@pareasy.com", password: "password", username: "Tom", phone_number: "0750234321")
+pauline = User.create!(email: "pauline@pareasy.com", password: "password", username: "Line", phone_number: "0750235324")
+diane = User.create!(email: "diane@pareasy.com", password: "password", username: "Didi", phone_number: "0750230980")
+astrid = User.create!(email: "astrid@pareasy.com", password: "password", username: "Astr", phone_number: "0750237327")
+elena = User.create!(email: "elena@pareasy.com", password: "password", username: "Ele", phone_number: "0750230953")
+augustin = User.create!(email: "augustin@pareasy.com", password: "password", username: "Gus", phone_number: "0750236316")
+alexandre = User.create!(email: "alexandre@pareasy.com", password: "password", username: "Alex", phone_number: "0750289067")
+guillaume = User.create!(email: "guillaume@pareasy.com", password: "password", username: "Gui", phone_number: "075023758")
+florent = User.create!(email: "florent@pareasy.com", password: "password", username: "Floflo", phone_number: "0750239847")
+nicolas = User.create!(email: "nicolas@pareasy.com", password: "password", username: "Nico", phone_number: "0750232345")
+laure = User.create!(email: "laure@pareasy.com", password: "password", username: "Lolo", phone_number: "0750239507")
+amalia = User.create!(email: "amalia@pareasy.com", password: "password", username: "Ama", phone_number: "0750236789")
 
 puts "Creating bet rooms"
 bet_room = BetRoom.new(name: "Paris entre copains")
-URI.open("https://image.shutterstock.com/image-photo/four-friends-taking-selfie-together-260nw-641463781.jpg")
+# URI.open("https://image.shutterstock.com/image-photo/four-friends-taking-selfie-together-260nw-641463781.jpg")
 bet_room.save!
 
 puts "Creating participation"
