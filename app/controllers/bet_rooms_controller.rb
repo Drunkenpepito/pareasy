@@ -6,6 +6,7 @@ class BetRoomsController < ApplicationController
   def show
     @bet_room = BetRoom.find(params[:id])
     authorize @bet_room
+    @events = @bet_room.events
   end
 
   def new

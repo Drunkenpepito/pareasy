@@ -1,0 +1,26 @@
+
+<h1 id="banner-typed-text"><strong> Choisis ta salle de jeu</strong> </h1>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Sport</th>
+      <th scope="col">Game</th>
+      <th scope="col">Description</th>
+      <th scope="col">Bet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <% if event.description? %>
+        <tr>
+          <th scope="row">1</th>
+          <td>event.sport</td>
+          <td>event.game</td>
+          <td>@event.description</td>
+          <button> I bet Yes!</button>
+          <button> No way!</button>
+        </tr>
+  </tbody>
+</table>
