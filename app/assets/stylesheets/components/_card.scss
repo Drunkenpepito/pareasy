@@ -2,19 +2,18 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
   text-align: center;
   justify-content: space-between;
-  border-radius: 20px;
 }
 
 // Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
+// @media (min-width: 100px) and (max-width: 575px) {
+//   .cards {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
@@ -33,14 +32,14 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -60,6 +59,7 @@
   // border-color: white;
   // border-style: solid;
   margin-top: 32px;
+
 }
 
 
@@ -67,3 +67,68 @@
   color:white;
   letter-spacing: 2px;
 }
+
+.card-image {
+  background-position: center;
+  background-size: cover;
+  border-radius: 15px;
+
+}
+
+.container_cards {
+  padding: 0 5px;
+}
+.card-event {
+  background-size: cover;
+  height: 180px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin-top: 32px;
+  border: solid lightblue 2px;
+
+    .card-event-line1{
+      display:flex;
+      color:red;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0;
+      padding-top: 10px;
+      padding-right: 10px;
+      padding-left: 10px;
+
+    }
+    .card-event-line2{
+      display:flex;
+      color:green;
+      justify-content: center;
+      font-size: 25px;
+      font-weight: bold;
+      margin: 0;
+
+    }
+    .card-event-line3{
+      display:flex;
+      color:blue;
+      justify-content: center;
+      font-size: 45px;
+      font-weight: bold;
+      margin: 0;
+
+    }
+    .card-event-line4{
+      display:flex;
+      color:orange;
+      justify-content: space-evenly;
+      font-size: 25px;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+
+

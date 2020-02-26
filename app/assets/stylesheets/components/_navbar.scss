@@ -1,6 +1,8 @@
 .navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+    justify-content: space-between;
+    background: white;
+    padding: 5px;
+    font-size: 20px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,6 +11,7 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+    width: 65px;
 }
 
 
@@ -17,27 +20,25 @@
 }
 
 
+// .form-login {
+//   // font-size: 50px;
+//   size: 50px;
+//   margin: 10px;
+//   height: 100vh;
+//   background: white;
+//   padding: 10px 20px;
+//   margin-top: 50px;
+//   border-radius: 3px;
+//   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+//   h2 {
+//     // font-size: 25px;
+//     font-weight: bold;
+//     margin-bottom: 30px;
+//     text-align: center;
+//   }
+//   .btn {
+//     width: 50%;
+//     margin-bottom: 20px
+//   }
 
-.form-login {
-  // font-size: 50px;
-  size: 50px;
-  margin: 10px;
-  height: 100vh;
-  background: white;
-  padding: 10px 20px;
-  margin-top: 50px;
-  border-radius: 3px;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-  h2 {
-    // font-size: 25px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  .btn {
-    width: 50%;
-    margin-bottom: 20px
-  }
-
-}
-
+// }

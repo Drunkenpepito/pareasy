@@ -44,6 +44,7 @@
   color: white;
   padding: 30px 20px;
   font-size: 20px;
+  border-radius: 4px;
   background: #1EDD88;
   transition: background 0.3s ease;
   margin-top: 100px;
@@ -59,6 +60,11 @@
 }
 
 .mes_paris_font {
-  font-size: 50px;
-  margin-top: 40px;
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.btn-secondary {
+  margin-top: 50px;
+  font-size: 30px;
 }
