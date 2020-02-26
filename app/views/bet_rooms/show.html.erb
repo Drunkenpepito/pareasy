@@ -1,21 +1,41 @@
 
 
-<h1>Bienvenue dans la salle de jeu <%= @bet_room.name %> </h1>
+<div class="container text-center"><h1>Bienvenue dans la salle de jeu <%= @bet_room.name %> </h1></div>
 
 
-<div class="btn-nav">
-  <input type="submit" name="commit" value="Rejoins la team" data-disable-with="Book this star" style="border: none !important; color: hotpink; z-index: 5;">
-    <svg width="277" height="62">
-      <defs>
-          <linearGradient id="grad1">
-              <stop offset="0%" stop-color="#FF8282"/>
-              <stop offset="100%" stop-color="#E178ED" />
-          </linearGradient>
-      </defs>
-       <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
-    </svg>
+<div class="container text-center"><%= link_to "Lance un Pari ", sport_bet_room_events_path(@bet_room), class: "btn btn-flat" %></div>
+
+
+
+
+  <div class="text-center"><h1 id="banner-typed-text"><strong> Paris en cours ...</strong> </h1>
+  </div>
+
+<div class="container">
+  <div class="event-table-header">
+    <div class="event-id"></div>
+    <div class="event-sport">Sport</div>
+    <div class="event-game">Game</div>
+    <div class="event-descr">Description</div>
+    <div class="event-amount">€</div>
+    <div class="event-bet">Bet</div>
+  </div>
+  <% @events.each do |event| %>
+    <% if event.description? %>
+      <div class="event-table-body">
+        <div class="event-id"><%=event.id%></div>
+        <div class="event-sport"><%=event.sport%></div>
+        <div class="event-game"><%=event.game %> </div>
+        <div class="event-descr"><%= event.description%> </div>
+        <div class="event-descr">2€</div>
+        <div class="event-bet"><button class="btn btn-success"> I bet Yes!</button>-<button class="btn btn-danger"> No way!</button></div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
 
+</br>
+</br>
+</br>
 
-
-<h1>CHAT</h1>
+<div class="container text-center"><h1>CHAT</h1></div>
