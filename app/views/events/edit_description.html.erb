@@ -1,0 +1,11 @@
+<div class = "arrow-left">
+  <%= link_to "", edit_game_event_path(@event), class:"fas fa-arrow-left" %>
+</div>
+
+<h2>Choisissez votre Pari 😜</h2>
+
+<%= simple_form_for(@event, url: update_description_event_path, method: :post) do |f| %>
+  <%= f.input :description, collection: ["1 - 0", "2 - 0", "3 - 0"] %>
+  <%= f.hidden_field :id %>
+  <%= f.button :submit, "Next"  %>
+<% end %>

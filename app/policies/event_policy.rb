@@ -5,15 +5,31 @@ class EventPolicy < ApplicationPolicy
     end
   end
 
-  def sport?
+  def new_sport?
     return true
   end
 
-  def game?
+  def create_sport?
     return true
   end
 
-  def description?
+  def edit_game?
+    return true
+  end
+
+  def update_game?
+    return true
+  end
+
+  def edit_description?
+    return true
+  end
+
+  def update_description?
+    return true
+  end
+
+  def show?
     return true
   end
 
