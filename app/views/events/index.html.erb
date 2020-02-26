@@ -1,0 +1,46 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_url "bar_banner.jpg" %>') ;">
+
+  <h1 id="banner-typed-text"><strong> Choisis ta salle de jeu</strong> </h1>
+
+  <div >
+  </br>
+     <div class="cards">
+      <% @events.each do |event| %>
+
+        <% if event.description? %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key %>')">
+          <%= link_to event.name, cocktail_path(cocktail.id) %>
+        <% else %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=image_path("cocktails3.jpg")%>')">
+          <%= link_to cocktail.name, cocktail_path(cocktail.id) %>
+        <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Sport</th>
+      <th scope="col">Game</th>
+      <th scope="col">Description</th>
+      <th scope="col">Bet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <% if event.description? %>
+        <tr>
+          <th scope="row">1</th>
+          <td>event.sport</td>
+          <td>event.game</td>
+          <td>@event.description</td>
+          <button> I bet Yes!</button>
+          <button> No way!</button>
+        </tr>
+  </tbody>
+</table>

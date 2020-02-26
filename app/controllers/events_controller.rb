@@ -39,6 +39,11 @@ class EventsController < ApplicationController
     end
   end
 
+  def index
+    @bet_room = BetRoom.find(params[:bet_room_id])
+    @events = policy_scope(Event)
+  end
+
   private
 
   def event_params
