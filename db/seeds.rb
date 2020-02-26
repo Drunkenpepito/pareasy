@@ -120,17 +120,11 @@ amalia.photo.attach(io: amalia_pic, filename: 'some-image.jpg', content_type: 'i
 amalia.save!
 
 
-
-puts 'Linking with photos'
-
-
-
-
-
-
 puts "Creating bet rooms"
 bet_room = BetRoom.new(name: "Paris entre copains")
-# URI.open("https://image.shutterstock.com/image-photo/four-friends-taking-selfie-together-260nw-641463781.jpg")
+bet_room_pic = URI.open("https://image.shutterstock.com/image-photo/four-friends-taking-selfie-together-260nw-641463781.jpg")
+bet_room.photo.attach(io: bet_room_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
+
 bet_room.save!
 
 puts "Creating participation"
