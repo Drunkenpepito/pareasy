@@ -42,13 +42,13 @@
 }
 .btn-flat {
   color: white;
-  padding: 50px 50px;
-  font-size: 30px;
+  padding: 30px 20px;
+  font-size: 20px;
   border-radius: 4px;
   background: #1EDD88;
   transition: background 0.3s ease;
-  margin-top: 200px;
-  margin-bottom: 150px;
+  margin-top: 100px;
+  margin-bottom: 60px;
   border-radius: 20px;
   font-family: Georgia, serif;
   font-weight: bold;
@@ -60,6 +60,11 @@
 }
 
 .mes_paris_font {
-  font-size: 50px;
-  margin-top: 40px;
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.btn-secondary {
+  margin-top: 50px;
+  font-size: 30px;
 }
