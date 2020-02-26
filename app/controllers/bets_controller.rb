@@ -1,4 +1,5 @@
 class BetsController < ApplicationController
+
   def index
   end
 
@@ -6,6 +7,7 @@ class BetsController < ApplicationController
   end
 
   def new
+
   end
 
   def create
