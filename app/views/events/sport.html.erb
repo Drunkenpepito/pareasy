@@ -1,0 +1,15 @@
+<h2>Evénement Spécial</h2>
+
+
+<h2>Tous les sports</h2>
+
+
+
+<%= simple_form_for([@bet_room, @event], url: game_bet_room_events_path, method: :post) do |f| %>
+  <%= f.input :sport, collection: ["Foot", "Rugby", "Tennis"] %>
+  <%= f.button :submit, "Next"  %>
+<% end %>
+
+
+
+
