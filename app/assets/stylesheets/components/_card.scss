@@ -9,11 +9,11 @@
 }
 
 // Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
+// @media (min-width: 100px) and (max-width: 575px) {
+//   .cards {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
@@ -59,13 +59,22 @@
   // border-color: white;
   // border-style: solid;
   margin-top: 32px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 5px;
+
 }
 
 
 .card-category a {
   color:white;
   letter-spacing: 2px;
+}
+
+.card-image {
+  background-position: center;
+  background-size: cover;
+  border-radius: 15px;
+
+}
+
+.container_cards {
+  padding: 0 5px;
 }
