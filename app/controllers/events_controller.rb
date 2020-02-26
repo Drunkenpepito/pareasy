@@ -55,6 +55,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @bet = Bet.new
     authorize @event
+  end
 
   def index
     @bet_room = BetRoom.find(params[:bet_room_id])
