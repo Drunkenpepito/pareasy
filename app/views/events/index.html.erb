@@ -1,26 +1,21 @@
 
-<h1 id="banner-typed-text"><strong> Choisis ta salle de jeu</strong> </h1>
+<h1 id="banner-typed-text"><strong>Donne le résultat de ton Pari </strong></h1>
 
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Sport</th>
-      <th scope="col">Game</th>
-      <th scope="col">Description</th>
-      <th scope="col">Bet</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @events.each do |event| %>
-      <% if event.description? %>
-        <tr>
-          <th scope="row">1</th>
-          <td>event.sport</td>
-          <td>event.game</td>
-          <td>@event.description</td>
-          <button> I bet Yes!</button>
-          <button> No way!</button>
-        </tr>
-  </tbody>
-</table>
+<p>On te fait confiance pour pas tricher sur le résultat. C'est tes potes quand même 😉</p>
+
+<% @events.each do |event| %>
+  <p><%= event.sport %> | <%= event.game %> | <%= event.description %></p>
+  <%= link_to "C'était évident", close_event_path(event, results: true), method: :patch %>
+  <%= link_to "Pas de bol", close_event_path(event, results: false), method: :patch %>
+  <%= simple_form_for([@bet_room, event], url: create_sport_bet_room_events_path(@bet_room), html: { method: :post, id: :edit_results }) do |f| %>
+    <%= f.hidden_field :results %>
+    <div data-event="true" class="card-result">
+      C'était évident 🤙
+    </div>
+    <div data-event="false" class="card-result">
+      Pas de bol 🤦‍♂️
+    </div>
+    <%= f.button :submit, "Next" %>
+  <% end %>
+<% end %>
+

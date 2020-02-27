@@ -10,7 +10,9 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @bet_room = BetRoom.find(params[:bet_room_id])
     @event.bet_room = @bet_room
+    @event.author = current_user
     authorize @event
+
     if @event.save
       redirect_to edit_game_event_path(@event)
     else
@@ -51,6 +53,17 @@ class EventsController < ApplicationController
     end
   end
 
+  def update_results
+    @event = Event.find(params[:id])
+    authorize @event
+    @event.description = params[:event][:description]
+    if @event.save!
+      redirect_to event_path(@event)
+    else
+      render :edit_description
+    end
+  end
+
   def show
     @event = Event.find(params[:id])
     @bet = Bet.new
@@ -59,7 +72,14 @@ class EventsController < ApplicationController
 
   def index
     @bet_room = BetRoom.find(params[:bet_room_id])
-    @events = policy_scope(Event)
+    @events = policy_scope(Event).where(bet_room: @bet_room, results: nil, author_id: current_user.id)
+  end
+
+  def close
+    @event = Event.find(params[:id])
+    @event.update(results: params[:results])
+    authorize @event
+    redirect_to bet_room_events_path(@event.bet_room)
   end
 
   private

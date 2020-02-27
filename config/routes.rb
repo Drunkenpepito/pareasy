@@ -22,10 +22,12 @@ Rails.application.routes.draw do
       post "/update_description", to: "events#update_description"
     end
   end
-  resources :events, only: [:show] do
-    resources :bets, only: [:new, :create]
-    # member do
 
-    # end
+  resources :events, only: [:show] do
+    member do
+      patch "/close", to: "events#close"
+    end
+    resources :bets, only: [:new, :create]
+
   end
 end
