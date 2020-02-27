@@ -14,11 +14,23 @@
 
   <div class="cards">
     <% @events.each do |event| %>
-
       <div class="card-event">
         <div class="card-event-line1">
           <span><%=event.sport %></span>
-          <span><%=event.sport %></span>
+          <span>
+            <% if event.bets.count > 0 %>
+              Gamer <%=event.bets.first.user_id%>
+            <% else %>
+              user incognito
+            <% end %>
+          </span>
+          <span>
+            <% if event.bets.count > 0 %>
+              <%= event.bets.first.amount_cents %>
+            <% else %>
+              0€
+            <% end %>
+          </span>
         </div>
         <div class="card-event-line2"><%=event.game %></div>
         <div class="card-event-line3"><%=event.description %></div>

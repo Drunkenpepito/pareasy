@@ -10,8 +10,16 @@
 
 
 <%= simple_form_for([@bet_room, @event], url: create_sport_bet_room_events_path(@bet_room), method: :post) do |f| %>
-  <%= f.input :sport, collection: ["Foot", "Rugby", "Tennis"] %>
-  <%= f.button :submit, "Next"  %>
+  <%= f.hidden_field :sport %>
+  <div data-event="foot" class="card-category-sport" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Foot
+  </div>
+  <div data-event="rugby" class="card-category-sport" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Rugby
+  </div>
+  <div data-event="tennis" class="card-category-sport" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Tennis
+  </div>
 <% end %>
 
 
