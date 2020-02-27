@@ -18,14 +18,45 @@ class BetRoomsController < ApplicationController
 
   def create
     @bet_room = BetRoom.new(bet_room_params)
+
     # @bet_room.users.push(current_user)
     authorize @bet_room
     if @bet_room.save
+      params[:bet_room][:user_ids].each do |user_id|
+        Participation.create(user_id: user_id, bet_room: @bet_room)
+      end
+      Participation.create(user: current_user, bet_room: @bet_room, admin: true)
       # Cloudinary::Uploader.upload(params[:photo])
       redirect_to bet_room_path(@bet_room)
     else
       render :new
     end
+  end
+
+  def edit
+    @bet_room = BetRoom.find(params[:id])
+    authorize @bet_room
+  end
+
+  def update
+    @bet_room = BetRoom.find(params[:id])
+    authorize @bet_room
+    @bet_room.update(bet_room_params)
+    redirect_to bet_room_path(@bet_room)
+  end
+
+  def destroy
+    @bet_room = BetRoom.find(params[:id])
+    authorize @bet_room
+    @bet_room.destroy
+    redirect_to root_path
+  end
+
+  def play(event, answer)
+    @bet= Bet.new(result:answer, amount_cents:even.bets.first.amount_cents)
+    @bet.user = current_user
+    @bet.event = event
+    return @bet
   end
 
   private

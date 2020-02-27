@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # root :to => "bet_rooms#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :bet_rooms, only: [:new, :create, :show, :index] do
+  resources :bet_rooms, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
     resources :events, only: [:index] do
       collection do
         get "/new_sport", to: "events#new_sport"

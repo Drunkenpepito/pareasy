@@ -88,5 +88,9 @@ class EventsController < ApplicationController
     params.require(:event).permit(:sport, :game, :description)
   end
 
+  def gamers(event_id)
+    @gamers = Bet.all.where(event_id: event_id)
+  end
+
 end
 

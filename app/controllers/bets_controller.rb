@@ -14,6 +14,7 @@ class BetsController < ApplicationController
   end
 
   def create
+
     @event = Event.find(params[:event_id])
     @bet = Bet.new(bet_params)
     authorize @bet
@@ -23,7 +24,8 @@ class BetsController < ApplicationController
     if @bet.save
       redirect_to bet_room_path(@bet_room)
     else
-      render :new
+      flash[:alert] = 'It seems you have already bet on this one...'
+      redirect_to bet_room_path(@bet_room)
     end
   end
 
