@@ -1,21 +1,20 @@
-
 <div class="container-fluid text-center">
   <div class="row">
     <div class="col-sm-12">
       <div class="form">
         <h2>Creez votre Bet Room et invitez vos amis</h2>
-        <div class="form-inputs">
+        <div class="form-inputs-new">
           <%= simple_form_for(@bet_room) do |f| %>
             <%= f.input :name, placeholder: 'My Bet Room', label: "Nom du groupe" %>
             <%= f.association :users, as: :check_boxes, label_method: lambda { |user| render "bet_rooms/new_form_label", user: user }, label: "Amis", wrapper_html: { class: "friends-input" } %>
             <%#= f.association :users, label_method: lambda { |user| render "bet_rooms/new_form_label", user: user }, label: "Amis"%>
             <%= f.input :photo, as: :file %>
-            <%= f.button :submit, "Go!", class: "btn btn-flat"%>
+            <%= f.button :submit, "Go!", class: "btn-back btn-flat"%>
           <% end %>
         </div>
-        <div>
-          <%= link_to "Retour en arrière", root_path, class: "btn btn-flat" %>
-        </div>
+       <!--  <div>
+          <#%= link_to "Retour en arrière", root_path, class: "btn-back btn-flat" %>
+        </div> -->
       </div>
     </div>
   </div>
