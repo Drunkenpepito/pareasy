@@ -11,4 +11,27 @@ cards.forEach((card) => {
   })
 })
 
+const lists = document.querySelectorAll('.list-game')
+
+lists.forEach((list) => {
+  list.addEventListener('click', (event) => {
+    const hiddenInput = document.querySelector('#event_game')
+    const gameValue = event.currentTarget.dataset.event
+    hiddenInput.value = gameValue
+
+    document.querySelector('#edit_game').submit()
+  })
+})
+
+const descriptions = document.querySelectorAll('.list-description')
+
+descriptions.forEach((description) => {
+  description.addEventListener('click', (event) => {
+    const hiddenInput = document.querySelector('#event_description')
+    const descriptionValue = event.currentTarget.dataset.event
+    hiddenInput.value = descriptionValue
+
+    document.querySelector('#edit_description').submit()
+  })
+})
 

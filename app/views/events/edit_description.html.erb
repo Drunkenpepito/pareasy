@@ -4,8 +4,20 @@
 
 <h2>Choisissez votre Pari 😜</h2>
 
-<%= simple_form_for(@event, url: update_description_event_path, method: :post) do |f| %>
-  <%= f.input :description, collection: ["1 - 0", "2 - 0", "3 - 0"] %>
+
+
+
+<%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description } do |f| %>
   <%= f.hidden_field :id %>
-  <%= f.button :submit, "Next"  %>
+  <%= f.hidden_field :description %>
+  <div data-event="1 - 0" class="list-description">
+    1 - 0
+  </div>
+  <div data-event="2 - 0" class="list-description">
+    2 - 0
+  </div>
+  <div data-event="3 - 0" class="list-description">
+    3 - 0
+  </div>
+  <%= f.button :submit, "Next" %>
 <% end %>
