@@ -110,8 +110,18 @@
   padding: 0 5px;
 }
 
+.card-header {
+  font-size: 14px;
+  border-bottom: 0px;
+  margin-top: 70px;
+}
 
-
+.card-text:last-child {
+  margin-bottom: 0px;
+  font-size: 12px;
+  text-align: right;
+  margin-right: -15px;
+}
 
 
 .cardsEvent {

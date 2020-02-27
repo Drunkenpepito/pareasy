@@ -13,19 +13,21 @@
   <div class="container_cards">
       <div class="cards">
         <% @bet_rooms.each do |room| %>
-          <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path room.photo.key, crop: :fill %>') ">
-            <div class="card-category">
-              <div class=" text-white mb-3" style="max-width: 18rem">
-                <div class="card-header"><%=room.name%></div>
-                <div class="card-body">
+          <%= link_to bet_room_path(room) do %>
+            <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path room.photo.key, crop: :fill %>') ">
+              <div class="card-category">
+                <div class=" text-white mb-3" style="max-width: 18rem">
+                  <div class="card-header"><%=room.name%></div>
+                  <div class="card-body">
 
-                  <%= link_to 'Entrer ➡', bet_room_path(room) , class: "btn pierre" %>
 
-                  <p class="card-text"><%=room.users.count%> potes</p>
+
+                    <p class="card-text"><%=room.users.count%> potes</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
     </div>
   </div>
