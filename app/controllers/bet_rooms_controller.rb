@@ -28,6 +28,26 @@ class BetRoomsController < ApplicationController
     end
   end
 
+
+  def edit
+    @bet_room = BetRoom.find(params[:id])
+    authorize @bet_room
+  end
+
+  def update
+    @bet_room = BetRoom.find(params[:id])
+    authorize @bet_room
+    @bet_room.update(bet_room_params)
+    redirect_to bet_room_path(@bet_room)
+  end
+
+  def destroy
+    @bet_room = BetRoom.find(params[:id])
+    authorize @bet_room
+    @bet_room.destroy
+    redirect_to root_path
+  end
+
   private
 
   def bet_room_params
