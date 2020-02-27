@@ -8,6 +8,15 @@
   justify-content: space-between;
 }
 
+.cardsEvent {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  text-align: center;
+  justify-content: space-between;
+}
+
+
 // Smallest device
 // @media (min-width: 100px) and (max-width: 575px) {
 //   .cards {
