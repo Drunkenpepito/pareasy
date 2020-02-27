@@ -28,7 +28,6 @@ class BetRoomsController < ApplicationController
     end
   end
 
-
   def edit
     @bet_room = BetRoom.find(params[:id])
     authorize @bet_room
@@ -46,6 +45,13 @@ class BetRoomsController < ApplicationController
     authorize @bet_room
     @bet_room.destroy
     redirect_to root_path
+  end
+
+  def play(event, answer)
+    @bet= Bet.new(result:answer, amount_cents:even.bets.first.amount_cents)
+    @bet.user = current_user
+    @bet.event = event
+    return @bet
   end
 
   private
