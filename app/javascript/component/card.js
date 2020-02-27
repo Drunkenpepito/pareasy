@@ -35,3 +35,16 @@ descriptions.forEach((description) => {
   })
 })
 
+const arbitres = document.querySelectorAll('.card-result')
+
+arbitres.forEach((arbitre) => {
+  arbitre.addEventListener('click', (event) => {
+    const hiddenInput = document.querySelector('#event_results')
+    const arbitreValue = event.currentTarget.dataset.event
+    hiddenInput.value = arbitreValue
+
+    document.querySelector('#edit_results').submit()
+  })
+})
+
+
