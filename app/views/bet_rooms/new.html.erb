@@ -3,7 +3,7 @@
     <div class="col-sm-12">
       <div class="form">
         <h2>Creez votre Bet Room et invitez vos amis</h2>
-        <div class="form-inputs">
+        <div class="form-inputs-new">
           <%= simple_form_for(@bet_room) do |f| %>
             <%= f.input :name, placeholder: 'My Bet Room', label: "Nom du groupe" %>
             <%= f.association :users, label_method: :username, collection: @users, label: "Amis"%>
@@ -11,9 +11,9 @@
             <%= f.button :submit, "Go!", class: "btn-back btn-flat"%>
           <% end %>
         </div>
-        <div>
-          <%= link_to "Retour en arrière", root_path, class: "btn-back btn-flat" %>
-        </div>
+       <!--  <div>
+          <#%= link_to "Retour en arrière", root_path, class: "btn-back btn-flat" %>
+        </div> -->
       </div>
     </div>
   </div>
