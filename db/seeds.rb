@@ -27,7 +27,7 @@ edouard_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v15822
 edouard.photo.attach(io: edouard_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
 edouard.save!
 
-benjamin = User.new(email: "benjamin@pareasy.com", password: "password", username: "Ben", phone_number: "0687567843")
+benjamin = User.new(email: "benjamin@pareasy.com", password: "password", username: "Ben", phone_number: "0687567843", amount_cents: 300)
 benjamin_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277009/u1g1t033ay8feqoaq8ih089oro56.jpg")
 benjamin.photo.attach(io: benjamin_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
 benjamin.save!

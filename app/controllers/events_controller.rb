@@ -79,6 +79,28 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.update(results: params[:results])
     authorize @event
+    @bets = Bet.where("event_id=?",params[:id])
+
+    winner_count = 0
+    sum_bets_amount = 0
+
+    @bets.each do |bet|
+      sum_bets_amount += bet.amount_cents.to_i
+      if bet.result == @event.results
+        winner_count += 1
+      end
+    end
+
+    price_per_winner = sum_bets_amount / winner_count
+
+    @bets.each do |bet|
+      if bet.result == @event.results
+        User.find(bet.user_id).amount_cents += price_per_winner
+      end
+    end
+
+
+    raise
     redirect_to bet_room_events_path(@event.bet_room)
   end
 
