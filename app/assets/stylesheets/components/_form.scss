@@ -14,7 +14,8 @@
     text-align: center;
   }
   .btn {
-    width: 50%;
+    position: relative;
+    margin-top: 50px;
     margin-bottom: 20px
   }
 
@@ -22,4 +23,33 @@
 
 .form-inputs {
   padding: 2px;
+}
+
+
+.friends-list {
+  height: 200px;
+  overflow: scroll;
+}
+
+
+.bet_room_photo{
+  margin-top: 20px;
+}
+
+.form-inputs-new h3 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.form-inputs-new legend {
+  display: none;
+}
+
+
+.title-new {
+  margin-top: 40px;
+}
+
+.input-name {
+  margin-top: 30px;
 }
