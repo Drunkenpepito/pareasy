@@ -6,7 +6,8 @@
         <div class="form-inputs-new">
           <%= simple_form_for(@bet_room) do |f| %>
             <%= f.input :name, placeholder: 'My Bet Room', label: "Nom du groupe" %>
-            <%= f.association :users, label_method: :username, collection: @users, label: "Amis"%>
+            <%= f.association :users, as: :check_boxes, label_method: lambda { |user| render "bet_rooms/new_form_label", user: user }, label: "Amis", wrapper_html: { class: "friends-input" } %>
+            <%#= f.association :users, label_method: lambda { |user| render "bet_rooms/new_form_label", user: user }, label: "Amis"%>
             <%= f.input :photo, as: :file %>
             <%= f.button :submit, "Go!", class: "btn-back btn-flat"%>
           <% end %>
