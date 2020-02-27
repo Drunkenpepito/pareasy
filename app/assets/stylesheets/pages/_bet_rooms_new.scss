@@ -1,0 +1,31 @@
+.friend-custom-label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px;
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+}
+.friends-input .form-check {
+  padding-left: 0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+
+  input {
+    display: none;
+    &:checked + label {
+      background-color: #1EDD88;
+      border-radius: 5%;
+    }
+  }
+  label {
+    flex-grow: 1;
+    // text-align: left;
+  }
+}
