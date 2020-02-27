@@ -5,8 +5,17 @@
 
 <h2>Selectionnez un match</h2>
 
-<%= simple_form_for(@event, url: update_game_event_path(@event), method: :post) do |f| %>
-  <%= f.input :game, collection: ["PSG-OM", "OL-Monaco", "Saint-Etienne-Bordeaux"] %>
+<%= simple_form_for @event, url: update_game_event_path(@event), html: { method: :post, id: :edit_game } do |f| %>
   <%= f.hidden_field :id %>
-  <%= f.button :submit, "Next"  %>
+  <%= f.hidden_field :game %>
+  <div data-event="PSG-OM" class="list-game">
+    PSG-OM
+  </div>
+  <div data-event="OL-Monaco" class="list-game">
+    OL-Monaco
+  </div>
+  <div data-event="Saint-Etienne-Bordeaux" class="list-game">
+    Saint-Etienne-Bordeaux
+  </div>
+  <%= f.button :submit, "Next" %>
 <% end %>
