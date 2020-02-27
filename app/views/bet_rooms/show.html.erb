@@ -4,8 +4,12 @@
 
 <div class="container text-center"><%= link_to "Lance un Pari ", new_sport_bet_room_events_path(@bet_room), class: "btn btn-flat" %></div>
 
+
+<div class="container text-center"><%= link_to "Donne le résultat de tes paris", bet_room_events_path(@bet_room), class: "btn btn-flat" %></div>
+
 <%= link_to " Edit", edit_bet_room_path, :class => "fas fa-pencil-alt" %>
 <%= link_to " Delete", bet_room_path, method: :delete, data: {:confirm => 'Are you sure?'}, :class => "fas fa-trash-alt" %>
+
 
 
 
