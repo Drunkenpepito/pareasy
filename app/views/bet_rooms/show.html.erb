@@ -21,22 +21,42 @@
           <span><%=event.sport %></span>
           <span>
             <% if event.bets.count > 0 %>
-              Gamer <%=event.bets.first.user_id%>
+              <%=event.bets.first.user.username%>
             <% else %>
               user incognito
             <% end %>
           </span>
           <span>
             <% if event.bets.count > 0 %>
-              <%= event.bets.first.amount_cents %>
+              Mise :<%= event.bets.first.amount_cents %>
             <% else %>
               0€
             <% end %>
           </span>
         </div>
+        <div class="card-event-line5">
+          <span>
+            <button class="btn btn-5 btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= event.bets.distinct.count %> Gamers
+            </button>
+            <% event.bets.each do |bet|  %>
+              <div class="dropdown-menu">
+                <%= bet.user.username %>
+              </div>
+            <% end %>
+          </span>
+          <span>
+            <% if event.bets.count > 0 %>
+              Cagnotte :<%= event.bets.first.amount_cents * event.bets.count %> €
+            <% else %>
+              0€
+            <% end %>
+          </span>
+
+        </div>
         <div class="card-event-line2"><%=event.game %></div>
         <div class="card-event-line3"><%=event.description %></div>
-        <div class="card-event-line4"><button class="btn btn-success">Yes !</button><button class="btn btn-danger">No way</button></div>
+        <div class="card-event-line4"><%= link_to 'Yes!', new_sport_bet_room_events_path(@bet_room), class:"btn btn-success"%><%= link_to 'No way', new_sport_bet_room_events_path(@bet_room), class:"btn btn-danger"%></div>
       </div>
     <% end %>
   </div>
