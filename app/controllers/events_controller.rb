@@ -110,8 +110,6 @@ class EventsController < ApplicationController
       end
     end
 
-
-
     redirect_to bet_room_events_path(@event.bet_room)
   end
 
@@ -119,6 +117,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:sport, :game, :description)
+
   end
 
   def gamers(event_id)

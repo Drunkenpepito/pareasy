@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Cleaning Users, Participations, Events and Bets database...'
+Participation.destroy_all
+BetRoom.destroy_all
+Bet.destroy_all
+Event.destroy_all
 User.destroy_all
 User.all.each do |user|
   user.photo.purge
 end
-BetRoom.destroy_all
-Participation.destroy_all
-Event.destroy_all
-Bet.destroy_all
 
 puts 'Creating users'
 
@@ -130,8 +130,8 @@ participation_1 = Participation.new(bet_room: bet_room, user: edouard)
 participation_1.save!
 participation_2 = Participation.new(bet_room: bet_room, user: xavier)
 participation_2.save!
-participation_3 = Participation.new(bet_room: bet_room, user: pierre)
-participation_3.save!
+# participation_3 = Participation.new(bet_room: bet_room, user: pierre)
+# participation_3.save!
 participation_4 = Participation.new(bet_room: bet_room, user: benjamin)
 participation_4.save!
 
@@ -144,7 +144,10 @@ pm_32 = Event.new(
     description: "But à la 32ème",
     game_start_at: DateTime.new(2020,10,12,20,45,00),
     bet_room: bet_room,
-    author: User.all.sample)
+
+    author: edouard
+    )
+
   pm_32.save!
 
   fa_3_0 = Event.new(
@@ -153,7 +156,10 @@ pm_32 = Event.new(
     description: "3-0",
     game_start_at: DateTime.new(2020,5,4,20,45,00),
     bet_room: bet_room,
-    author: User.all.sample)
+
+    author: edouard
+    )
+
   fa_3_0.save!
 
   fn_psf = Event.new(
@@ -162,7 +168,10 @@ pm_32 = Event.new(
     description: "premier set Federer",
     game_start_at: DateTime.new(2020,4,4,14,30,00),
     bet_room: bet_room,
-    author: User.all.sample)
+
+    author: edouard
+    )
+
   fn_psf.save!
 
   fa_bo = Event.new(
@@ -171,7 +180,9 @@ pm_32 = Event.new(
     description: "Bonus offensif France",
     game_start_at: DateTime.new(2020,3,11,14,30,00),
     bet_room: bet_room,
-    author: User.all.sample)
+    author: edouard
+    )
+
   fa_bo.save!
 
   f1_f = Event.new(
@@ -180,19 +191,21 @@ pm_32 = Event.new(
     description: "Victoire Ferarri",
     game_start_at: DateTime.new(2020,9,7,15,00,00),
     bet_room: bet_room,
-    author: User.all.sample)
+    author: edouard
+    )
+
   f1_f.save!
 
 
 puts 'Creating bets'
 
-paris_marseille = Bet.new(amount_cents: "4", result: true, event: pm_32, user: edouard)
+paris_marseille = Bet.new(amount_cents: 400, result: true, event: pm_32, user: edouard)
 paris_marseille.save!
-france_allemagne = Bet.new(amount_cents: "5", result: true, event: fa_3_0, user: xavier)
+france_allemagne = Bet.new(amount_cents: 500, result: true, event: fa_3_0, user: xavier)
 france_allemagne.save!
-federer_nadal = Bet.new(amount_cents: "3", result: false, event: fn_psf, user: benjamin)
+federer_nadal = Bet.new(amount_cents: 600, result: false, event: fn_psf, user: benjamin)
 federer_nadal.save!
-france_angleterre = Bet.new(amount_cents: "0", result: true, event: fa_bo, user: pierre)
+france_angleterre = Bet.new(amount_cents: 200, result: true, event: fa_bo, user: pierre)
 france_angleterre.save!
-gpm = Bet.new(amount_cents: "2", result: false, event: f1_f, user: edouard)
+gpm = Bet.new(amount_cents: 100, result: false, event: f1_f, user: edouard)
 gpm.save!
