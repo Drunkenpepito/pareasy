@@ -14,9 +14,9 @@ class BetsController < ApplicationController
   end
 
   def create
-
     @event = Event.find(params[:event_id])
     @bet = Bet.new(bet_params)
+    params[:bet][:result] ? @bet.result = true : @bet.result = false
     authorize @bet
     @bet.user = current_user
     @bet.event = @event
@@ -36,6 +36,14 @@ class BetsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def winner
+    authorize @bet
+    @bets = Bet.where("event_id=?",params[:id])
+    raise
+    # @bets = Bet.where("event_id=?",params[:id])
+    # raise
   end
 
   private
