@@ -23,3 +23,9 @@ require("channels")
 // ----------------------------------------------------
 import "bootstrap";
 import "../component/card.js";
+import { displayNumberOfFriends } from "../component/display_number_of_friends";
+
+document.addEventListener('turbolinks:load', () => {
+  displayNumberOfFriends();
+});
+
