@@ -5,7 +5,7 @@ const displayNumberOfFriends = () => {
     checkbox.addEventListener('change', (e) => {
       const counter = document.querySelector("#friends-counter")
       const checkedInputs = document.querySelectorAll('.friends-input input:checked')
-      counter.innerHTML = checkedInputs.length
+      counter.innerHTML = checkedInputs.length;
       console.log(checkedInputs.length);
     })
   })

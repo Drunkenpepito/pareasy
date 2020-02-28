@@ -43,6 +43,11 @@ class BetRoomsController < ApplicationController
     @bet_room = BetRoom.find(params[:id])
     authorize @bet_room
     @bet_room.update(bet_room_params)
+    params[:bet_room][:user_ids].each do |user_id|
+      unless Participation.find_by(bet_room: @bet_room, user_id: user_id)
+        Participation.create(user_id: user_id, bet_room: @bet_room)
+      end
+    end
     redirect_to bet_room_path(@bet_room)
   end
 
