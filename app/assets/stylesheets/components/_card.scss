@@ -229,7 +229,7 @@
       justify-content: space-between;
       font-size: 16px;
       font-weight: bold;
-      margin: 0;
+      padding-bottom: 0px;
       }
 
   }
@@ -244,17 +244,10 @@
   text-align: center;
   justify-content: center;
 
-
   .card-profile {
   background-size: cover;
-  height: auto;
-  justify-content: space-evenly;
-  align-items: center;
-  font-size: 20px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  letter-spacing: 2px;
-
+  text-align: center;
+  margin: 10px;
 
   }
 }
