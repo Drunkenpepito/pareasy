@@ -9,28 +9,20 @@
             <div class="input-name">
               <%= f.input :name, label: false, placeholder: 'Nom de la Room'%>
             </div>
-            <h3>Amis</h3>
+            <h3>Amis</h3> <p id= "friends-counter"></p>
+
             <div class="friends-list">
               <%= f.association :users, as: :check_boxes, label_method: lambda { |user| render "bet_rooms/new_form_label", user: user }, label: false, wrapper_html: { class: "friends-input" } %>
+
             </div>
-            <%#= f.association :users, label_method: lambda { |user| render "bet_rooms/new_form_label", user: user }, label: "Amis"%>
             <h3>Photos</h3>
             <%= f.input :photo, label: false, as: :file %>
             <%= f.button :submit, "Go!", class: "btn-back btn-flat"%>
-            <%#= f.association :users, collection: User.order("username ASC") %>
 
           <% end %>
         </div>
-       <!--  <div>
-          <#%= link_to "Retour en arrière", root_path, class: "btn-back btn-flat" %>
-        </div> -->
+
       </div>
     </div>
   </div>
 </div>
-
-
-<!-- <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
-          <span>☝🏽Entre <strong>2</strong> et <strong>20</strong> participants.<a href="#"></a> </span>
-          <a data-dismiss="alert" aria-label="Close">
-            <i class="fas fa-times"></i> -->
