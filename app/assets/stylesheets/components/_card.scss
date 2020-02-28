@@ -147,7 +147,7 @@
 
 .cardsEvent {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr ;
   grid-gap: 16px;
   text-align: center;
   justify-content: space-between;
@@ -222,5 +222,39 @@
 
         }
       }
-    }
+
+      .card-event-line6{
+      display:flex;
+      color:white;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0;
+      }
+
   }
+
+}
+
+
+.cardsProfile {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  text-align: center;
+  justify-content: space-between;
+
+
+  .card-profile {
+  background-size: cover;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  letter-spacing: 2px;
+
+
+  }
+}
