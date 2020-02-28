@@ -1,0 +1,40 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path current_user.photo.key, crop: :fill %>') ;">
+
+  <div class="container">
+    <h1 class="text-center"><%= current_user.username %></h1>
+
+    <h2 class="text-center"> Ma tirelire :</h2>
+    <h1 class="text-center"><%= current_user.amount_cents %> €</h1>
+
+
+    </br>
+
+    <div class="cardsProfile">
+      <div class="card-profile"></div> <p class="text-center"> Gains :
+        0€</p>
+      <p class="text-center"> Pertes :
+        0€ </p>
+      </div>
+      <div class="card-profile">
+        <%= simple_form_for current_user, url: profile_update_path, method: :patch do |f| %>
+          <%= f.input :amount_cents, input_html: {value: 1}, as: :hidden %>
+          <%= f.button :submit, "Verser 1 €" , class: "btn btn-flat"%>
+        <% end %>
+      </div>
+      <div class="card-profile">
+        <%= simple_form_for current_user, url: profile_update_path, method: :patch do |f| %>
+          <%= f.input :amount_cents, input_html: {value: 5}, as: :hidden %>
+          <%= f.button :submit, "Verser 5 €" , class: "btn btn-flat"%>
+        <% end %>
+      </div>
+      <div class="card-profile">
+        <%= simple_form_for current_user, url: profile_update_path, method: :patch do |f| %>
+          <%= f.input :amount_cents, input_html: {value: 10}, as: :hidden %>
+          <%= f.button :submit, "Verser 10 €" , class: "btn btn-flat"%>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
