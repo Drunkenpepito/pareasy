@@ -199,13 +199,13 @@ pm_32 = Event.new(
 
 puts 'Creating bets'
 
-paris_marseille = Bet.new(amount_cents: 400, result: true, event: pm_32, user: edouard)
+paris_marseille = Bet.new(amount_cents: 4, result: true, event: pm_32, user: edouard)
 paris_marseille.save!
-france_allemagne = Bet.new(amount_cents: 500, result: true, event: fa_3_0, user: xavier)
+france_allemagne = Bet.new(amount_cents: 5, result: true, event: fa_3_0, user: xavier)
 france_allemagne.save!
-federer_nadal = Bet.new(amount_cents: 600, result: false, event: fn_psf, user: benjamin)
+federer_nadal = Bet.new(amount_cents: 6, result: false, event: fn_psf, user: benjamin)
 federer_nadal.save!
-france_angleterre = Bet.new(amount_cents: 200, result: true, event: fa_bo, user: pierre)
+france_angleterre = Bet.new(amount_cents: 2, result: true, event: fa_bo, user: pierre)
 france_angleterre.save!
-gpm = Bet.new(amount_cents: 100, result: false, event: f1_f, user: edouard)
+gpm = Bet.new(amount_cents: 1, result: false, event: f1_f, user: edouard)
 gpm.save!
