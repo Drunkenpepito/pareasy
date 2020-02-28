@@ -14,14 +14,15 @@ class BetsController < ApplicationController
   end
 
   def create
-
     @event = Event.find(params[:event_id])
     @bet = Bet.new(bet_params)
+    params[:bet][:result] ? @bet.result = true : @bet.result = false
     authorize @bet
     @bet.user = current_user
     @bet.event = @event
     @bet_room = @event.bet_room
     if @bet.save
+      @bet.user.amount_cents -= @bet.amount_cents
       redirect_to bet_room_path(@bet_room)
     else
       flash[:alert] = 'It seems you have already bet on this one...'
@@ -33,9 +34,19 @@ class BetsController < ApplicationController
   end
 
   def update
+
+
   end
 
   def destroy
+  end
+
+  def winner
+    authorize @bet
+    @bets = Bet.where("event_id=?",params[:id])
+    raise
+    # @bets = Bet.where("event_id=?",params[:id])
+    # raise
   end
 
   private

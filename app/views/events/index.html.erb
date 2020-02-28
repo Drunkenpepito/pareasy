@@ -5,17 +5,20 @@
 
 <% @events.each do |event| %>
   <p><%= event.sport %> | <%= event.game %> | <%= event.description %></p>
-  <%= link_to "C'était évident", close_event_path(event, results: true), method: :patch %>
-  <%= link_to "Pas de bol", close_event_path(event, results: false), method: :patch %>
-  <%= simple_form_for([@bet_room, event], url: create_sport_bet_room_events_path(@bet_room), html: { method: :post, id: :edit_results }) do |f| %>
-    <%= f.hidden_field :results %>
-    <div data-event="true" class="card-result">
+  <%= link_to close_event_path(event, results: true), method: :patch do %>
+    <div class="card-result">
       C'était évident 🤙
     </div>
-    <div data-event="false" class="card-result">
+  <% end %>
+  <%= link_to close_event_path(event, results: false), method: :patch do %>
+    <div class="card-result">
       Pas de bol 🤦‍♂️
     </div>
-    <%= f.button :submit, "Next" %>
   <% end %>
 <% end %>
+
+
+
+
+
 
