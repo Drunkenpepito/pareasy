@@ -46,7 +46,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     authorize @event
     @event.description = params[:event][:description]
-    if @event.save!
+    if @event.save
       redirect_to event_path(@event)
     else
       render :edit_description
@@ -57,7 +57,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     authorize @event
     @event.description = params[:event][:description]
-    if @event.save!
+    if @event.save
       redirect_to event_path(@event)
     else
       render :edit_description
@@ -91,16 +91,20 @@ class EventsController < ApplicationController
       end
     end
 
+
     price_per_winner = sum_bets_amount / winner_count
 
     @bets.each do |bet|
       if bet.result == @event.results
-        User.find(bet.user_id).amount_cents += price_per_winner
+        user = User.find(bet.user_id)
+        if user.amount_cents.nil?
+          user.amount_cents = 0
+        end
+        user.amount_cents += price_per_winner
+        user.save
+        # redirect_to user_registration
       end
     end
-
-
-    raise
     redirect_to bet_room_events_path(@event.bet_room)
   end
 
