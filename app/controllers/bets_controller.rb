@@ -16,17 +16,23 @@ class BetsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @bet = Bet.new(bet_params)
-    # params[:bet][:result] ? @bet.result = true : @bet.result = false
+    params[:bet][:result] || params[:result] != false ? @bet.result = true : @bet.result = false
     authorize @bet
     @bet.user = current_user
     @bet.event = @event
     @bet_room = @event.bet_room
-    if @bet.save
-      @bet.user.amount_cents -= @bet.amount_cents
-      @bet.user.save
-      redirect_to bet_room_path(@bet_room)
+
+    if @bet.user.amount_cents >= @bet.amount_cents*100
+      if @bet.save
+        @bet.user.amount_cents -= @bet.amount_cents*100
+        @bet.user.save
+        redirect_to bet_room_path(@bet_room)
+      else
+        flash[:alert] = 'Désolé, tu as déjà parié sur cet évenement'
+        redirect_to bet_room_path(@bet_room)
+      end
     else
-      flash[:alert] = 'It seems you have already bet on this one...'
+      flash[:alert] = "t'as pas assez de thunes"
       redirect_to bet_room_path(@bet_room)
     end
   end
@@ -53,7 +59,7 @@ class BetsController < ApplicationController
   private
   def bet_params
     strong_params = params.require(:bet).permit(:result, :amount_cents)
-    strong_params[:amount_cents] = strong_params[:amount_cents].to_i * 100
+    strong_params[:amount_cents] = strong_params[:amount_cents].to_i
     strong_params
   end
 end
