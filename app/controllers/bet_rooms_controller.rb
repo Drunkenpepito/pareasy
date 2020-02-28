@@ -17,6 +17,7 @@ class BetRoomsController < ApplicationController
   end
 
   def create
+
     @bet_room = BetRoom.new(bet_room_params)
 
     # @bet_room.users.push(current_user)
