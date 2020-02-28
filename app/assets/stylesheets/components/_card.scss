@@ -242,13 +242,13 @@
   grid-template-columns: 1fr;
   grid-gap: 16px;
   text-align: center;
-  justify-content: space-between;
+  justify-content: center;
 
 
   .card-profile {
   background-size: cover;
   height: auto;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   font-size: 20px;
   font-weight: bold;
