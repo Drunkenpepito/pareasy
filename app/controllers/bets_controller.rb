@@ -22,6 +22,7 @@ class BetsController < ApplicationController
     @bet.event = @event
     @bet_room = @event.bet_room
     if @bet.save
+      @bet.user.amount_cents -= @bet.amount_cents
       redirect_to bet_room_path(@bet_room)
     else
       flash[:alert] = 'It seems you have already bet on this one...'
@@ -33,6 +34,8 @@ class BetsController < ApplicationController
   end
 
   def update
+
+
   end
 
   def destroy
