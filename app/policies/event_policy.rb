@@ -37,4 +37,11 @@ class EventPolicy < ApplicationPolicy
     return true
   end
 
+  def arbitre?
+    return true
+  end
+
+  def close?
+    record.author == user
+  end
 end

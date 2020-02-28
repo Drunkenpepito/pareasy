@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_02_28_093611) do
+=======
+ActiveRecord::Schema.define(version: 2020_02_27_151744) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +66,9 @@ ActiveRecord::Schema.define(version: 2020_02_28_093611) do
     t.bigint "bet_room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "author_id"
+    t.boolean "results"
+    t.index ["author_id"], name: "index_events_on_author_id"
     t.index ["bet_room_id"], name: "index_events_on_bet_room_id"
   end
 
@@ -94,6 +101,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_093611) do
   add_foreign_key "bets", "events"
   add_foreign_key "bets", "users"
   add_foreign_key "events", "bet_rooms"
+  add_foreign_key "events", "users", column: "author_id"
   add_foreign_key "participations", "bet_rooms"
   add_foreign_key "participations", "users"
 end
