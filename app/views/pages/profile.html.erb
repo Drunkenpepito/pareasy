@@ -4,16 +4,19 @@
     <h1 class="text-center"><%= current_user.username %></h1>
 
     <h2 class="text-center"> Ma tirelire :</h2>
-    <h1 class="text-center"><%= current_user.amount_cents %> €</h1>
+    <h1 class="text-center"><%= current_user.amount_cents.to_f/100 %> €</h1>
 
 
     </br>
 
     <div class="cardsProfile">
-      <div class="card-profile"></div> <p class="text-center"> Gains :
-        0€</p>
-      <p class="text-center"> Pertes :
-        0€ </p>
+      <div class="card-profile">
+        <p class="text-center"> Gains :
+          0€
+        </p>
+        <p class="text-center"> Pertes :
+          0€
+        </p>
       </div>
       <div class="card-profile">
         <%= simple_form_for current_user, url: profile_update_path, method: :patch do |f| %>

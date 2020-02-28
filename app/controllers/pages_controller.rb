@@ -8,7 +8,8 @@ class PagesController < ApplicationController
   end
 
   def update_amount_user
-    current_user.amount_cents += params[:user][:amount_cents].to_i
+    versement_cents = params[:user][:amount_cents].to_i * 100
+    current_user.amount_cents += versement_cents
     current_user.save
     redirect_to profile_path
   end
