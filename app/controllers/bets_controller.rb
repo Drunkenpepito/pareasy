@@ -16,11 +16,12 @@ class BetsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @bet = Bet.new(bet_params)
-    params[:bet][:result] || params[:result] != false ? @bet.result = true : @bet.result = false
+    # params[:bet][:result] != false ? @bet.result = true : @bet.result = false
     authorize @bet
     @bet.user = current_user
     @bet.event = @event
     @bet_room = @event.bet_room
+
 
     if @bet.user.amount_cents >= @bet.amount_cents*100
       if @bet.save
