@@ -1,0 +1,52 @@
+.onglet{
+  ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0 10px;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 56px;
+    width: 100%;
+    z-index:4;
+    overflow:hidden;
+  }
+
+  li {
+    float: left;
+    list-style-type: none;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li p {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    margin: 0px;
+  }
+
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #111;
+  }
+
+  .active {
+    background-color: #4CAF50;
+  }
+
+  .sticky {
+  position: fixed;
+  top: 56px;
+  width: 100%;
+  }
+}
+
