@@ -108,7 +108,7 @@ class EventsController < ApplicationController
         user.amount_cents += price_per_winner
         user.save
       end
-raise
+
     end
 
     redirect_to bet_room_events_path(@event.bet_room)

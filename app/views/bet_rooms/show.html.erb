@@ -1,87 +1,149 @@
-
-<div class="container text-center"><h1>Bienvenue dans la salle de jeu <%= @bet_room.name %> </h1></div>
-
-<div class="container text-center"><%= link_to "Lance un Pari ", new_sport_bet_room_events_path(@bet_room), class: "btn btn-flat", data: {turbolinks: false} %></div>
-
-
-<div class="container text-center"><%= link_to "Donne le résultat de tes paris", bet_room_events_path(@bet_room), class: "btn btn-flat" %></div>
-
-<%= link_to " Edit", edit_bet_room_path, :class => "fas fa-pencil-alt" %>
-<%= link_to " Delete", bet_room_path, method: :delete, data: {:confirm => 'Are you sure?'}, :class => "fas fa-trash-alt" %>
-
-
-
-
-
-  <div class="text-center"><h1 id="banner-typed-text"><strong> Paris en cours ...</strong> </h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @bet_room.photo.key, height: 200, width: 300%>);">
+  <div class="container">
+    <div class="edit-delete">
+      <%= link_to " Edit", edit_bet_room_path, :class => "fas fa-pencil-alt" %>
+      <%= link_to " Delete", bet_room_path, method: :delete, data: {:confirm => 'Are you sure?'}, :class => "fas fa-trash-alt" %>
+    </div>
+    <h1><%= @bet_room.name %></h1>
+    <p>C'est qui le patron ?</p>
+    <div class="container text-center">
+      <%= link_to "Lance un Pari ", new_sport_bet_room_events_path(@bet_room), class: "btn btn-flat", data: {turbolinks: false} %>
+    </div>
   </div>
+</div>
+
+
+  <div class="text-center">
+    <h2><strong> Paris en cours...</strong>
+    </h2>
+  </div>
+
+  <div class="container text-center"><%= link_to "Donne le résultat de tes paris", bet_room_events_path(@bet_room), class: "btn btn-ghost" %></div>
 
 
   <div class="cardsEvent">
     <% @events.each do |event| %>
-      <% unless event.nil? || event.bets.nil? || event.bets.first.nil? || event.bets.first.amount_cents == 0  %>
-        <div class="card-event">
-          <div class="card-event-line1">
-            <span><%=event.sport %></span>
-            <span>
-              <% if event.bets.count > 0 %>
-                <%=event.bets.first.user.username%>
-              <% else %>
-                user incognito
-              <% end %>
-            </span>
-            <span>
-              <% if event.bets.count > 0 %>
-                Mise :<%= event.bets.first.amount_cents %>
-              <% else %>
-                0€
-              <% end %>
-            </span>
-          </div>
-          <div class="card-event-line5">
-            <span>
-              <button class="btn btn-5 btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= event.users.distinct.count %> Gamers
-              </button>
-
-              <div class="dropdown-menu">
-                <% event.bets.each do |bet|  %>
-                  <a class="dropdown-item" href="#"><%= bet.user.username %></a>
+      <% unless event.nil? || event.bets.nil? || event.bets.first.nil? || event.bets.first.amount_cents == 0 || event.bets.where(user_id: current_user).empty? %>
+        <% if event.results.nil? %>
+          <div class="card-event">
+            <div class="card-event-line1">
+              <span><%=event.sport %></span>
+              <span>
+                <% if event.bets.count > 0 %>
+                  <%=event.bets.first.user.username%>
+                <% else %>
+                  user incognito
                 <% end %>
-              </div>
+              </span>
+              <span>
+                <% if event.bets.count > 0 %>
+                  Mise :<%= event.bets.first.amount_cents %>
+                <% else %>
+                  0€
+                <% end %>
+              </span>
+            </div>
+            <div class="card-event-line5">
+              <span>
+                <button class="btn btn-5 btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= event.users.distinct.count %> Gamers
+                </button>
 
-            </span>
-            <span>
-              <% if event.bets.count > 0 %>
-                Cagnotte :<%= (event.bets.first.amount_cents * event.bets.count) %> €
-              <% else %>
-                0€
-              <% end %>
-            </span>
+                <div class="dropdown-menu">
+                  <% event.bets.each do |bet|  %>
+                    <a class="dropdown-item" href="#"><%= bet.user.username %></a>
+                  <% end %>
+                </div>
 
+              </span>
+              <span>
+                <% if event.bets.count > 0 %>
+                  Cagnotte :<%= (event.bets.first.amount_cents * event.bets.count) %> €
+                <% else %>
+                  0€
+                <% end %>
+              </span>
+
+            </div>
+            <div class="card-event-line2"><%=event.game %></div>
+            <div class="card-event-line3"><%=event.description %></div>
           </div>
-          <div class="card-event-line2"><%=event.game %></div>
-          <div class="card-event-line3"><%=event.description %></div>
-          <div class="card-event-line4">
-            <%= simple_form_for [event, Bet.new]  do |f| %>
-              <%= f.hidden_field :result, value: true %>
-              <%= f.hidden_field :amount_cents, value: event.bets.first.amount_cents %>
-              <%= f.button :submit, "Yes!", class:"btn btn-success"  %>
-            <% end %>
-
-            <%= simple_form_for [event, Bet.new]  do |f| %>
-              <%= f.hidden_field :result, value: false %>
-              <%= f.hidden_field :amount_cents, value: event.bets.first.amount_cents %>
-              <%= f.button :submit, "No Way" , class:"btn btn-danger" %>
-            <% end %>
-
-          </div>
-
-        </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
 
+  <div class="text-center">
+    <h2><strong> Paris proposés ...</strong>
+    </h2>
+  </div>
+
+  <div class="cardsEvent">
+    <% @events.each do |event| %>
+      <% unless event.nil? || event.bets.nil? || event.bets.first.nil? || event.bets.first.amount_cents == 0  %>
+        <% if event.results.nil? && event.bets.where(user_id: current_user.id).empty? %>
+          <div class="card-event">
+            <div class="card-event-line1">
+              <span><%=event.sport %></span>
+              <span>
+                <% if event.bets.count > 0 %>
+                  <%=event.bets.first.user.username%>
+                <% else %>
+                  user incognito
+                <% end %>
+              </span>
+              <span>
+                <% if event.bets.count > 0 %>
+                  Mise :<%= event.bets.first.amount_cents %>
+                <% else %>
+                  0€
+                <% end %>
+              </span>
+            </div>
+            <div class="card-event-line5">
+              <span>
+                <button class="btn btn-5 btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= event.users.distinct.count %> Gamers
+                </button>
+
+                <div class="dropdown-menu">
+                  <% event.bets.each do |bet|  %>
+                    <a class="dropdown-item" href="#"><%= bet.user.username %></a>
+                  <% end %>
+                </div>
+
+              </span>
+              <span>
+                <% if event.bets.count > 0 %>
+                  Cagnotte :<%= (event.bets.first.amount_cents * event.bets.count) %> €
+                <% else %>
+                  0€
+                <% end %>
+              </span>
+
+            </div>
+            <div class="card-event-line2"><%=event.game %></div>
+            <div class="card-event-line3"><%=event.description %></div>
+            <div class="card-event-line4">
+              <%= simple_form_for [event, Bet.new]  do |f| %>
+                <%= f.hidden_field :result, value: true %>
+                <%= f.hidden_field :amount_cents, value: event.bets.first.amount_cents %>
+                <%= f.button :submit, "Yes!", class:"btn btn-success"  %>
+              <% end %>
+
+              <%= simple_form_for [event, Bet.new]  do |f| %>
+                <%= f.hidden_field :result, value: false %>
+                <%= f.hidden_field :amount_cents, value: event.bets.first.amount_cents %>
+                <%= f.button :submit, "No Way" , class:"btn btn-danger" %>
+              <% end %>
+
+            </div>
+
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 </br>
 </br>
 </br>

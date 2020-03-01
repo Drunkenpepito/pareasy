@@ -1,8 +1,11 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path current_user.photo.key, crop: :fill %>') ;">
+<div class="banner">
 
   <div class="container">
-    <h1 class="text-center"><%= current_user.username %></h1>
+    <div class="avatar-profile">
+      <%= cl_image_tag current_user.photo.key, class: "avatar-profile dropdown-toggle"%>
+    </div>
 
+    <h1 class="text-center"><%= current_user.username %></h1>
     <h2 class="text-center"> Ma tirelire :</h2>
     <h1 class="text-center"><%= current_user.amount_cents/100 %> €</h1>
 

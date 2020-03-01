@@ -1,19 +1,24 @@
+<div class = "arrow-left">
+  <%= link_to "", bet_room_path(@bet_room), class:"fas fa-arrow-left" %>
+</div>
 
 <h1 id="banner-typed-text"><strong>Donne le résultat de ton Pari </strong></h1>
 
 <p>On te fait confiance pour pas tricher sur le résultat. C'est tes potes quand même 😉</p>
 
 <% @events.each do |event| %>
-  <p><%= event.sport %> | <%= event.game %> | <%= event.description %></p>
-  <%= link_to close_event_path(event, results: true), method: :patch do %>
-    <div class="card-result">
-      C'était évident 🤙
-    </div>
-  <% end %>
-  <%= link_to close_event_path(event, results: false), method: :patch do %>
-    <div class="card-result">
-      Pas de bol 🤦‍♂️
-    </div>
+  <% unless event.nil? || event.bets.nil? || event.bets.first.nil? || event.bets.first.amount_cents == 0 || event.bets.where(user_id: current_user).empty? %>
+    <p><%= event.sport %> | <%= event.game %> | <%= event.description %></p>
+    <%= link_to close_event_path(event, results: true), method: :patch do %>
+      <div class="card-result">
+        C'était évident 🤙
+      </div>
+    <% end %>
+    <%= link_to close_event_path(event, results: false), method: :patch do %>
+      <div class="card-result">
+        Pas de bol 🤦‍♂️
+      </div>
+    <% end %>
   <% end %>
 <% end %>
 
