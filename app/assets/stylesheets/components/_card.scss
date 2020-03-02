@@ -9,7 +9,6 @@
 }
 
 
-
 // Smallest device
 // @media (min-width: 100px) and (max-width: 575px) {
 //   .cards {
@@ -71,8 +70,8 @@
 }
 
 .card-category-sport {
-  width: 200px;
-  margin: 30px 30px;
+  width: 308px;
+  margin: 17px 30px;
   background-size: cover;
   background-position: center;
   height: 180px;
@@ -88,11 +87,35 @@
 }
 
 .list-game{
-
+  margin: 17px 30px;
+  background-size: cover;
+  background-position: center;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .list-description{
-
+  margin: 17px 30px;
+  background-size: cover;
+  background-position: center;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .settup-bet{
@@ -154,6 +177,8 @@
 
   .card-event {
     background-size: cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
     height: 180px;
     justify-content: center;
     align-items: center;
@@ -163,9 +188,29 @@
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     border-radius: 5px;
     margin-top: 32px;
-    border: solid black 4px;
+    border: solid black 1px;
     letter-spacing: 2px;
-    background-color: grey;
+    // background-color: #d4d4d4;
+    // background: linear-gradient(18deg, #3F51B5, #1edd88);
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(image-path('foot.jpg'));
+
+
+      .defaut{
+        background-color: #d4d4d4;
+      }
+
+      .foot{
+      }
+
+      .rugby{
+        background-color: #d4d4d4;
+
+      }
+
+      .tennis{
+
+      }
+
 
       .card-event-line1{
         display:flex;

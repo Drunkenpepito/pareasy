@@ -205,7 +205,7 @@ france_allemagne = Bet.new(amount_cents: 5, result: true, event: fa_3_0, user: x
 france_allemagne.save!
 federer_nadal = Bet.new(amount_cents: 6, result: false, event: fn_psf, user: benjamin)
 federer_nadal.save!
-france_angleterre = Bet.new(amount_cents: 2, result: true, event: fa_bo, user: pierre)
-france_angleterre.save!
+# france_angleterre = Bet.new(amount_cents: 2, result: true, event: fa_bo, user: pierre)
+# france_angleterre.save!
 gpm = Bet.new(amount_cents: 1, result: false, event: f1_f, user: edouard)
 gpm.save!
