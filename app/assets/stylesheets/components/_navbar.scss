@@ -1,9 +1,12 @@
 .navbar-lewagon {
-    justify-content: space-between;
-    background: white;
-    padding: 5px;
-    margin: 5px;
-    font-size: 20px;
+  justify-content: space-between;
+  background: white;
+  // padding: 5px;
+  // margin: 5px;
+  font-size: 20px;
+  position: sticky;
+  top: 0;
+  z-index:5;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -19,3 +22,12 @@
 .navbar-lewagon .container {
   margin: 5px;
 }
+
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+

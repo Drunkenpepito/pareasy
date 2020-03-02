@@ -60,6 +60,7 @@ class BetsController < ApplicationController
   private
   def bet_params
     strong_params = params.require(:bet).permit(:result, :amount_cents)
+    # strong_params = params.permit(:result, :amount_cents)
     strong_params[:amount_cents] = strong_params[:amount_cents].to_i
     strong_params
   end

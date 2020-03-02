@@ -1,5 +1,5 @@
 <div class = "arrow-left">
-  <%= link_to "", edit_game_event_path(@event), class:"fas fa-arrow-left" %>
+  <%= link_to "", edit_game_event_path(@event), class:"fas fa-arrow-left", data: {turbolinks: false} %>
 </div>
 
 <h2>Choisissez votre Pari 😜</h2>
@@ -19,5 +19,7 @@
   <div data-event="3 - 0" class="list-description">
     3 - 0
   </div>
-  <%= f.button :submit, "Next" %>
+  <% f.button :submit, "Next" %>
 <% end %>
+
+
