@@ -142,10 +142,9 @@ pm_32 = Event.new(
     sport: "Football",
     league: "ligue 1",
     game: "Paris vs Marseille",
-    description: "But à la 32ème",
+    description: "4 - 1",
     game_start_at: DateTime.new(2020,10,12,20,45,00),
     bet_room: bet_room,
-
     author: edouard
     )
 
@@ -155,10 +154,9 @@ pm_32 = Event.new(
     sport: "Football",
     league: "ligue 1",
     game: "France vs Allemagne",
-    description: "3-0",
+    description: "3 - 0",
     game_start_at: DateTime.new(2020,5,4,20,45,00),
     bet_room: bet_room,
-
     author: edouard
     )
 
@@ -168,7 +166,7 @@ pm_32 = Event.new(
     sport: "Tennis",
     league: "Roland Garros",
     game: "Federer vs Nadal",
-    description: "premier set Federer",
+    description: "6 - 4",
     game_start_at: DateTime.new(2020,4,4,14,30,00),
     bet_room: bet_room,
 
@@ -181,7 +179,7 @@ pm_32 = Event.new(
     sport: "Rugby",
     league: "Six Nations",
     game: "France vs Angleterre",
-    description: "Bonus offensif France",
+    description: "35 - 20",
     game_start_at: DateTime.new(2020,3,11,14,30,00),
     bet_room: bet_room,
     author: edouard
@@ -190,10 +188,10 @@ pm_32 = Event.new(
   fa_bo.save!
 
   f1_f = Event.new(
-    sport: "F1",
-    league: "Monaco",
-    game: "Grand Tour Monaco",
-    description: "Victoire Ferarri",
+    sport: "Football",
+    league: "Ligue 1",
+    game: "Amiens vs Lyon",
+    description: "0 - 2",
     game_start_at: DateTime.new(2020,9,7,15,00,00),
     bet_room: bet_room,
     author: edouard
