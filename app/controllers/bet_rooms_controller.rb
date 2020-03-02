@@ -13,16 +13,17 @@ class BetRoomsController < ApplicationController
     @bet_room = BetRoom.new
     @users = User.where.not(id: current_user.id).sort_by(&:username)
     authorize @bet_room
-
   end
 
   def create
 
     @bet_room = BetRoom.new(bet_room_params)
 
+
     # @bet_room.users.push(current_user)
     authorize @bet_room
     if @bet_room.save
+      Chatroom.create!(bet_room: @bet_room)
       params[:bet_room][:user_ids].each do |user_id|
         Participation.create(user_id: user_id, bet_room: @bet_room)
       end
