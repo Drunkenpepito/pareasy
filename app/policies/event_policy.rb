@@ -13,6 +13,14 @@ class EventPolicy < ApplicationPolicy
     return true
   end
 
+  def edit_league?
+    return true
+  end
+
+  def update_league?
+    return true
+  end
+
   def edit_game?
     return true
   end
