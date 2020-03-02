@@ -27,6 +27,6 @@ https://www.thesportsdb.com/api/v1/json/1/lookupevent.php?id=603734
 ## TODO
 
 - ajouter les 2 colonnes dans la table events, de type integer (OK)
-- aller en rails c, prendre un event, le mettre a jour avec un vrai thesportdb_event_id et league id
+- aller en rails c, prendre un event, le mettre a jour avec un vrai thesportdb_event_id et league id (OK)
 - coder le service
 - le tester en rails c avec l'event modifié
