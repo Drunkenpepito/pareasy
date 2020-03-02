@@ -16,6 +16,12 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :chatrooms, only: :show do
+      resources :messages, only: :create
+  end
+
+
   resources :events, only: [] do
     member  do
       get "/edit_game", to: "events#edit_game"

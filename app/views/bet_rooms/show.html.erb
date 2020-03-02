@@ -4,6 +4,9 @@
     <div class="edit-delete">
       <%= link_to " Edit", edit_bet_room_path, :class => "fas fa-pencil-alt" %>
       <%= link_to " Delete", bet_room_path, method: :delete, data: {:confirm => 'Are you sure?'}, :class => "fas fa-trash-alt" %>
+ <!-- chatroom_path(@bet_room.chatroom) -->
+
+
     </div>
     <h1><%= @bet_room.name %></h1>
     <p>C'est qui le patron ?</p>
@@ -12,7 +15,6 @@
     </div>
   </div>
 </div>
-
 
   <div class="text-center">
     <h2><strong> Paris en cours...</strong>
@@ -146,4 +148,3 @@
     <% end %>
   </div>
 </br>
-
