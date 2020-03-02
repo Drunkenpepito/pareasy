@@ -1,9 +1,6 @@
 class FetchEventResultsService
   def initialize(event)
     @event = event
-
-
-
     end
 
   def call
@@ -18,7 +15,6 @@ class FetchEventResultsService
   else false
 
     # enregistrer le results dans l'event
-
 
   end
 end

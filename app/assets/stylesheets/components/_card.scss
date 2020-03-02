@@ -86,12 +86,14 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.list-game{
+.list-league{
   margin: 17px 30px;
   background-size: cover;
   background-position: center;
-  height: 54px;
+  height: 96px;
+  width: 152px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   color: black;

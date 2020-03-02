@@ -7,15 +7,27 @@
 
 <%= simple_form_for @event, url: update_league_event_path(@event), html: { method: :post, id: :edit_league } do |f| %>
   <%= f.hidden_field :id %>
-  <%= f.hidden_field :league %>
-  <div data-event="Ligue 1" class="list-league">
+  <%= f.hidden_field :thesportdb_league_id %>
+  <div data-event="4334" class="list-league" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.thesportsdb.com/images/media/league/badge/8f5jmf1516458074.png)">
     Ligue 1
   </div>
-  <div data-event="Premier League" class="list-league">
+  <div data-event="4328" class="list-league" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.futura-sciences.com/buildsv6/images/wide1920/9/b/3/9b3dee9ae8_126600_forme-ballon-foot.jpg)">
     Premier League
   </div>
-  <div data-event="Liga" class="list-league">
+  <div data-event="4335" class="list-league" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.futura-sciences.com/buildsv6/images/wide1920/9/b/3/9b3dee9ae8_126600_forme-ballon-foot.jpg)">
     Liga
+  </div>
+  <div data-event="4331" class="list-league" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.futura-sciences.com/buildsv6/images/wide1920/9/b/3/9b3dee9ae8_126600_forme-ballon-foot.jpg)">
+    Bundesliga
+  </div>
+  <div data-event="4332" class="list-league" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.futura-sciences.com/buildsv6/images/wide1920/9/b/3/9b3dee9ae8_126600_forme-ballon-foot.jpg)">
+    Serie A
+  </div>
+  <div data-event="4480" class="list-league" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.futura-sciences.com/buildsv6/images/wide1920/9/b/3/9b3dee9ae8_126600_forme-ballon-foot.jpg)">
+    Champions League
+  </div>
+  <div data-event="4481" class="list-league" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.futura-sciences.com/buildsv6/images/wide1920/9/b/3/9b3dee9ae8_126600_forme-ballon-foot.jpg)">
+    Europa League
   </div>
   <% f.button :submit, "Next" %>
 <% end %>
