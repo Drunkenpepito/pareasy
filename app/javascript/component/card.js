@@ -11,6 +11,18 @@ cards.forEach((card) => {
   })
 })
 
+const fields = document.querySelectorAll('.list-league')
+
+fields.forEach((field) => {
+  field.addEventListener('click', (event) => {
+    const hiddenInput = document.querySelector('#event_league')
+    const leagueValue = event.currentTarget.dataset.event
+    hiddenInput.value = leagueValue
+
+    document.querySelector('#edit_league').submit()
+  })
+})
+
 const lists = document.querySelectorAll('.list-game')
 
 lists.forEach((list) => {

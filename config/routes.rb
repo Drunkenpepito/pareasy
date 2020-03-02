@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   resources :events, only: [] do
     member  do
+      get "/edit_league", to: "events#edit_league"
+      post "/update_league", to: "events#update_league"
       get "/edit_game", to: "events#edit_game"
       post "/update_game", to: "events#update_game"
       get "/edit_description", to: "events#edit_description"

@@ -140,6 +140,7 @@ puts 'Creating events'
 
 pm_32 = Event.new(
     sport: "Football",
+    league: "ligue 1",
     game: "Paris vs Marseille",
     description: "But à la 32ème",
     game_start_at: DateTime.new(2020,10,12,20,45,00),
@@ -152,6 +153,7 @@ pm_32 = Event.new(
 
   fa_3_0 = Event.new(
     sport: "Football",
+    league: "ligue 1",
     game: "France vs Allemagne",
     description: "3-0",
     game_start_at: DateTime.new(2020,5,4,20,45,00),
@@ -164,6 +166,7 @@ pm_32 = Event.new(
 
   fn_psf = Event.new(
     sport: "Tennis",
+    league: "Roland Garros",
     game: "Federer vs Nadal",
     description: "premier set Federer",
     game_start_at: DateTime.new(2020,4,4,14,30,00),
@@ -176,6 +179,7 @@ pm_32 = Event.new(
 
   fa_bo = Event.new(
     sport: "Rugby",
+    league: "Six Nations",
     game: "France vs Angleterre",
     description: "Bonus offensif France",
     game_start_at: DateTime.new(2020,3,11,14,30,00),
@@ -187,6 +191,7 @@ pm_32 = Event.new(
 
   f1_f = Event.new(
     sport: "F1",
+    league: "Monaco",
     game: "Grand Tour Monaco",
     description: "Victoire Ferarri",
     game_start_at: DateTime.new(2020,9,7,15,00,00),

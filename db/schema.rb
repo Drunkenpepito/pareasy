@@ -72,6 +72,9 @@ ActiveRecord::Schema.define(version: 2020_03_02_150959) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "author_id"
     t.boolean "results"
+    t.string "league"
+    t.integer "thesportdb_league_id"
+    t.integer "thesportdb_event_id"
     t.index ["author_id"], name: "index_events_on_author_id"
     t.index ["bet_room_id"], name: "index_events_on_bet_room_id"
   end
