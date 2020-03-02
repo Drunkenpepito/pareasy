@@ -7,6 +7,7 @@ class EventsController < ApplicationController
   end
 
   def create_sport
+
     @event = Event.new(event_params)
     @bet_room = BetRoom.find(params[:bet_room_id])
     @event.bet_room = @bet_room
@@ -43,7 +44,6 @@ class EventsController < ApplicationController
   end
 
   def update_game
-    # raise
     @event = Event.find(params[:id])
     authorize @event
     @event.game = params[:event][:game]
