@@ -14,9 +14,26 @@ class EventsController < ApplicationController
     authorize @event
 
     if @event.save
-      redirect_to edit_game_event_path(@event)
+      redirect_to edit_league_event_path(@event)
     else
       render :new_sport
+    end
+  end
+
+  def edit_league
+    @event = Event.find(params[:id])
+    authorize @event
+  end
+
+  def update_league
+    # raise
+    @event = Event.find(params[:id])
+    authorize @event
+    @event.league = params[:event][:league]
+    if @event.save
+      redirect_to edit_game_event_path(@event)
+    else
+      render :edit_league
     end
   end
 
@@ -108,7 +125,6 @@ class EventsController < ApplicationController
         user.amount_cents += price_per_winner
         user.save
       end
-
     end
 
     redirect_to bet_room_events_path(@event.bet_room)
@@ -117,8 +133,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:sport, :game, :description)
-
+    params.require(:event).permit(:sport, :league, :game, :description)
   end
 
   def gamers(event_id)
