@@ -2,7 +2,6 @@
   <%= link_to "", new_sport_bet_room_events_path(@event.bet_room), class:"fas fa-arrow-left", data: {turbolinks: false} %>
 </div>
 
-
 <h2>Selectionnez une compétition</h2>
 
 <%= simple_form_for @event, url: update_league_event_path(@event), html: { method: :post, id: :edit_league } do |f| %>

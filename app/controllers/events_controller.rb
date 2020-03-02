@@ -30,7 +30,10 @@ class EventsController < ApplicationController
     # raise
     @event = Event.find(params[:id])
     authorize @event
+
     @event.league = params[:event][:league]
+    @event.thesportdb_league_id = params[:event][:thesportdb_league_id]
+
     if @event.save
       redirect_to edit_game_event_path(@event)
     else
@@ -41,12 +44,17 @@ class EventsController < ApplicationController
   def edit_game
     @event = Event.find(params[:id])
     authorize @event
+
+    @games = ParseEventService.new(@event).call
   end
 
   def update_game
     @event = Event.find(params[:id])
     authorize @event
+
     @event.game = params[:event][:game]
+    @event.thesportdb_event_id = params[:event][:thesportdb_event_id]
+
     if @event.save
       redirect_to edit_description_event_path(@event)
     else

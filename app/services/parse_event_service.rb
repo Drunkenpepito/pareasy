@@ -2,15 +2,22 @@ require 'json'
 require 'open-uri'
 
 class ParseEventService
-  def initialize
+  def initialize(event)
+    @event = event
   end
 
+  def call
+    url = "https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=#{@event.thesportdb_league_id}"
+    events_serialized = open(url).read
+    events = JSON.parse(events_serialized)["events"]
 
-def call
-  url = "https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=#{@event.thesportdb_league_id}"
-  league_serialized = open(url).read
-  league = JSON.parse(league_serialized)["events"][0]
-end
+    return events.map do |event|
+      {
+        id:   event["idEvent"],
+        name: event["strEvent"]
+      }
+    end
+  end
 
   # def call
   #   # appeler l'api
@@ -34,3 +41,4 @@ end
 
 # ParseEventService.new(event).call
 
+# ["events"][0]
