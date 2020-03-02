@@ -10,15 +10,21 @@
 <% @events.each do |event| %>
   <% unless event.nil? || event.bets.nil? || event.bets.first.nil? || event.bets.first.amount_cents == 0 || event.bets.where(user_id: current_user).empty? %>
     <p><%= event.sport %> | <%= event.game %> | <%= event.description %></p>
-    <%= link_to close_event_path(event, results: true), method: :patch do %>
-      <div class="card-result">
-        C'était évident 🤙
-      </div>
-    <% end %>
-    <%= link_to close_event_path(event, results: false), method: :patch do %>
-      <div class="card-result">
-        Pas de bol 🤦‍♂️
-      </div>
+    <% if event.results.nil? %>
+      <%= link_to close_event_path(event, results: true), method: :patch do %>
+        <div class="card-result">
+          C'était évident 🤙
+        </div>
+      <% end %>
+      <%= link_to close_event_path(event, results: false), method: :patch do %>
+        <div class="card-result">
+          Pas de bol 🤦‍♂️
+        </div>
+      <% end %>
+    <% elsif event.results == true %>
+      C'est gagné
+    <% else %>
+      C'est perdu
     <% end %>
   <% end %>
 <% end %>
