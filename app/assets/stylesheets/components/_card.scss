@@ -102,6 +102,22 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.list-game{
+  margin: 17px 30px;
+  background-size: cover;
+  background-position: center;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
 .list-description{
   margin: 17px 30px;
   background-size: cover;
@@ -192,23 +208,29 @@
     letter-spacing: 2px;
     // background-color: #d4d4d4;
     // background: linear-gradient(18deg, #3F51B5, #1edd88);
-    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(image-path('foot.jpg'));
+
+      &.event-foot {
+          background-image: -webkit-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('foot.jpg'));
+          background-image: -o-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('foot.jpg'));
+          background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('foot.jpg'));
+      }
+
+      &.event-tennis {
+          background-image: -webkit-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('tennis.jpg'));
+          background-image: -o-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('tennis.jpg'));
+          background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('tennis.jpg'));
+      }
+
+      &.event-rugby {
+          background-image: -webkit-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.jpg'));
+          background-image: -o-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.jpg'));
+          background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.jpg'));
+      }
+
 
 
       .defaut{
         background-color: #d4d4d4;
-      }
-
-      .foot{
-      }
-
-      .rugby{
-        background-color: #d4d4d4;
-
-      }
-
-      .tennis{
-
       }
 
 
