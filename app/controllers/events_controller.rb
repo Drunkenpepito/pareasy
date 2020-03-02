@@ -88,9 +88,10 @@ class EventsController < ApplicationController
     @bets.each do |bet|
       sum_bets_amount += bet.amount_cents.to_i
       player += 1
-
       if bet.result == @event.results
         winner_count += 1
+        bet.winner = true
+        bet.save
       end
     end
 
@@ -108,8 +109,9 @@ class EventsController < ApplicationController
         user.amount_cents += price_per_winner
         user.save
       end
-
     end
+    @event.finish = true
+    @event.save
 
     redirect_to bet_room_events_path(@event.bet_room)
   end

@@ -1,0 +1,103 @@
+
+<% @events.each do |event| %>
+<div id="accordion">
+  <div class="card-event">
+    <div class="card-event-line1">
+      <h5><strong><%= event.game %></strong> - <%= event.description %>
+          <% if event.results == true %>
+           ✅
+          <% else %>
+           ❌
+          <% end %>
+      </h5>
+    </div>
+
+    <h5 class="mb-0">
+      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne-<%= event.id %>" aria-expanded="true" aria-controls="collapseOne">
+              More info...
+      </button>
+    </h5>
+  </div>
+
+  <div id="collapseOne-<%= event.id %>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+    <div class="card-body">
+      </br>
+      </br>
+
+      <div class="text-center">
+        <h2><strong> Résultat ! </strong></h2>
+      </div>
+
+      <div class="cardsEvent">
+
+        <div class="card-event">
+          <div class="card-event-line2"><%=event.game %></div>
+          <div class="card-event-line3"><%=event.description %></div>
+        </div>
+
+        <h4><strong> Liste des gagnants</strong></h4>
+
+        <div class="card-event-result">
+          <% event.bets.each do |bet|%>
+            <% if bet.winner == true %>
+              <div class="card-event-line1">
+                <div><%= cl_image_tag bet.user.photo.key, class: "avatar", 'aria-haspopup': true, 'aria-expanded': false %></div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+
+
+<div class="table-container" role="table" aria-label="Destinations">
+      <div class="flex-table header" role="rowgroup">
+      <div class="flex-row first" role="columnheader">Gamer</div>
+      <div class="flex-row" role="columnheader">Score</div>
+    </div>
+
+    <div class="flex-table row" role="rowgroup">
+      <div class="flex-row first" role="cell">
+       <span class="flag-icon flag-icon-gb"></span>
+       <div><%#= cl_image_tag bet.user.photo.key, class: "avatar", 'aria-haspopup': true, 'aria-expanded': false %></div>
+      </div>
+      <div class="flex-row" role="cell"> <%# if bet.result == true %> 🏆 <%# end %></div>
+
+    </div>
+      <div class="flex-table row" role="rowgroup">
+        <div class="flex-row first"  role="cell"><span class="flag-icon flag-icon-ca"></span> Canada</div>
+        <div class="flex-row" role="cell">Vancouver to Victoria and Butchart Gardens Tour </div>
+      </div>
+    </div>
+
+  </div>
+
+                     <!-- end de la bouce bet -->
+
+<% end %>  <!-- end de la bouce event -->
+
+
+
+
+<!-- Event.last.bets.select(&:winner).map(&:user) -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

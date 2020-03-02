@@ -44,6 +44,7 @@
   }
 }
 
+
 .card-category {
   background-size: cover;
   background-position: center;
@@ -175,6 +176,8 @@
   text-align: center;
   justify-content: space-between;
 
+
+
   .card-event {
     background-size: cover;
     background-repeat:   no-repeat;
@@ -277,9 +280,41 @@
       padding-bottom: 0px;
       }
 
+
+
   }
 
-}
+    .card-event-result {
+    background-size: cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+    height: 180px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    margin-top: 32px;
+    border: solid black 1px;
+    letter-spacing: 2px;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(image-path('Trophee.jpg'));
+
+    }
+
+    .card-event-result .card-event-line1{
+    display:flex;
+    color:white;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: lighter;
+    margin: 0;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+
+  }
 
 
 .cardsProfile {
@@ -296,3 +331,36 @@
 
   }
 }
+
+}
+
+.cardsPierre {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  text-align: center;
+  justify-content: space-between;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+.cardsEvent {
+  display: grid;
+  grid-template-columns: 1fr ;
+  grid-gap: 16px;
+  text-align: center;
+  justify-content: space-between;
+
+}
+
+
+

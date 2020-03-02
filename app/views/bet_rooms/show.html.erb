@@ -22,7 +22,9 @@
   <div class="container text-center"><%= link_to "Donne le résultat de tes paris", bet_room_events_path(@bet_room), class: "btn btn-ghost" %></div>
 
 
-  <div class="cardsEvent">
+
+
+<div class="cardsEvent">
     <% @events.each do |event| %>
       <% unless event.nil? || event.bets.nil? || event.bets.first.nil? || event.bets.first.amount_cents == 0 || event.bets.where(user_id: current_user).empty? %>
         <% if event.results.nil? %>
@@ -43,28 +45,6 @@
                   0€
                 <% end %>
               </span>
-            </div>
-            <div class="card-event-line5">
-              <span>
-                <button class="btn btn-5 btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <%= event.users.distinct.count %> Gamers
-                </button>
-
-                <div class="dropdown-menu">
-                  <% event.bets.each do |bet|  %>
-                    <a class="dropdown-item" href="#"><%= bet.user.username %></a>
-                  <% end %>
-                </div>
-
-              </span>
-              <span>
-                <% if event.bets.count > 0 %>
-                  Cagnotte :<%= (event.bets.first.amount_cents * event.bets.count) %> €
-                <% else %>
-                  0€
-                <% end %>
-              </span>
-
             </div>
             <div class="card-event-line2"><%=event.game %></div>
             <div class="card-event-line3"><%=event.description %></div>

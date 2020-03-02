@@ -28,4 +28,8 @@ class BetRoomPolicy < ApplicationPolicy
   def destroy?
     true
   end
+
+  def stat?
+    true
+  end
 end

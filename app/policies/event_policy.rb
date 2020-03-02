@@ -44,4 +44,8 @@ class EventPolicy < ApplicationPolicy
   def close?
     record.author == user
   end
+
+  # def copy_to_stat?
+  #    true
+  # end
 end

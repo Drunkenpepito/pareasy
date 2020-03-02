@@ -65,6 +65,13 @@ class BetRoomsController < ApplicationController
     return @bet
   end
 
+  def stat
+    @bet_room = BetRoom.find(params[:bet_room_id])
+    authorize @bet_room
+    @events = @bet_room.events.where(finish: true)
+    @users= @bet_room.users
+  end
+
   private
 
   def bet_room_params
