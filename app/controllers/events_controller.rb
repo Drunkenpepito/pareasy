@@ -102,12 +102,11 @@ class EventsController < ApplicationController
   def index
     @bet_room = BetRoom.find(params[:bet_room_id])
     @events = policy_scope(Event).where(bet_room: @bet_room, results: nil, author_id: current_user.id)
-
     # fetch results
     @events.each do |event|
       next unless event.results.nil?
-
       FetchEventResultsService.new(event).call
+
     end
   end
 
@@ -155,10 +154,9 @@ class EventsController < ApplicationController
         end
       end
     end
+    raise
     @event.finish = true
     @event.save
-
-
     redirect_to bet_room_events_path(@event.bet_room)
   end
 
