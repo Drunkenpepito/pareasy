@@ -214,8 +214,13 @@
     margin-top: 32px;
     border: solid black 1px;
     letter-spacing: 2px;
+<<<<<<< HEAD
 
     background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(image-path('foot.jpg'));
+=======
+    box-shadow: 2px 2px 5px 2px rgba(20, 20, 27, 0.5);
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(image-path('foot.jpg'));
+>>>>>>> master
 
       &.event-foot {
           background-image: -webkit-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(image-path('foot.jpg'));
@@ -326,6 +331,7 @@
     margin-top: 32px;
     border: solid black 1px;
     letter-spacing: 2px;
+    box-shadow: 2px 2px 5px 2px rgba(20, 20, 27, 0.5);
     background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(image-path('Trophee.jpg'));
 
     }
@@ -337,9 +343,10 @@
     font-size: 12px;
     font-weight: lighter;
     margin: 0;
-    padding-top: 5px;
+    padding-top: 20px;
     padding-right: 10px;
     padding-left: 10px;
+
       .btn h5 div{
         margin-right: 2px;
       }
@@ -398,5 +405,10 @@
 
 }
 
+#accordion {
+  button {
+    box-shadow: 2px 2px 5px 2px rgba(20, 20, 27, 0.5) !important;
+  }
+}
 
 
