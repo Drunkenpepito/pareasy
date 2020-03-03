@@ -31,7 +31,7 @@
   <div class="container text-center"><%= link_to "Donne le résultat de tes paris", bet_room_events_path(@bet_room), class: "btn btn-ghost" %></div>
 
 <% @events.each do |event| %>
-  <% unless event.nil? || event.bets.nil? || event.bets.first.nil? || event.bets.first.amount_cents == 0 || event.bets.where(user_id: current_user).empty? %>
+  <% unless event.bets.empty? || event.bets.first.amount_cents == 0 || event.bets.where(user_id: current_user).empty? %>
     <% if event.results.nil? %>
       <p id="p-card">Créé par <%=event.bets.first.user.username%></p>
       <div class="cardsEvent">
