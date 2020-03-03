@@ -42,7 +42,7 @@
 
 
 .friends-list {
-  height: 350px;
+  height: 200px;
   border-radius: 6px;
   overflow: scroll;
   background-color: #FFFFFF;
@@ -50,6 +50,15 @@
   box-shadow: 2px 2px 5px 2px #0b0d13e0;
 }
 
+.friends-list-edit {
+  height: 350px;
+  border-radius: 6px;
+  overflow: scroll;
+  background-color: #FFFFFF;
+  padding: 20px;
+  box-shadow: 2px 2px 5px 2px #0b0d13e0;
+
+}
 
 .bet_room_photo{
   margin-top: 20px;

@@ -7,7 +7,7 @@
           <%= simple_form_for(@bet_room) do |f| %>
 
             <h3>Amis - <span id="friends-counter"></span></h3>
-            <div class="friends-list">
+            <div class="friends-list-edit">
               <%= f.association :users, as: :check_boxes, label_method: lambda { |user| render "bet_rooms/new_form_label", user: user }, label: false, wrapper_html: { class: "friends-input" } %>
             </div>
             <div class="edit-btns">
