@@ -48,7 +48,7 @@
   background: #1EDD88;
   transition: background 0.3s ease;
   // margin-top: 100px;
-  margin-bottom: 17px;
+  margin-bottom: 53px;
   border-radius: 20px;
   font-family: Georgia, serif;
   font-weight: bold;
@@ -125,6 +125,13 @@
   opacity: 1;
 }
 
+.btn-delete {
+  background-color: red;
+}
+
+.cancel {
+  margin-top: 50px;
+}
 
 
 
