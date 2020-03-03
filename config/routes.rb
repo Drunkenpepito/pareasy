@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   patch 'profile_update', to: 'pages#update_amount_user'
   # root :to => "bet_rooms#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'update_friends' , to: 'bet_rooms#update_friends'
 
   resources :bet_rooms, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
     resources :events, only: [:index] do

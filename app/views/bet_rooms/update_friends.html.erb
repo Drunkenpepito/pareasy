@@ -1,0 +1,32 @@
+
+
+<div class="container-fluid text-center">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2 class="title-new">Modifiez votre Bet Room</h2>
+      <div class="form">
+        <div class="form-inputs-new">
+          <%= simple_form_for(@bet_room) do |f| %>
+            <div class="input-name">
+              <%= f.input :name, label: false, placeholder: 'Nom de la Room'%>
+            </div>
+            <h3>Amis - <span id="friends-counter"></span></h3>
+            <div class="friends-list">
+              <%= f.association :users, as: :check_boxes, label_method: lambda { |user| render "bet_rooms/new_form_label", user: user }, label: false, wrapper_html: { class: "friends-input" } %>
+            </div>
+            <%#= f.association :users, label_method: lambda { |user| render "bet_rooms/new_form_label", user: user }, label: "Amis"%>
+            <h3>Photos</h3>
+            <%= f.input :photo, label: false, as: :file %>
+            <div class="edit-btns">
+                <%= f.button :submit, "Update!", class: "btn-back btn-flat"%>
+                <%= link_to "Annuler", bet_room_path, class: "btn-back btn-flat btn-cancel" %>
+            </div>
+          <% end %>
+        </div>
+       <!--  <div>
+          <#%= link_to "Retour en arrière", root_path, class: "btn-back btn-flat" %>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
