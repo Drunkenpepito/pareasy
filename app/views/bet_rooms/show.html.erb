@@ -1,5 +1,11 @@
 <%= render 'shared/onglet' %>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @bet_room.photo.key, height: 200, width: 300%>);">
+<% if @bet_room.photo.attachment.nil? %>
+
+  <div class="banner" style="background-color: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)); ">
+<% else %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @bet_room.photo.key, height: 200, width: 300%>') ">
+
+<% end %>
   <div class="container">
     <div class="edit-delete">
       <%#= link_to " Edit", edit_bet_room_path, :class => "fas fa-pencil-alt" %>
