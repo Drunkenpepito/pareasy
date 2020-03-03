@@ -15,6 +15,10 @@ Rails.application.routes.draw do
         # post "/update", to: "events#update"
       end
     end
+    member do
+      get 'friends'
+      post 'update_friends'
+    end
     get 'stat' , to: 'bet_rooms#stat'
   end
 

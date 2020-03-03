@@ -32,4 +32,14 @@ class BetRoomPolicy < ApplicationPolicy
   def stat?
     true
   end
+
+  def update_friends?
+    true
+  end
+
+  def friends?
+    true
+  end
+
+
 end
