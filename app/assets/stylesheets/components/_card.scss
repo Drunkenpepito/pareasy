@@ -214,24 +214,25 @@
     margin-top: 32px;
     border: solid black 1px;
     letter-spacing: 2px;
-    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(image-path('foot.jpg'));
+
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(image-path('foot.jpg'));
 
       &.event-foot {
-          background-image: -webkit-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('foot.jpg'));
-          background-image: -o-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('foot.jpg'));
-          background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('foot.jpg'));
+          background-image: -webkit-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(image-path('foot.jpg'));
+          background-image: -o-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(image-path('foot.jpg'));
+          background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(image-path('foot.jpg'));
       }
 
       &.event-tennis {
-          background-image: -webkit-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('tennis.jpg'));
-          background-image: -o-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('tennis.jpg'));
-          background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('tennis.jpg'));
+          background-image: -webkit-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(image-path('tennis.jpg'));
+          background-image: -o-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(image-path('tennis.jpg'));
+          background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(image-path('tennis.jpg'));
       }
 
       &.event-rugby {
-          background-image: -webkit-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.jpg'));
-          background-image: -o-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.jpg'));
-          background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.jpg'));
+          background-image: -webkit-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(image-path('rugby.jpg'));
+          background-image: -o-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(image-path('rugby.jpg'));
+          background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(image-path('rugby.jpg'));
       }
 
 
