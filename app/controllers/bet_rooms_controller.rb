@@ -76,11 +76,9 @@ class BetRoomsController < ApplicationController
   end
 
   def stat
-
     @bet_room = BetRoom.find(params[:bet_room_id])
     authorize @bet_room
-    @events = @bet_room.events
-    # .where(finish: true)
+    @events = @bet_room.events.where(results: true) || @bet_room.events.where(results: false)
     @users= @bet_room.users
   end
 

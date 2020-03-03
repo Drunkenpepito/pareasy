@@ -155,7 +155,8 @@ class EventsController < ApplicationController
       end
     end
     raise
-    @event.finish = true
+    # @event.finish = true
+    # @event.results != nil
     @event.save
     redirect_to bet_room_events_path(@event.bet_room)
   end

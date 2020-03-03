@@ -1,6 +1,7 @@
 
 <% @events.each do |event| %>
   <% if  event.bets != []%>
+
     <div id="accordion">
       <div class="card-event">
         <div class="card-event-line1 text-center">
@@ -21,15 +22,8 @@
         </div>
       </div>
 
-
-
-
-
-
-
-
       <div id="collapseOne-<%= event.id %>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-        <div class="card-body border border-success">
+        <div class="card-body ">
           <div class="cardsEvent">
             <div class="card-event">
               <div class="card-event-line2"><h2><strong> Résultat ! </strong></h2></div>
@@ -39,33 +33,54 @@
           </div>
           <div class="cardsEvent">
             <div class="card-event-result">
-                    <div ><h4 ><strong> Liste des gagnants</strong></h4></div>
-
-
+              <div ><h4 ><strong> Liste des gagnants</strong></h4></div>
             </div>
-        </div>
-
-
-          <div class="table-container" role="table" aria-label="Destinations">
-
-            <% event.users.each do |poto| %>
-              <div class="flex-table row" role="rowgroup">
-                <div class="flex-row "  role="cell"><span>  <%= poto.username %> </span></div>
-                <div class="flex-row" role="cell">
-                  <% if event.winners.include?(poto)%>
-                    🏅
-                  <% else %>
-                    💩
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-
           </div>
         </div>
       </div>
+
+      <div class="tableResults border border-success">
+        <div class="pl-thead tall">
+          <div class="row">
+            <div class="col text text-center">👦</div>
+            <div class="col text-center">🎲❓</div>
+            <div class="col text-center">€</div>
+          </div>
+        </div>
+        <div class="pl-tbody scroll">
+          <% event.users.each do |poto| %>
+            <div class="row">
+              <div class="col text-center"><%= poto.username %> </div>
+              <div class="col text-center">
+                <% if event.winners.include?(poto)%>
+                  🏅
+                <% else %>
+                  💩
+                <% end %>
+              </div>
+              <div class="col text-center">Cell 3</div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
+
   <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <% end %>  <!-- end de la bouce event -->
 
 
