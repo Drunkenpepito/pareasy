@@ -39,7 +39,7 @@
           <thead>
             <tr>
               <th scope="col">👦</th>
-              <th scope="col">🎲❓</th>
+              <th scope="col">🎲</th>
               <th scope="col">€</th>
             </tr>
           </thead>
@@ -55,10 +55,10 @@
                   <% end %>
                 </td>
                 <td>
-                  <% if event.winners.include?(poto)%>
-                    Gain
+                  <% if event.winners.include?(poto) && event.winners.count != 0 %>
+                      <%= event.bets.first.amount_cents * event.users.count / event.winners.count %> €
                   <% else %>
-                    0€
+                    0 €
                   <% end %>
                 </td>
               </tr>
