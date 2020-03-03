@@ -15,7 +15,7 @@ const fields = document.querySelectorAll('.list-league')
 
 fields.forEach((field) => {
   field.addEventListener('click', (event) => {
-    const hiddenInput = document.querySelector('#event_league')
+    const hiddenInput = document.querySelector('#event_thesportdb_league_id')
     const leagueValue = event.currentTarget.dataset.event
     hiddenInput.value = leagueValue
 
@@ -27,9 +27,13 @@ const lists = document.querySelectorAll('.list-game')
 
 lists.forEach((list) => {
   list.addEventListener('click', (event) => {
-    const hiddenInput = document.querySelector('#event_game')
+    const hiddenInputName = document.querySelector('#event_game')
     const gameValue = event.currentTarget.dataset.event
-    hiddenInput.value = gameValue
+    hiddenInputName.value = gameValue
+
+    const hiddenInputId = document.querySelector('#event_thesportdb_event_id')
+    const gameId = event.currentTarget.dataset.thesportdbEventId
+    hiddenInputId.value = gameId
 
     document.querySelector('#edit_game').submit()
   })

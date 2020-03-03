@@ -1,6 +1,18 @@
 .container-select-event{
   display: flex;
-  margin-top: 10px;
+  margin-top: 28px;
+
+  h2{
+    margin-left: 16px;
+    font-size: 30px;
+  }
+
+  a{
+    font-size: 30px;
+    line-height: 79px;
+    margin-left: 30px;
+    color: black;
+  }
 }
 
 .content-wrapper {

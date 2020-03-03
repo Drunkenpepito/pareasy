@@ -1,8 +1,10 @@
-<div class = "arrow-left">
-  <%= link_to "", edit_game_event_path(@event), class:"fas fa-arrow-left", data: {turbolinks: false} %>
+<%= render 'shared/onglet' %>
+<div class = "container-select-event">
+  <div class = "arrow-left">
+    <%= link_to "", edit_game_event_path(@event), class:"fas fa-arrow-left", data: {turbolinks: false} %>
+  </div>
+  <h2>Type de Pari</h2>
 </div>
-
-<h2>Choisissez votre Pari 😜</h2>
 
 
 

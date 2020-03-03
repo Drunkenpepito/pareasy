@@ -2,10 +2,11 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @bet_room.photo.key, height: 200, width: 300%>);">
   <div class="container">
     <div class="edit-delete">
-      <%= link_to " Edit", edit_bet_room_path, :class => "fas fa-pencil-alt" %>
-      <%= link_to " Delete", bet_room_path, method: :delete, data: {:confirm => 'Are you sure?'}, :class => "fas fa-trash-alt" %>
- <!-- chatroom_path(@bet_room.chatroom) -->
+      <%#= link_to " Edit", edit_bet_room_path, :class => "fas fa-pencil-alt" %>
+      <%#= link_to " Delete", bet_room_path, method: :delete, data: {:confirm => 'Are you sure?'}, :class => "fas fa-trash-alt" %>
 
+
+ <!-- chatroom_path(@bet_room.chatroom) -->
 
     </div>
     <h1><%= @bet_room.name %></h1>

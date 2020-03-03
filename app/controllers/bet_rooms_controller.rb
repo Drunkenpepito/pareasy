@@ -10,6 +10,7 @@ class BetRoomsController < ApplicationController
   end
 
   def new
+
     @bet_room = BetRoom.new
     @users = User.where.not(id: current_user.id).sort_by(&:username)
     authorize @bet_room

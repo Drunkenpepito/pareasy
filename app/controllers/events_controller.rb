@@ -23,6 +23,7 @@ class EventsController < ApplicationController
 
   def edit_league
     @event = Event.find(params[:id])
+    @bet_room = BetRoom.find(@event.bet_room_id)
     authorize @event
   end
 
@@ -30,7 +31,10 @@ class EventsController < ApplicationController
     # raise
     @event = Event.find(params[:id])
     authorize @event
+
     @event.league = params[:event][:league]
+    @event.thesportdb_league_id = params[:event][:thesportdb_league_id]
+
     if @event.save
       redirect_to edit_game_event_path(@event)
     else
@@ -40,13 +44,19 @@ class EventsController < ApplicationController
 
   def edit_game
     @event = Event.find(params[:id])
+    @bet_room = BetRoom.find(@event.bet_room_id)
     authorize @event
+
+    @games = ParseEventService.new(@event).call
   end
 
   def update_game
     @event = Event.find(params[:id])
     authorize @event
+
     @event.game = params[:event][:game]
+    @event.thesportdb_event_id = params[:event][:thesportdb_event_id]
+
     if @event.save
       redirect_to edit_description_event_path(@event)
     else
@@ -56,6 +66,7 @@ class EventsController < ApplicationController
 
   def edit_description
     @event = Event.find(params[:id])
+    @bet_room = BetRoom.find(@event.bet_room_id)
     authorize @event
   end
 
@@ -83,6 +94,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @bet_room = BetRoom.find(@event.bet_room_id)
     @bet = Bet.new
     authorize @event
   end
@@ -101,6 +113,7 @@ class EventsController < ApplicationController
 
   def close
     @event = Event.find(params[:id])
+    @bet_room = BetRoom.find(@event.bet_room_id)
     @event.update(results: params[:results])
     authorize @event
     @bets = Bet.where("event_id=?",params[:id])
@@ -121,11 +134,7 @@ class EventsController < ApplicationController
 
     if winner_count == 0
       price_per_winner = (sum_bets_amount*100) / player
-    else
-      price_per_winner = (sum_bets_amount*100) / winner_count
-    end
-    @bets.each do |bet|
-      if bet.result == @event.results
+      @bets.each do |bet|
         user = User.find(bet.user_id)
         if user.amount_cents.nil?
           user.amount_cents = 0
@@ -133,9 +142,22 @@ class EventsController < ApplicationController
         user.amount_cents += price_per_winner
         user.save
       end
+    else
+      price_per_winner = (sum_bets_amount*100) / winner_count
+      @bets.each do |bet|
+        if bet.result == @event.results
+          user = User.find(bet.user_id)
+          if user.amount_cents.nil?
+            user.amount_cents = 0
+          end
+          user.amount_cents += price_per_winner
+          user.save
+        end
+      end
     end
     @event.finish = true
     @event.save
+
 
     redirect_to bet_room_events_path(@event.bet_room)
   end
