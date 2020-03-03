@@ -1,10 +1,11 @@
 <div class = "onglet">
   <ul>
     <li><%= link_to "", bet_room_path(@bet_room), :class => "far fa-futbol"%></li>
-    <li><%= link_to "", edit_bet_room_path(@bet_room), :class => "far fa-comments"%></li>
-    <li><%= link_to "", edit_bet_room_path(@bet_room), :class => "fas fa-chart-pie"%></li>
-    <li><%= link_to "", edit_bet_room_path(@bet_room), :class => "fas fa-users"%></li>
-    <li><%= link_to "", edit_bet_room_path(@bet_room), :class => "fas fa-cog"%></li>
+    <li><%= link_to "", chatroom_path(@bet_room.chatroom), :class => "far fa-comments"%></li>
+    <li><%= link_to "", edit_bet_room_path, :class => "fas fa-chart-pie"%></li>
+    <li><%= link_to "", edit_bet_room_path, :class => "fas fa-users"%></li>
+    <li><%= link_to "", edit_bet_room_path, :class => "fas fa-cog"%></li>
+
     <li><p><%= current_user.amount_cents/100 %>€</p></li>
   </ul>
 </div>
