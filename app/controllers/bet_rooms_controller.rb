@@ -32,7 +32,18 @@ class BetRoomsController < ApplicationController
       next unless event.results.nil?
 
       FetchEventResultsService.new(event).call
+      unless event.results.nil?
+
+        MoneyDispatch.new(event).call
+      end
+
+        # raise
+        # binding.pry
+
     end
+
+    # si le user a remporté au moins un bet, on le reload pour avoir sa cagnotte à jour
+    current_user.reload
   end
 
   def new
@@ -101,7 +112,8 @@ class BetRoomsController < ApplicationController
   def stat
     @bet_room = BetRoom.find(params[:bet_room_id])
     authorize @bet_room
-    @events = @bet_room.events.where(results: true) || @bet_room.events.where(results: false)
+    @events = @bet_room.events
+    # .where(results: true) || @bet_room.events.where(results: false)
     @users= @bet_room.users
   end
 
