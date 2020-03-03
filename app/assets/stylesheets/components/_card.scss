@@ -189,6 +189,12 @@
   margin-right: -15px;
 }
 
+#p-card{
+    color: grey;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
 
 .cardsEvent {
   display: grid;
@@ -211,7 +217,7 @@
     font-weight: bold;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     border-radius: 5px;
-    margin-top: 32px;
+    // margin-top: 32px;
     border: solid black 1px;
     letter-spacing: 2px;
     background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(image-path('foot.jpg'));
