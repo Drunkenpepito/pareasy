@@ -150,5 +150,10 @@ class EventsController < ApplicationController
     @gamers = Bet.all.where(event_id: event_id)
   end
 
+  def winners
+    @event = Event.find(params[:id])
+    @winners = @event.bets.select(&:winner).map(&:user)
+  end
+
 end
 

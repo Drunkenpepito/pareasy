@@ -1,6 +1,17 @@
 .avatar {
-  width: 65px;
+  width: 50px;
   border-radius: 50%;
+  vertical-align: middle;
+  height: 50px;
+}
+.avatar-pouet {
+  width: 30px;
+  border-radius: 50%;
+  vertical-align: middle;
+  height: 30px;
+  position: relative;
+  left: 30px;
+  border: solid white 2px;
 }
 .avatar-large {
   width: 56px;
