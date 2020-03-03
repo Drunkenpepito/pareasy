@@ -146,9 +146,10 @@ pm_32 = Event.new(
     league: "ligue 1",
     game: "Paris vs Marseille",
     description: "4 - 1",
-    game_start_at: DateTime.new(2020,10,12,20,45,00),
+    game_start_at: DateTime.new(2020,1,12,20,45,00),
     bet_room: bet_room,
-    author: edouard
+    author: edouard,
+    results: true,
     )
 
   pm_32.save!
@@ -172,7 +173,6 @@ pm_32 = Event.new(
     description: "6 - 4",
     game_start_at: DateTime.new(2020,4,4,14,30,00),
     bet_room: bet_room,
-
     author: edouard
     )
 
@@ -183,9 +183,10 @@ pm_32 = Event.new(
     league: "Six Nations",
     game: "France vs Angleterre",
     description: "35 - 20",
-    game_start_at: DateTime.new(2020,3,11,14,30,00),
+    game_start_at: DateTime.new(2020,2,1,14,30,00),
     bet_room: bet_room,
-    author: edouard
+    author: edouard,
+    results: false,
     )
 
   fa_bo.save!
@@ -206,6 +207,7 @@ pm_32 = Event.new(
 puts 'Creating bets'
 
 paris_marseille = Bet.new(amount_cents: 4, result: true, event: pm_32, user: edouard)
+paris_marseille = Bet.new(amount_cents: 4, result: false, event: pm_32, user: benjamin)
 paris_marseille.save!
 france_allemagne = Bet.new(amount_cents: 5, result: true, event: fa_3_0, user: xavier)
 france_allemagne.save!

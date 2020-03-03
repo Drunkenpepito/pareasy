@@ -7,6 +7,13 @@ class BetRoomsController < ApplicationController
     @bet_room = BetRoom.find(params[:id])
     authorize @bet_room
     @events = @bet_room.events
+
+    # fetch results
+    @events.each do |event|
+      next unless event.results.nil?
+
+      FetchEventResultsService.new(event).call
+    end
   end
 
   def new
