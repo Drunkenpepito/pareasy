@@ -38,6 +38,14 @@ class ApplicationPolicy
     false
   end
 
+  def friends?
+    false
+  end
+
+  def update_friends
+    friends?
+  end
+
 
   class Scope
     attr_reader :user, :scope

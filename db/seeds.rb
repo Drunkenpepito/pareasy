@@ -203,7 +203,6 @@ pm_32 = Event.new(
 
   f1_f.save!
 
-
 puts 'Creating bets'
 
 paris_marseille = Bet.new(amount_cents: 4, result: true, event: pm_32, user: edouard)
@@ -217,3 +216,6 @@ federer_nadal.save!
 # france_angleterre.save!
 gpm = Bet.new(amount_cents: 1, result: false, event: f1_f, user: edouard)
 gpm.save!
+
+
+

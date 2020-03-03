@@ -3,6 +3,25 @@ class BetRoomsController < ApplicationController
     @bet_rooms = policy_scope(BetRoom)
   end
 
+  def friends
+    @bet_room = BetRoom.find(params[:id])
+    skip_authorization
+  end
+
+  def update_friends
+    raise
+    @bet_room = BetRoom.find(params[:id])
+    authorize @bet_room
+    # @bet_room.update(bet_room_params2)
+
+    params[:bet_room][:user_ids].each do |user_id|
+      unless Participation.find_by(bet_room: @bet_room, user_id: user_id)
+        Participation.create(user_id: user_id, bet_room: @bet_room)
+      end
+    end
+    redirect_to bet_room_path(@bet_room)
+  end
+
   def show
     @bet_room = BetRoom.find(params[:id])
     authorize @bet_room
@@ -64,10 +83,14 @@ class BetRoomsController < ApplicationController
     @bet_room = BetRoom.find(params[:id])
     authorize @bet_room
     @bet_room.update(bet_room_params)
-    params[:bet_room][:user_ids].each do |user_id|
-      unless Participation.find_by(bet_room: @bet_room, user_id: user_id)
-        Participation.create(user_id: user_id, bet_room: @bet_room)
+    if params[:bet_room][:user_ids]
+
+      params[:bet_room][:user_ids].each do |user_id|
+        unless Participation.find_by(bet_room: @bet_room, user_id: user_id)
+          Participation.create(user_id: user_id, bet_room: @bet_room)
+        end
       end
+
     end
     redirect_to bet_room_path(@bet_room)
   end
@@ -89,7 +112,8 @@ class BetRoomsController < ApplicationController
   def stat
     @bet_room = BetRoom.find(params[:bet_room_id])
     authorize @bet_room
-    @events = @bet_room.events.where(finish: true)
+    @events = @bet_room.events
+    # .where(results: true) || @bet_room.events.where(results: false)
     @users= @bet_room.users
   end
 
@@ -98,5 +122,4 @@ class BetRoomsController < ApplicationController
   def bet_room_params
     params.require(:bet_room).permit(:name, :photo, :user)
   end
-
 end
