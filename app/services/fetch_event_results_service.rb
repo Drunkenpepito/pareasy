@@ -18,15 +18,17 @@ class FetchEventResultsService
     away_score = api_event["intAwayScore"] # 2
 
     # guard clause: sortir si au moins un deux scores est nill
-    return home_score.nil? || away_score.nil?
+    return if home_score.nil? || away_score.nil?
 
     scores = "#{home_score} - #{away_score}" # "0 - 2"
-
     # determiner si results doit etre true ou false
-    @event.results = scores == @event.description
+    # @event.results = scores == @event.description
+    @event.update(
+      results: scores == @event.description
+    )
 
     # enregistrer le results dans l'event
-    @event.save!
+    # @event.save!
   end
 end
 

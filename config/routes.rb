@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   resources :events, only: [:show] do
     member do
       patch "/close", to: "events#close"
+      patch "/money_dispatch", to: "events#money-dispatch"
     end
     resources :bets, only: [:new, :create]
 
