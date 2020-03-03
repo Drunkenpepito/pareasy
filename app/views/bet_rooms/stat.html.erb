@@ -3,6 +3,7 @@
   <% if  event.bets != []%>
 
     <div id="accordion">
+
       <div class="card-event">
         <div class="card-event-line1 text-center">
             <button class="btn btn-success btn-pouet btn-lg card-event-line1" data-toggle="collapse" data-target="#collapseOne-<%= event.id %>" aria-expanded="true" aria-controls="collapseOne">
@@ -31,56 +32,45 @@
               <div class="card-event-line3"><%=event.description %></div>
             </div>
           </div>
-          <div class="cardsEvent">
-            <div class="card-event-result">
-              <div ><h4 ><strong> Liste des gagnants</strong></h4></div>
-            </div>
-          </div>
         </div>
-      </div>
 
-      <div class="tableResults border border-success">
-        <div class="pl-thead tall">
-          <div class="row">
-            <div class="col text text-center">👦</div>
-            <div class="col text-center">🎲❓</div>
-            <div class="col text-center">€</div>
-          </div>
-        </div>
-        <div class="pl-tbody scroll">
-          <% event.users.each do |poto| %>
-            <div class="row">
-              <div class="col text-center"><%= poto.username %> </div>
-              <div class="col text-center">
-                <% if event.winners.include?(poto)%>
-                  🏅
-                <% else %>
-                  💩
-                <% end %>
-              </div>
-              <div class="col text-center">Cell 3</div>
-            </div>
-          <% end %>
-        </div>
-      </div>
+        <table class="table table-dark table-stat">
+          <h4 class="text-center"><strong> Liste des gagnants</strong></h4>
+          <thead>
+            <tr>
+              <th scope="col">👦</th>
+              <th scope="col">🎲❓</th>
+              <th scope="col">€</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% event.users.each do |poto| %>
+              <tr>
+                <td><%= cl_image_tag poto.photo.key, class: "md avatar-diane d-flex justify-content-between "%></td>
+                <td>
+                  <% if event.winners.include?(poto)%>
+                    🏅
+                  <% else %>
+                    👎
+                  <% end %>
+                </td>
+                <td>
+                  <% if event.winners.include?(poto)%>
+                    Gain
+                  <% else %>
+                    0€
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+
+      </div> <!-- fin du collapse -->
+
     </div>
-
   <% end %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <% end %>  <!-- end de la bouce event -->
 
 
