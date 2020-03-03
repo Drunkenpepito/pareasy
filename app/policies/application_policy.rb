@@ -34,6 +34,11 @@ class ApplicationPolicy
     false
   end
 
+  def stat?
+    false
+  end
+
+
   class Scope
     attr_reader :user, :scope
 

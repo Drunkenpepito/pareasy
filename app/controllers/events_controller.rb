@@ -112,9 +112,10 @@ class EventsController < ApplicationController
     @bets.each do |bet|
       sum_bets_amount += bet.amount_cents.to_i
       player += 1
-
       if bet.result == @event.results
         winner_count += 1
+        bet.winner = true
+        bet.save
       end
     end
 
@@ -133,6 +134,8 @@ class EventsController < ApplicationController
         user.save
       end
     end
+    @event.finish = true
+    @event.save
 
     redirect_to bet_room_events_path(@event.bet_room)
   end
@@ -145,6 +148,11 @@ class EventsController < ApplicationController
 
   def gamers(event_id)
     @gamers = Bet.all.where(event_id: event_id)
+  end
+
+  def winners
+    @event = Event.find(params[:id])
+    @winners = @event.bets.select(&:winner).map(&:user)
   end
 
 end

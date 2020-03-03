@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         # post "/update", to: "events#update"
       end
     end
+    get 'stat' , to: 'bet_rooms#stat'
   end
 
   resources :chatrooms, only: :show do
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
       post "/update_game", to: "events#update_game"
       get "/edit_description", to: "events#edit_description"
       post "/update_description", to: "events#update_description"
+      post "/copy_to_stat", to: "events#copy_to_stat"
     end
   end
 

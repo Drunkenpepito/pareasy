@@ -23,4 +23,8 @@ class Event < ApplicationRecord
         end
       end
   end
+
+  def winners
+    self.bets.select(&:winner).map(&:user)
+  end
 end

@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_150959) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "winner", default: false
     t.index ["event_id"], name: "index_bets_on_event_id"
     t.index ["user_id"], name: "index_bets_on_user_id"
   end
@@ -72,6 +73,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_150959) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "author_id"
     t.boolean "results"
+    t.boolean "finish", default: false
     t.string "league"
     t.integer "thesportdb_league_id"
     t.integer "thesportdb_event_id"

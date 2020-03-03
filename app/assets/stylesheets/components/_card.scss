@@ -44,6 +44,7 @@
   }
 }
 
+
 .card-category {
   background-size: cover;
   background-position: center;
@@ -191,6 +192,8 @@
   text-align: center;
   justify-content: space-between;
 
+
+
   .card-event {
     background-size: cover;
     background-repeat:   no-repeat;
@@ -206,8 +209,7 @@
     margin-top: 32px;
     border: solid black 1px;
     letter-spacing: 2px;
-    // background-color: #d4d4d4;
-    // background: linear-gradient(18deg, #3F51B5, #1edd88);
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(image-path('foot.jpg'));
 
       &.event-foot {
           background-image: -webkit-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('foot.jpg'));
@@ -259,7 +261,7 @@
         display:flex;
         color:white;
         justify-content: center;
-        font-size: 45px;
+        font-size: 55px;
         font-weight: bold;
         margin: 0;
 
@@ -299,9 +301,44 @@
       padding-bottom: 0px;
       }
 
+
+
   }
 
-}
+    .card-event-result {
+    background-size: cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+    height: 180px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    margin-top: 32px;
+    border: solid black 1px;
+    letter-spacing: 2px;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(image-path('Trophee.jpg'));
+
+    }
+
+    .card-event-result .card-event-line1{
+    display:flex;
+    color:white;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: lighter;
+    margin: 0;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+      .btn h5 div{
+        margin-right: 2px;
+      }
+
+  }
 
 
 .cardsProfile {
@@ -318,3 +355,42 @@
 
   }
 }
+
+}
+
+.cardsPierre {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  text-align: center;
+  justify-content: space-between;
+
+
+}
+
+
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  text-align: center;
+  justify-content: space-between;
+}
+
+
+
+
+
+
+.cardsEvent {
+  display: grid;
+  grid-template-columns: 1fr ;
+  grid-gap: 16px;
+  text-align: center;
+  justify-content: space-between;
+
+}
+
+
+
