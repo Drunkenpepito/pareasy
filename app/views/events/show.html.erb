@@ -9,16 +9,5 @@
 <%= simple_form_for [@event, @bet] do |f| %>
   <%= f.input :amount_cents, label: "Amount", input_html: { min: '0', max: '10' } %>
   <%= f.input :result, as: :boolean, checked_value: true, unchecked_value: false %>
-  <%= f.button :submit, "Next", data: { confirm: "Es-tu sur?" }
+  <%= f.button :submit, "Next", data: { confirm: "Es-tu sur?" }%>
 <% end %>
-
-
-
-
-
-
-
-
-
-
-
