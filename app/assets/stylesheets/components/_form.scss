@@ -13,12 +13,27 @@
     margin-bottom: 30px;
     text-align: center;
   }
+}
   .btn {
     position: relative;
-    margin-top: 50px;
+    // margin-top: 50px;
     // margin-bottom: 20px
   }
 
+  .form_friend {
+  size: 50px;
+  margin: 10px;
+  height: 100vh;
+  background: none;
+  padding: 10px 20px;
+  margin-top: 50px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  h2 {
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+  }
 }
 
 .form-inputs {
@@ -28,9 +43,22 @@
 
 .friends-list {
   height: 200px;
+  border-radius: 6px;
   overflow: scroll;
+  background-color: #FFFFFF;
+  padding: 20px;
+  box-shadow: 2px 2px 5px 2px #0b0d13e0;
 }
 
+.friends-list-edit {
+  height: 350px;
+  border-radius: 6px;
+  overflow: scroll;
+  background-color: #FFFFFF;
+  padding: 20px;
+  box-shadow: 2px 2px 5px 2px #0b0d13e0;
+
+}
 
 .bet_room_photo{
   margin-top: 20px;
@@ -39,6 +67,7 @@
 .form-inputs-new h3 {
   margin-top: 30px;
   margin-bottom: 30px;
+  color: white;
 }
 
 .form-inputs-new legend {
@@ -57,6 +86,7 @@
 .title-new-amis {
 
     margin-top: 35px;
-    margin-bottom: -20px;
+    margin-bottom: -70px;
+    color: white;
 
 }

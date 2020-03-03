@@ -1,13 +1,18 @@
 .friend-custom-label {
   color: black;
   display: flex;
+  box-align: center;
   align-items: center;
+  box-pack: start;
   justify-content: flex-start;
-  padding: 5px;
+  padding: 8px;
+
   img {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
   }
 }
 .friends-input .form-check {
@@ -35,4 +40,12 @@
 text-align: left;
 background-color: blue;
 
+}
+
+.image-edit-friends {
+  background-image: url("https://i.pinimg.com/originals/b8/cd/1f/b8cd1f6848ffd08cd4392abd07ad2444.jpg");
+   background-size: cover;
+  background-size: cover;
+  background-size: cover;
+  background-size: cover;
 }
