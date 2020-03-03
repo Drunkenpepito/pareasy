@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Cleaning Users, Participations, Events and Bets database...'
 Participation.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
 BetRoom.destroy_all
 Bet.destroy_all
 Event.destroy_all
@@ -122,7 +124,8 @@ puts "Creating bet rooms"
 bet_room = BetRoom.new(name: "Paris entre copains")
 bet_room_pic = URI.open("https://image.shutterstock.com/image-photo/four-friends-taking-selfie-together-260nw-641463781.jpg")
 bet_room.photo.attach(io: bet_room_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
-
+chatroom = Chatroom.new(name: "Paris entre copains")
+bet_room.chatroom = chatroom
 bet_room.save!
 
 puts "Creating participation"
