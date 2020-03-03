@@ -27,6 +27,7 @@ class BetRoomsController < ApplicationController
       params[:bet_room][:user_ids].each do |user_id|
         Participation.create(user_id: user_id, bet_room: @bet_room)
       end
+
       Participation.create(user: current_user, bet_room: @bet_room, admin: true)
       # Cloudinary::Uploader.upload(params[:photo])
       redirect_to bet_room_path(@bet_room)
