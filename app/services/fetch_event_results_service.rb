@@ -17,6 +17,9 @@ class FetchEventResultsService
     home_score = api_event["intHomeScore"] # 0
     away_score = api_event["intAwayScore"] # 2
 
+    # guard clause: sortir si au moins un deux scores est nill
+    return home_score.nil? || away_score.nil?
+
     scores = "#{home_score} - #{away_score}" # "0 - 2"
 
     # determiner si results doit etre true ou false
