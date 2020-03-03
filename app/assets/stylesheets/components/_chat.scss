@@ -1,4 +1,4 @@
- .message-container{
+ .message-container p {
   background: #1EDD88 none repeat scroll 0 0;
   border-radius: 3px;
   font-size: 14px;
@@ -6,4 +6,13 @@
   margin: 20px;
   padding: 5px 10px 5px 12px;
   width:100%;
+}
+
+
+.my-message p {
+  background-color: #1EDD88;
+}
+
+.other-message p {
+  background-color: #95cbe3;
 }

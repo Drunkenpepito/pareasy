@@ -4,16 +4,16 @@
       <h2 class="title-chat text-left">Bienvenue dans la Chat Room</h2>
       <div class="form-chat">
         <div class="form-inputs-chat">
-
-          <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-            <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
-          <% end %>
-
           <div id="messages" data-betroom-id="<%= @chatroom.id %>">
-            <% @chatroom.messages.reverse_each do |message| %>
-              <%= render 'messages/message', message: message%>
+            <% @chatroom.messages.each do |message| %>
+              <%= render 'messages/message', message: message %>
             <% end %>
           </div>
+
+          <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+            <%= f.input :content, label: false, placeholder: "Message" %>
+          <% end %>
+
 
         </div>
       </div>
