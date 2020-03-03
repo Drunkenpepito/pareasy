@@ -1,8 +1,9 @@
 .onglet{
+  display: inline-block;
   ul {
     list-style-type: none;
     margin: 0px;
-    padding: 0 10px;
+    padding: 0 39px;
     overflow: hidden;
     background-color: #333;
     position: fixed;
@@ -10,6 +11,8 @@
     width: 100%;
     z-index:4;
     overflow:hidden;
+    display: inline-block;
+
   }
 
   li {

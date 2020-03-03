@@ -90,8 +90,7 @@
   margin: 17px 30px;
   background-size: cover;
   background-position: center;
-  height: 96px;
-  width: 152px;
+  height: 65px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -102,10 +101,15 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  img{
+    width: 28px;
+    margin-right: 10px;
+  }
 }
 
 .list-game{
-  margin: 17px 30px;
+  margin: 11px 7px;
   background-size: cover;
   background-position: center;
   height: 54px;
@@ -113,8 +117,7 @@
   justify-content: center;
   align-items: center;
   color: black;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 20px;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);

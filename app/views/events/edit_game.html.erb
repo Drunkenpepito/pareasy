@@ -1,28 +1,22 @@
-<div class = "arrow-left">
-  <%= link_to "", edit_league_event_path(@event), class:"fas fa-arrow-left", data: {turbolinks: false} %>
+<%= render 'shared/onglet' %>
+<div class = "container-select-event">
+  <div class = "arrow-left">
+    <%= link_to "", edit_league_event_path(@event), class:"fas fa-arrow-left", data: {turbolinks: false} %>
+  </div>
+  <h2>Matchs</h2>
 </div>
 
 
-<h2>Selectionnez un match</h2>
 
 <%= simple_form_for @event, url: update_game_event_path(@event), html: { method: :post, id: :edit_game } do |f| %>
   <%= f.hidden_field :thesportdb_event_id %>
   <%= f.hidden_field :game %>
 
-<% @games.each do |game| %>
-  <div data-event="<%= game[:name] %>" data-thesportdb-event-id="<%= game[:id] %>" class="list-game">
-    <%= game[:name] %>
-  </div>
-<% end %>
+  <% @games.each do |game| %>
+    <div data-event="<%= game[:name] %>" data-thesportdb-event-id="<%= game[:id] %>" class="list-game">
+      <%= game[:name] %>
+    </div>
+  <% end %>
 
-  <div data-event="PSG-OM" data-thesportdb-event-id="12345" class="list-game">
-    PSG-OM
-  </div>
-  <div data-event="OL-Monaco" class="list-game">
-    OL-Monaco
-  </div>
-  <div data-event="Saint-Etienne-Bordeaux" class="list-game">
-    Saint-Etienne-Bordeaux
-  </div>
   <% f.button :submit, "Next" %>
 <% end %>

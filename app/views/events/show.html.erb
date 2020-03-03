@@ -1,16 +1,27 @@
-<h1>Valide ton Pari et défie tes potes 👍</h1>
+<%= render 'shared/onglet' %>
+<div class = "container-select-event">
+  <div class = "arrow-left">
+    <%= link_to "", edit_description_event_path(@event), class:"fas fa-arrow-left", data: {turbolinks: false} %>
+  </div>
+  <h2>Récapitulatif du Pari</h2>
+</div>
 
-<h2>Récapitulatif du Pari</h2>
-<%= @event.sport %>
-<%= @event.game %>
-<%= @event.description %>
+<div class = "main-container">
+        <div class="cardsEvent">
+          <div class="card-event event-<%= @event.sport %>">
+            <br>
+            <div class="card-event-line2"><%=@event.game %></div>
+            <div class="card-event-line3"><%=@event.description %></div>
+          </div>
+        </div>
 
-<h2>Cet événement va se passer ou non ?</h2>
-<%= simple_form_for [@event, @bet] do |f| %>
-  <%= f.input :amount_cents, label: "Amount", input_html: { min: '0', max: '10' } %>
-  <%= f.input :result, as: :boolean, checked_value: true, unchecked_value: false %>
-  <%= f.button :submit, "Next"  %>
-<% end %>
+  <h2>Cet événement va se passer ou non ?</h2>
+  <%= simple_form_for [@event, @bet] do |f| %>
+    <%= f.input :amount_cents, label: false, placeholder: "Combien souhaites-tu miser ?", input_html: { min: '0', max: '10' } %>
+    <%= f.input :result, as: :boolean, checked_value: true, unchecked_value: false %>
+    <%= f.button :submit, "Next", class: "btn-flat" %>
+  <% end %>
+</div>
 
 
 

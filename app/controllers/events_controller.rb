@@ -23,6 +23,7 @@ class EventsController < ApplicationController
 
   def edit_league
     @event = Event.find(params[:id])
+    @bet_room = BetRoom.find(@event.bet_room_id)
     authorize @event
   end
 
@@ -43,6 +44,7 @@ class EventsController < ApplicationController
 
   def edit_game
     @event = Event.find(params[:id])
+    @bet_room = BetRoom.find(@event.bet_room_id)
     authorize @event
 
     @games = ParseEventService.new(@event).call
@@ -64,6 +66,7 @@ class EventsController < ApplicationController
 
   def edit_description
     @event = Event.find(params[:id])
+    @bet_room = BetRoom.find(@event.bet_room_id)
     authorize @event
   end
 
@@ -91,6 +94,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @bet_room = BetRoom.find(@event.bet_room_id)
     @bet = Bet.new
     authorize @event
   end
@@ -109,6 +113,7 @@ class EventsController < ApplicationController
 
   def close
     @event = Event.find(params[:id])
+    @bet_room = BetRoom.find(@event.bet_room_id)
     @event.update(results: params[:results])
     authorize @event
     @bets = Bet.where("event_id=?",params[:id])
