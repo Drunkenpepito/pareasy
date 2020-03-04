@@ -6,7 +6,7 @@
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @bet_room.photo.key, height: 200, width: 300%>') ">
 
 <% end %>
-  <div class="container">
+  <div class="container ">
     <div class="edit-delete">
       <%#= link_to " Edit", edit_bet_room_path, :class => "fas fa-pencil-alt" %>
       <%#= link_to " Delete", bet_room_path, method: :delete, data: {:confirm => 'Are you sure?'}, :class => "fas fa-trash-alt" %>
@@ -18,7 +18,8 @@
     <h1><%= @bet_room.name %></h1>
     <p>C'est qui le patron ?</p>
     <div class="container text-center">
-      <%= link_to "Lance un Pari ", new_sport_bet_room_events_path(@bet_room), class: "btn btn-flat", data: {turbolinks: false} %>
+      <%#= link_to "Lance un Pari ", new_sport_bet_room_events_path(@bet_room), class: "btn btn-flat", data: {turbolinks: false} %>
+      <%= render 'shared/button' %>
     </div>
   </div>
 </div>
@@ -154,3 +155,4 @@
     <% end %>
   </div>
 </br>
+
