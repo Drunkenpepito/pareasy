@@ -1,4 +1,6 @@
 <div class="friend-custom-label">
-  <%= cl_image_tag user.photo.key %>
-  <%= user.username %>
+  <% unless user.photo.attachment.nil? %>
+    <%= cl_image_tag user.photo.key %>
+    <%= user.username %>
+  <% end %>
 </div>
