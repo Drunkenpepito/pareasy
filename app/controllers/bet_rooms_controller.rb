@@ -42,6 +42,8 @@ class BetRoomsController < ApplicationController
 
     end
 
+
+
     # si le user a remporté au moins un bet, on le reload pour avoir sa cagnotte à jour
     current_user.reload
   end
