@@ -4,7 +4,10 @@
       <span><%= message.user.username %></span>
       <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
     </i>
-    <p><%= message.content%></p>
+    <div  class=" d-flex ">
+      <%= cl_image_tag message.user.photo.key %>
+      <p><%= message.content%></p>
+    </div>
   </div>
 <% else %>
   <div class="message-container <%= message.user == current_user ? 'my-message' : 'other-message' %>" data-user-id=<%= message.user_id %> >
@@ -12,6 +15,12 @@
       <span><%= message.user.username %></span>
       <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
     </i>
-    <p><%= message.content%></p>
+    <div  class=" d-flex ">
+        <% if message.user != current_user %>
+          <%= cl_image_tag message.user.photo.key %>
+        <% end %>
+        <p><%= message.content%></p>
+    </div>
+
   </div>
 <% end %>
