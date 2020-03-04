@@ -1,5 +1,5 @@
 .footer {
-  background: #F4F4F4;
+  background: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,4 +23,19 @@
 }
 .footer .fa-heart {
   color: #D23333;
+}
+.footer.fa-github:before{
+  background-color: white;
+}
+.footer.fa-instagram{
+  color: white;
+}
+.footer.fa-facebook:before{
+  color: white;
+}
+.footer.fa-twitter:before{
+  color: white;
+}
+.footer.fa-linkedin:before{
+  color: white;
 }
