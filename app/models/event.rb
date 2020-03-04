@@ -4,6 +4,8 @@ class Event < ApplicationRecord
   belongs_to :bet_room
   belongs_to :author, class_name: "User"
 
+  attr_accessor :home_team_score, :away_team_score
+
   def user_bet_on_it
     count = 0
       unless @event.nil? || @event.bets.nil? || @event.bets.first.nil? || @event.bets.first.amount_cents == 0 || @event.bets.where(user_id: current_user).empty?
