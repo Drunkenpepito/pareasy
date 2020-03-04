@@ -1,4 +1,63 @@
 
+<!-- classement general -->
+
+
+<div class="backblue" id="accordion">
+
+  <div class="cardsEvent">
+    <div class="card-event event-classement ">
+      <div class="card-event-line2 text-center ">
+
+        <button class="btn btn-guost btn-lg" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" data-toggle="false" aria-controls="collapseOne">
+          <h2 class="row blink_me ">
+            Classement
+          </h2>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+
+    <table class="table table-dark table-stat">
+         <thead>
+           <tr>
+             <th scope="col"> Poto </th>
+             <th scope="col">€</th>
+           </tr>
+         </thead>
+        <% @users.each do |poto| %>
+         <tbody>
+             <tr>
+               <td> <%= poto.username %> </td>
+               <td>
+                  <% score = 0 %>
+                  <% poto.bets.joins(:event).where(events: { bet_room_id: @bet_room.id }).each do |bet| %>
+                    <% if bet.winner == true %>
+                      <% score += (bet.amount_cents * bet.event.bets.count / bet.event.bets.where(winner: true).count) - bet.amount_cents %>
+                    <% else %>
+                      <% score -= bet.amount_cents %>
+                    <% end %>
+                  <% end %>
+                  <%= score %>
+               </td>
+             </tr>
+         </tbody>
+       <% end %>
+
+     </table>
+
+  </div>
+
+</div>
+
+
+
+
+
+
 <% @events.each do |event| %>
   <% if  event.bets != []%>
 
@@ -23,7 +82,8 @@
         </div>
       </div>
 
-      <div id="collapseOne-<%= event.id %>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+
+      <div id="collapseOne-<%= event.id %>" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
         <div class="card-body ">
           <div class="cardsEvent">
             <div class="card-event">

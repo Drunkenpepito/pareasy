@@ -1,12 +1,40 @@
 
+.room-card {
+  background-position: center;
+  background-size: cover;
+  border-radius: 15px;
+  position: relative;
+  height: 150px;
+  margin-bottom: 15px;
+  position: relative;
+  cursor: pointer;
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
-  text-align: center;
-  justify-content: space-between;
+  .notif {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // font-size: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    -webkit-transform: skewX(0deg) !important;
+    transform: skewX(0deg) !important;
+  }
 }
+// .cards {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   grid-gap: 16px;
+//   text-align: center;
+//   justify-content: space-between;
+//   // position: relative;
+// }
 
 
 // Smallest device
@@ -167,10 +195,9 @@
 }
 
 .card-image {
-  background-position: center;
-  background-size: cover;
-  border-radius: 15px;
-
+  // background-position: center;
+  // background-size: cover;
+  // border-radius: 15px;
 }
 
 .container_cards {
@@ -241,6 +268,12 @@
           background-image: -webkit-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.png'));
           background-image: -o-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.png'));
           background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.png'));
+      }
+
+      &.event-classement {
+          background-image: -webkit-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.png'));
+          background-image: -o-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.png'));
+          background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('Trophee.jpg'));
       }
 
 

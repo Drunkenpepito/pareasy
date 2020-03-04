@@ -116,7 +116,8 @@ class BetRoomsController < ApplicationController
     authorize @bet_room
     @events = @bet_room.events
     # .where(results: true) || @bet_room.events.where(results: false)
-    @users= @bet_room.users
+    @users = @bet_room.users
+    @score = 0
   end
 
   private
