@@ -44,15 +44,29 @@
   color: white;
   padding: 20px 20px;
   font-size: 20px;
-  // border-radius: 4px;
-  background: #1EDD88;
+  background: #8080808a;
+  -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
-  // margin-top: 100px;
-  margin-bottom: 53px;
+  margin-bottom: 0px;
   border-radius: 20px;
   font-family: Georgia, serif;
   font-weight: bold;
-  margin-top: 100px;
+  margin-top: 80px;
+  background-size: cover;
+  background-position: center;
+  height: 152px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  color: white;
+  font-size: 65px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin-top: 32px;
 }
 
 .btn-profil{
@@ -80,7 +94,9 @@
 
 .mes_paris_font {
   font-size: 30px;
-  margin-top: 15px;
+  margin-top: 111px;
+  margin-right: 205px;
+  margin-bottom: -20px;
 }
 
 .btn-secondary {
