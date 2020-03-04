@@ -355,17 +355,21 @@
   }
 
 
-.cardsProfile {
+div.cardsProfile {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   text-align: center;
   justify-content: center;
+  justify-items: center;
+  background-color: red;
+
 
   .card-profile {
   background-size: cover;
   text-align: center;
   margin: 10px;
+   background-color: red;
 
   }
 }

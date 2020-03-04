@@ -2,22 +2,22 @@
 <% @events.each do |event| %>
   <% if  event.bets != []%>
 
-    <div id="accordion">
+    <div class="backblue" id="accordion">
 
       <div class="card-event">
         <div class="card-event-line1 text-center">
-            <button class="btn btn-success btn-pouet btn-lg card-event-line1" data-toggle="collapse" data-target="#collapseOne-<%= event.id %>" aria-expanded="true" aria-controls="collapseOne">
-            <%= cl_image_tag event.bets.first.user.photo.key, class: "md avatar-pouet d-flex justify-content-between  "%>
+            <button class="btn btn-pouet btn-lg " data-toggle="collapse" data-target="#collapseOne-<%= event.id %>" aria-expanded="true" data-toggle="false" aria-controls="collapseOne">
+            <%= cl_image_tag event.bets.first.user.photo.key, class: "md avatar-pouet   "%>
               <span ><strong><%= event.game %></strong></span>
               <div><%= event.description %></div>
-                <% if event.winners.include?(current_user) %> <span class="d-flex justify-content-end">🏆</span>
-                <% else event.winners.include?(current_user) %> <span class="d-flex justify-content-end"> 👎</span>
+                <% if event.winners.include?(current_user) %> <span class="justify-content-end">🏆</span>
+                <% else event.winners.include?(current_user) %> <span class="justify-content-end"> 👎</span>
                 <% end %>
               </span >
                 <% if event.results == true %>
-                  <span class="d-flex justify-content-end">✅</span>
+                  <span class="justify-content-end">✅</span>
                 <% else %>
-                  <span class="d-flex justify-content-end">❌</span>
+                  <span class="justify-content-end">❌</span>
                 <% end %>
             </button>
         </div>
@@ -35,7 +35,6 @@
         </div>
 
         <table class="table table-dark table-stat">
-          <h4 class="text-center"><strong> Liste des gagnants</strong></h4>
           <thead>
             <tr>
               <th scope="col">👦</th>
@@ -46,7 +45,7 @@
           <tbody>
             <% event.users.each do |poto| %>
               <tr>
-                <td><%= cl_image_tag poto.photo.key, class: "md avatar-diane d-flex justify-content-between "%></td>
+                <td><%= cl_image_tag poto.photo.key, class: "md avatar-diane "%></td>
                 <td>
                   <% if event.winners.include?(poto)%>
                     🏅
