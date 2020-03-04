@@ -5,6 +5,9 @@
    <!--    <div class="form-chat">
         <div class="form-inputs-chat"> -->
       <div id="messages" data-betroom-id="<%= @chatroom.id %>">
+        <div class="chat_img" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dz8mhj8vj/image/upload/c_fill/v3w8qhzd4zo776rj9iocluh9s4fv')>
+
+        </div>
         <% @chatroom.messages.each do |message| %>
           <%= render 'messages/message', message: message, cable: false %>
         <% end %>
@@ -18,3 +21,5 @@
     <!-- </div> -->
   <!-- </div> -->
 </div>
+
+
