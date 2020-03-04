@@ -19,8 +19,8 @@ end
 
 puts 'Creating users'
 
-pierre = User.new(email: "pierre@pareasy.com", password: "password", username: "Drukenpepito", phone_number: "0756789867")
-pierre_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582299632/jhovq6oz4zluuv6hghym5kvsed11.jpg")
+pierre = User.new(email: "pierre@pareasy.com", password: "password", username: "Furious", phone_number: "0756789867")
+pierre_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277933/ng08ly60kkw5n83hvjbe8tkcqlu3.jpg")
 pierre.photo.attach(io: pierre_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
 pierre.save!
 
@@ -121,10 +121,10 @@ amalia.save!
 
 
 puts "Creating bet rooms"
-bet_room = BetRoom.new(name: "Paris entre copains")
+bet_room = BetRoom.new(name: "Paris entre potes")
 bet_room_pic = URI.open("https://image.shutterstock.com/image-photo/four-friends-taking-selfie-together-260nw-641463781.jpg")
 bet_room.photo.attach(io: bet_room_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
-chatroom = Chatroom.new(name: "Paris entre copains")
+chatroom = Chatroom.new(name: "Paris entre potes")
 bet_room.chatroom = chatroom
 bet_room.save!
 
