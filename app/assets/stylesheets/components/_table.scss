@@ -23,6 +23,7 @@ div {
   flex-flow: row wrap;
   border-left: solid 1px $table-border;
   transition: 0.5s;
+
   &:first-of-type {
     border-top: solid 1px $table-header-border;
     border-left: solid 1px $table-header-border;
@@ -102,7 +103,7 @@ div {
 
 
 .table-stat{
-  color: black;
+  color: white;
   width: 90%;
   text-align: center;
   align-items: center;

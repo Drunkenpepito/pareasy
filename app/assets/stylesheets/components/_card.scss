@@ -242,6 +242,12 @@
           background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.png'));
       }
 
+      &.event-classement {
+          background-image: -webkit-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.png'));
+          background-image: -o-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.png'));
+          background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('Trophee.jpg'));
+      }
+
 
 
       .defaut{
