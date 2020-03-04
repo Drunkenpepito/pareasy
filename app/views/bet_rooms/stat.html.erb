@@ -33,23 +33,25 @@
              <tr>
                <td> <%= poto.username %> </td>
                <td>
-                  <% poto.bets.each do |bet| %>
+                  <% score = 0 %>
+                  <% poto.bets.joins(:event).where(events: { bet_room_id: @bet_room.id }).each do |bet| %>
                     <% if bet.winner == true %>
-                      <% add = (bet.amount_cents * bet.event.users.count / bet.event.bets.where(winner: true).count) - bet.amount_cents %>
-                      <% @score += add %>
+                      <% score += (bet.amount_cents * bet.event.bets.count / bet.event.bets.where(winner: true).count) - bet.amount_cents %>
+                    <% else %>
+                      <% score -= bet.amount_cents %>
                     <% end %>
                   <% end %>
+                  <%= score %>
                </td>
              </tr>
          </tbody>
        <% end %>
+
      </table>
 
   </div>
 
 </div>
-
-
 
 
 
@@ -79,6 +81,7 @@
             </button>
         </div>
       </div>
+
 
       <div id="collapseOne-<%= event.id %>" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
         <div class="card-body ">

@@ -1,5 +1,46 @@
 Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
 
+# Notifications
+
+## Step 1 - creation model --> Model
+
+nom : Notification
+colonnes :
+  bet room ref
+  user ref
+  action (ex: 'event_created', 'message_sent')
+  read (boolean, default: false)
+
+ajouter un has_many notifs sur le user et la bet room
+
+## Step 2 - creer des notifs --> Controller
+
+- sur la creation d'un event
+- sur la creation d'un message
+
+## Step 3 - afficher les notifs --> View
+
+page listing bet rooms, pour chaque bet room
+
+récuperer les notifs :
+- de la bet room
+- pour le current user
+- qui sont non lues
+
+Afficher le nombre
+
+## Step 4 - marquer comme lu
+
+controller bet room, sur la show de la bet room
+
+récuperer les notifs :
+- de la bet room
+- pour le current user
+- qui sont non lues
+
+les marquer comme lues
+
+---
 
 # API
 

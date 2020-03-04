@@ -20,7 +20,31 @@ class FetchEventResultsService
     # guard clause: sortir si au moins un deux scores est nill
     return if home_score.nil? || away_score.nil?
 
-    scores = "#{home_score} - #{away_score}" # "0 - 2"
+    if @event.bet_type == "Score exact"
+      scores = "#{home_score} - #{away_score}"
+    elsif @event.bet_type == "Résultat du match"
+      if home_score > away_score
+        scores = "Victoire de l'équipe à domicile"
+      elsif home_score == away_score
+        scores = "Match Nul"
+      elsif home_score < away_score
+        scores = "Victoire de l'équipe à l'extérieur"
+      end
+    elsif @event.bet_type == "Nombre total de buts"
+      sum = home_score + away_score
+      scores = "sum"
+    elsif @event.bet_type == "But pour les 2 équipes"
+      if home_score && away_score > 0
+        scores = "Oui"
+      else
+        scores = "Non"
+      end
+    end
+
+
+
+
+    # scores = "#{home_score} - #{away_score}" # "0 - 2"
     # determiner si results doit etre true ou false
     # @event.results = scores == @event.description
     @event.update(
