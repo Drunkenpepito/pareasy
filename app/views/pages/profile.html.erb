@@ -76,21 +76,18 @@
                 <td><%= bet.event.bet_room.name %></td>
                 <td><%= bet.event.game %></br><%= bet.event.description %></td>
                 <td>
-                  <% if bet.result == bet.event.results && bet.event.results != nil %>
+                  <% if bet.result == bet.event.results %>
                     🏅
-                  <% elsif bet.result != bet.event.results && bet.event.results != nil %>
+                  <% elsif bet.result != bet.event.results %>
                     👎
                   <% end %>
                 </td>
                 <td>
                   <% if bet.result == bet.event.results %>
-
-
                       <%= gain = (bet.amount_cents * bet.event.users.count / bet.event.bets.where(winner: true).count) - bet.amount_cents %> €
-                      <%= @gains += gain %>
-                     <!--  a changer !!!! -->
+                      <% @gains += gain %>
                   <% else %>
-                    0 €
+                    <%= - bet.amount_cents %> €
                   <% end %>
                 </td>
               </tr>
