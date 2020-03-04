@@ -46,3 +46,18 @@
 .title-chat {
   margin-bottom: 30px;
 }
+
+
+.chatroom-layout {
+  height: calc(100vh - 56px - 80px);
+  display: flex;
+  flex-direction: column;
+  h2, form {
+    flex: 0 0 auto;
+
+  }
+  #messages {
+    flex-grow: 1;
+    overflow: scroll;
+  }
+}

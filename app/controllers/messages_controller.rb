@@ -18,6 +18,7 @@ class MessagesController < ApplicationController
     else
       render "chatrooms/show"
     end
+    # render "chatrooms/show", turbolinks: false
   end
 
   private

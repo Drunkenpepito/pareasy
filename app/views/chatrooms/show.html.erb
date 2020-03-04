@@ -1,20 +1,20 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-12">
+<div class="container-fluid chatroom-layout" data-user-id="<%= current_user.id %>">
+<!--   <div class="row">
+    <div class="col-sm-12"> -->
       <h2 class="title-chat text-center"><%= @chatroom.bet_room.name %></h2>
-      <div class="form-chat">
-        <div class="form-inputs-chat">
-          <div id="messages" data-betroom-id="<%= @chatroom.id %>">
-            <% @chatroom.messages.each do |message| %>
-              <%= render 'messages/message', message: message %>
-            <% end %>
-          </div>
-
-          <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-            <%= f.input :content, label: false, placeholder: "Message" %>
-          <% end %>
-        </div>
+   <!--    <div class="form-chat">
+        <div class="form-inputs-chat"> -->
+      <div id="messages" data-betroom-id="<%= @chatroom.id %>">
+        <% @chatroom.messages.each do |message| %>
+          <%= render 'messages/message', message: message %>
+        <% end %>
       </div>
-    </div>
-  </div>
+
+      <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+        <%= f.input :content, label: false, placeholder: "Message" %>
+      <% end %>
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
 </div>
