@@ -9,14 +9,47 @@
 <h3>
   Résultat du match
 </h3>
+<%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description } do |f| %>
+  <%= f.hidden_field :id %>
+  <%= f.hidden_field :bet_type, value: "Résultat du match" %>
+  <%= f.hidden_field :description %>
+  <div data-event="Victoire de l'équipe à domicile" class="list-description">
+    1
+  </div>
+  <div data-event="Match Nul" class="list-description">
+    Nul
+  </div>
+  <div data-event="Victoire de l'équipe à l'extérieur" class="list-description">
+    2
+  </div>
+  <% f.button :submit, "Next" %>
+<% end %>
 
 <h3>
   Nombre total de buts
 </h3>
+<%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description } do |f| %>
+  <%= f.hidden_field :id %>
+  <%= f.hidden_field :bet_type, value: "Nombre total de buts" %>
+  <%= f.input :description, placeholder:"Nombre total de buts", label: false, as: :numeric, input_html: { min: 0, max: 20 }  %>
+  <%= f.button :submit, "Next" %>
+<% end %>
 
 <h3>
   But pour les 2 équipes
 </h3>
+<%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description } do |f| %>
+  <%= f.hidden_field :id %>
+  <%= f.hidden_field :bet_type, value: "But pour les 2 équipes" %>
+  <%= f.hidden_field :description %>
+  <div data-event="Oui" class="list-description">
+    Oui
+  </div>
+  <div data-event="Non" class="list-description">
+    Non
+  </div>
+  <% f.button :submit, "Next" %>
+<% end %>
 
 <h3>
   Score exact
@@ -24,17 +57,12 @@
 
 <%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description } do |f| %>
   <%= f.hidden_field :id %>
+  <%= f.hidden_field :bet_type, value: "Score exact" %>
   <%= f.hidden_field :description %>
-  <div data-event="1 - 0" class="list-description">
-    1 - 0
-  </div>
-  <div data-event="2 - 0" class="list-description">
-    2 - 0
-  </div>
-  <div data-event="3 - 0" class="list-description">
-    3 - 0
-  </div>
-  <% f.button :submit, "Next" %>
+
+  <%= f.input :home_team_score, as: :numeric, input_html: { min: 0, max: 10 }  %>
+  <%= f.input :away_team_score, as: :numeric, input_html: { min: 0, max: 10 }  %>
+  <%= f.button :submit, "Next" %>
 <% end %>
 
 

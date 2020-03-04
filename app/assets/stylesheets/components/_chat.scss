@@ -5,7 +5,7 @@
 
  .message-container p {
   background: #1EDD88 none repeat scroll 0 0;
-  border-radius: 3px;
+  border-radius: 5px;
   font-size: 14px;
   color: black;
   margin: 20px 0px;
@@ -24,10 +24,58 @@
 
 
 .my-message p {
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 15px;
   background-color: #1EDD88;
 }
 
 .other-message p {
+  margin-left: 10px;
+  padding-left: 5px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  margin-top: 5px;
   background-color: #95cbe3;
   text-align: right;
 }
+
+.message-container {
+
+}
+
+.title-chat {
+  margin-bottom: 30px;
+}
+
+
+.chatroom-layout {
+  height: calc(100vh - 56px - 80px);
+  display: flex;
+  flex-direction: column;
+  h2, form {
+    flex: 0 0 auto;
+
+  }
+  #messages {
+    flex-grow: 1;
+    overflow: scroll;
+  }
+}
+
+.message-container img {
+  display: flex;
+  box-align: center;
+  align-items: center;
+  box-pack: start;
+  justify-content: flex-start;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  vertical-align: middle;
+  height: 40px;
+
+}
+
+
+/* Style the right image */
