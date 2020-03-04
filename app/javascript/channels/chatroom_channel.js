@@ -10,7 +10,7 @@ if (messagesContainer) {
       console.log(data);
       console.log(messagesContainer);
 
-      document.getElementById('messages').insertAdjacentHTML('afterbegin', data);
+      document.getElementById('messages').insertAdjacentHTML('beforeend', data);
     }
   });
 }

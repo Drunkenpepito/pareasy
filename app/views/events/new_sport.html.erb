@@ -9,20 +9,21 @@
 
 
 
-
-<%= simple_form_for([@bet_room, @event], url: create_sport_bet_room_events_path(@bet_room), method: :post) do |f| %>
-  <%= f.hidden_field :sport %>
-  <div data-event="foot" class="card-category-sport" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.futura-sciences.com/buildsv6/images/wide1920/9/b/3/9b3dee9ae8_126600_forme-ballon-foot.jpg)">
-    Foot
-  </div>
-  <div data-event="rugby" class="card-category-sport" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://tel.img.pmdstatic.net/fit/http.3A.2F.2Fimages.2Eone.2Eprismamedia.2Ecom.2Fprogram.2F5.2Fd.2Fe.2Fa.2Fb.2Fa.2F5.2Fa.2Fa.2Fc.2F2.2F5.2F9.2Fb.2F1.2Fa.2Ejpg/630x355/quality/80/rugby-a-7-sevens-world-series.jpg)">
-    Rugby
-  </div>
-  <div data-event="tennis" class="card-category-sport" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.realsport.ch/sites/default/files/styles/image_header_small/public/2018-09/Fotolia_70058017_XL%281%29.jpg?h=8a21eacc&itok=sYdj00JX)">
-    Tennis
-  </div>
-  <% f.button :submit, "" %>
-<% end %>
+<div class ="container-event">
+  <%= simple_form_for([@bet_room, @event], url: create_sport_bet_room_events_path(@bet_room), method: :post) do |f| %>
+    <%= f.hidden_field :sport %>
+    <div data-event="foot" class="card-category-sport" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.futura-sciences.com/buildsv6/images/wide1920/9/b/3/9b3dee9ae8_126600_forme-ballon-foot.jpg)">
+      Foot
+    </div>
+    <div data-event="rugby" class="card-category-sport" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://tel.img.pmdstatic.net/fit/http.3A.2F.2Fimages.2Eone.2Eprismamedia.2Ecom.2Fprogram.2F5.2Fd.2Fe.2Fa.2Fb.2Fa.2F5.2Fa.2Fa.2Fc.2F2.2F5.2F9.2Fb.2F1.2Fa.2Ejpg/630x355/quality/80/rugby-a-7-sevens-world-series.jpg)">
+      Rugby
+    </div>
+    <div data-event="tennis" class="card-category-sport" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.realsport.ch/sites/default/files/styles/image_header_small/public/2018-09/Fotolia_70058017_XL%281%29.jpg?h=8a21eacc&itok=sYdj00JX)">
+      Tennis
+    </div>
+    <% f.button :submit, "" %>
+  <% end %>
+</div>
 
 
 <!--   <%#= link_to create_sport_bet_room_events_path(@bet_room, sport: "Football"), method: :post do %>

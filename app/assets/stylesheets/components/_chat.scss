@@ -1,0 +1,33 @@
+ .message-container {
+  width: 60%;
+ }
+
+
+ .message-container p {
+  background: #1EDD88 none repeat scroll 0 0;
+  border-radius: 3px;
+  font-size: 14px;
+  color: black;
+  margin: 20px 0px;
+  padding: 5px 10px 5px 12px;
+  width: 100%;
+}
+
+#messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-message {
+  align-self: flex-end;
+}
+
+
+.my-message p {
+  background-color: #1EDD88;
+}
+
+.other-message p {
+  background-color: #95cbe3;
+  text-align: right;
+}
