@@ -73,7 +73,9 @@ class EventsController < ApplicationController
   def update_description
     @event = Event.find(params[:id])
     authorize @event
-    @event.description = params[:event][:description]
+    description = "#{event_params[:home_team_score]} - #{event_params[:away_team_score]}"
+    @event.description = description
+    # @event.description = params[:event][:description]
     if @event.save
       redirect_to event_path(@event)
     else
@@ -164,7 +166,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:sport, :league, :game, :description)
+    params.require(:event).permit(:sport, :league, :game, :description, :home_team_score, :away_team_score)
   end
 
   def gamers(event_id)

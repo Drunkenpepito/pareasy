@@ -21,7 +21,9 @@
   <div data-event="3 - 0" class="list-description">
     3 - 0
   </div>
-  <% f.button :submit, "Next" %>
+  <%= f.input :home_team_score, as: :numeric, input_html: { min: 0, max: 10 }  %>
+  <%= f.input :away_team_score, as: :numeric, input_html: { min: 0, max: 10 }  %>
+  <%= f.button :submit, "Next" %>
 <% end %>
 
 
