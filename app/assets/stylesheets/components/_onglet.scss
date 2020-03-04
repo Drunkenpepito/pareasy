@@ -3,16 +3,16 @@
   ul {
     list-style-type: none;
     margin: 0px;
-    padding: 0 39px;
+    padding: 19px 40px;
     overflow: hidden;
     background-color: #333;
     position: fixed;
-    top: 56px;
+    // top: 56px;
     width: 100%;
     z-index:4;
     overflow:hidden;
     display: inline-block;
-
+    bottom: 0px;
   }
 
   li {
@@ -24,8 +24,9 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 12px 14px;
     text-decoration: none;
+    font-size: 23px;
   }
 
   li p {

@@ -19,8 +19,8 @@ end
 
 puts 'Creating users'
 
-pierre = User.new(email: "pierre@pareasy.com", password: "password", username: "Drukenpepito", phone_number: "0756789867")
-pierre_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582299632/jhovq6oz4zluuv6hghym5kvsed11.jpg")
+pierre = User.new(email: "pierre@pareasy.com", password: "password", username: "Furious", phone_number: "0756789867")
+pierre_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582277933/ng08ly60kkw5n83hvjbe8tkcqlu3.jpg")
 pierre.photo.attach(io: pierre_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
 pierre.save!
 
@@ -121,10 +121,10 @@ amalia.save!
 
 
 puts "Creating bet rooms"
-bet_room = BetRoom.new(name: "Paris entre copains")
+bet_room = BetRoom.new(name: "Paris entre potes")
 bet_room_pic = URI.open("https://image.shutterstock.com/image-photo/four-friends-taking-selfie-together-260nw-641463781.jpg")
 bet_room.photo.attach(io: bet_room_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
-chatroom = Chatroom.new(name: "Paris entre copains")
+chatroom = Chatroom.new(name: "Paris entre potes")
 bet_room.chatroom = chatroom
 bet_room.save!
 
@@ -152,62 +152,75 @@ pm_32 = Event.new(
     results: true,
     )
 
-  pm_32.save!
+pm_32.save!
 
-  fa_3_0 = Event.new(
-    sport: "Football",
-    league: "ligue 1",
-    game: "France vs Allemagne",
-    description: "3 - 0",
-    game_start_at: DateTime.new(2020,5,4,20,45,00),
-    bet_room: bet_room,
-    author: edouard
-    )
+p "#{pm_32.sport} event created!"
 
-  fa_3_0.save!
+fa_3_0 = Event.new(
+  sport: "Football",
+  league: "ligue 1",
+  game: "France vs Allemagne",
+  description: "3 - 0",
+  game_start_at: DateTime.new(2020,5,4,20,45,00),
+  bet_room: bet_room,
+  author: edouard
+  )
 
-  fn_psf = Event.new(
-    sport: "Tennis",
-    league: "Roland Garros",
-    game: "Federer vs Nadal",
-    description: "6 - 4",
-    game_start_at: DateTime.new(2020,4,4,14,30,00),
-    bet_room: bet_room,
-    author: edouard
-    )
+fa_3_0.save!
 
-  fn_psf.save!
+p "#{fa_3_0.sport} event created!"
 
-  fa_bo = Event.new(
-    sport: "Rugby",
-    league: "Six Nations",
-    game: "France vs Angleterre",
-    description: "35 - 20",
-    game_start_at: DateTime.new(2020,2,1,14,30,00),
-    bet_room: bet_room,
-    author: edouard,
-    results: false,
-    )
 
-  fa_bo.save!
+fn_psf = Event.new(
+  sport: "Tennis",
+  league: "Roland Garros",
+  game: "Federer vs Nadal",
+  description: "6 - 4",
+  game_start_at: DateTime.new(2020,4,4,14,30,00),
+  bet_room: bet_room,
+  author: edouard
+  )
 
-  f1_f = Event.new(
-    sport: "Football",
-    league: "Ligue 1",
-    game: "Amiens vs Lyon",
-    description: "0 - 2",
-    game_start_at: DateTime.new(2020,9,7,15,00,00),
-    bet_room: bet_room,
-    author: edouard
-    )
+fn_psf.save!
 
-  f1_f.save!
+p "#{fn_psf.sport} event created!"
+
+fa_bo = Event.new(
+  sport: "Rugby",
+  league: "Six Nations",
+  game: "France vs Angleterre",
+  description: "35 - 20",
+  game_start_at: DateTime.new(2020,2,1,14,30,00),
+  bet_room: bet_room,
+  author: edouard,
+  results: false,
+  )
+
+fa_bo.save!
+
+p "#{fa_bo.sport} event created!"
+
+f1_f = Event.new(
+  sport: "Football",
+  league: "Ligue 1",
+  game: "Amiens vs Lyon",
+  description: "0 - 2",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room,
+  author: edouard,
+  results: false
+  )
+
+f1_f.save!
+
+p "#{f1_f.sport} event created!"
 
 puts 'Creating bets'
 
 paris_marseille = Bet.new(amount_cents: 4, result: true, event: pm_32, user: edouard)
-paris_marseille = Bet.new(amount_cents: 4, result: false, event: pm_32, user: benjamin)
+paris_marseille_2 = Bet.new(amount_cents: 4, result: false, event: pm_32, user: benjamin)
 paris_marseille.save!
+paris_marseille_2.save!
 france_allemagne = Bet.new(amount_cents: 5, result: true, event: fa_3_0, user: xavier)
 france_allemagne.save!
 federer_nadal = Bet.new(amount_cents: 6, result: false, event: fn_psf, user: benjamin)
@@ -216,6 +229,11 @@ federer_nadal.save!
 # france_angleterre.save!
 gpm = Bet.new(amount_cents: 1, result: false, event: f1_f, user: edouard)
 gpm.save!
+
+MoneyDispatch.new(pm_32).call
+MoneyDispatch.new(fa_3_0).call
+MoneyDispatch.new(fn_psf).call
+MoneyDispatch.new(f1_f).call
 
 
 

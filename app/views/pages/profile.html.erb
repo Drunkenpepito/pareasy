@@ -2,7 +2,7 @@
 
   <div class="container">
     <div class="avatar-profile">
-      <%= cl_image_tag current_user.photo.key, class: "avatar-profile dropdown-toggle"%>
+      <%= cl_image_tag current_user.photo.key, class: "avatar-profile dropdown-toggle", width: 1.5, height: 1.5, gravity:"faces", crop:"fill"%>
     </div>
 
     <h1 class="text-center"><%= current_user.username %></h1>
@@ -15,32 +15,87 @@
     <div class="cardsProfile">
       <div class="card-profile">
         <p class="text-center"> Gains :
-          0€
+          <% if @gains > 0 %>
+            <%= @gains %>
+          <% else %>
+            0€
+          <% end %>
         </p>
         <p class="text-center"> Pertes :
           0€
         </p>
       </div>
-      <div class="card-profile">
-        <%= simple_form_for current_user, url: profile_update_path, method: :patch do |f| %>
-          <%= f.input :amount_cents, input_html: {value: 1}, as: :hidden %>
-          <%= f.button :submit, "Verser 1 €" , class: "btn btn-flat"%>
-        <% end %>
+
+      <div class="row">
+        <div class="col-4">
+          <div class="card-profile">
+            <%= simple_form_for current_user, url: profile_update_path, method: :patch do |f| %>
+              <%= f.input :amount_cents, input_html: {value: 1}, as: :hidden %>
+              <%= f.button :submit, "+ 1 €" , class: "btn  btn-profil"%>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card-profile">
+            <%= simple_form_for current_user, url: profile_update_path, method: :patch do |f| %>
+              <%= f.input :amount_cents, input_html: {value: 5}, as: :hidden %>
+              <%= f.button :submit, "+ 5 €" , class: "btn btn-profil"%>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card-profile">
+            <%= simple_form_for current_user, url: profile_update_path, method: :patch do |f| %>
+              <%= f.input :amount_cents, input_html: {value: 10}, as: :hidden %>
+              <%= f.button :submit, "+ 10 €" , class: "btn btn-profil"%>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <div class="card-profile">
-        <%= simple_form_for current_user, url: profile_update_path, method: :patch do |f| %>
-          <%= f.input :amount_cents, input_html: {value: 5}, as: :hidden %>
-          <%= f.button :submit, "Verser 5 €" , class: "btn btn-flat"%>
-        <% end %>
-      </div>
-      <div class="card-profile">
-        <%= simple_form_for current_user, url: profile_update_path, method: :patch do |f| %>
-          <%= f.input :amount_cents, input_html: {value: 10}, as: :hidden %>
-          <%= f.button :submit, "Verser 10 €" , class: "btn btn-flat"%>
-        <% end %>
-      </div>
+
     </div>
 
   </div>
 </div>
+
+
+
+       <table class="table table-dark table-stat">
+          <h4 class="text-center"><strong> Liste des paris </strong></h4>
+          <thead>
+            <tr>
+              <th scope="col">Groupe</th>
+              <th scope="col">Pari</th>
+              <th scope="col">🎲</th>
+              <th scope="col">€</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @my_bets.each do |bet| %>
+              <tr>
+                <td><%= bet.event.bet_room.name %></td>
+                <td><%= bet.event.game %></br><%= bet.event.description %></td>
+                <td>
+                  <% if bet.result == bet.event.results && bet.event.results != nil %>
+                    🏅
+                  <% elsif bet.result != bet.event.results && bet.event.results != nil %>
+                    👎
+                  <% end %>
+                </td>
+                <td>
+                  <% if bet.result == bet.event.results %>
+
+
+                      <%= gain = (bet.amount_cents * bet.event.users.count / bet.event.bets.where(winner: true).count) - bet.amount_cents %> €
+                      <%= @gains += gain %>
+                     <!--  a changer !!!! -->
+                  <% else %>
+                    0 €
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
 
