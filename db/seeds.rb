@@ -152,62 +152,75 @@ pm_32 = Event.new(
     results: true,
     )
 
-  pm_32.save!
+pm_32.save!
 
-  fa_3_0 = Event.new(
-    sport: "Football",
-    league: "ligue 1",
-    game: "France vs Allemagne",
-    description: "3 - 0",
-    game_start_at: DateTime.new(2020,5,4,20,45,00),
-    bet_room: bet_room,
-    author: edouard
-    )
+p "#{pm_32.sport} event created!"
 
-  fa_3_0.save!
+fa_3_0 = Event.new(
+  sport: "Football",
+  league: "ligue 1",
+  game: "France vs Allemagne",
+  description: "3 - 0",
+  game_start_at: DateTime.new(2020,5,4,20,45,00),
+  bet_room: bet_room,
+  author: edouard
+  )
 
-  fn_psf = Event.new(
-    sport: "Tennis",
-    league: "Roland Garros",
-    game: "Federer vs Nadal",
-    description: "6 - 4",
-    game_start_at: DateTime.new(2020,4,4,14,30,00),
-    bet_room: bet_room,
-    author: edouard
-    )
+fa_3_0.save!
 
-  fn_psf.save!
+p "#{fa_3_0.sport} event created!"
 
-  fa_bo = Event.new(
-    sport: "Rugby",
-    league: "Six Nations",
-    game: "France vs Angleterre",
-    description: "35 - 20",
-    game_start_at: DateTime.new(2020,2,1,14,30,00),
-    bet_room: bet_room,
-    author: edouard,
-    results: false,
-    )
 
-  fa_bo.save!
+fn_psf = Event.new(
+  sport: "Tennis",
+  league: "Roland Garros",
+  game: "Federer vs Nadal",
+  description: "6 - 4",
+  game_start_at: DateTime.new(2020,4,4,14,30,00),
+  bet_room: bet_room,
+  author: edouard
+  )
 
-  f1_f = Event.new(
-    sport: "Football",
-    league: "Ligue 1",
-    game: "Amiens vs Lyon",
-    description: "0 - 2",
-    game_start_at: DateTime.new(2020,9,7,15,00,00),
-    bet_room: bet_room,
-    author: edouard
-    )
+fn_psf.save!
 
-  f1_f.save!
+p "#{fn_psf.sport} event created!"
+
+fa_bo = Event.new(
+  sport: "Rugby",
+  league: "Six Nations",
+  game: "France vs Angleterre",
+  description: "35 - 20",
+  game_start_at: DateTime.new(2020,2,1,14,30,00),
+  bet_room: bet_room,
+  author: edouard,
+  results: false,
+  )
+
+fa_bo.save!
+
+p "#{fa_bo.sport} event created!"
+
+f1_f = Event.new(
+  sport: "Football",
+  league: "Ligue 1",
+  game: "Amiens vs Lyon",
+  description: "0 - 2",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room,
+  author: edouard,
+  results: false
+  )
+
+f1_f.save!
+
+p "#{f1_f.sport} event created!"
 
 puts 'Creating bets'
 
 paris_marseille = Bet.new(amount_cents: 4, result: true, event: pm_32, user: edouard)
-paris_marseille = Bet.new(amount_cents: 4, result: false, event: pm_32, user: benjamin)
+paris_marseille_2 = Bet.new(amount_cents: 4, result: false, event: pm_32, user: benjamin)
 paris_marseille.save!
+paris_marseille_2.save!
 france_allemagne = Bet.new(amount_cents: 5, result: true, event: fa_3_0, user: xavier)
 france_allemagne.save!
 federer_nadal = Bet.new(amount_cents: 6, result: false, event: fn_psf, user: benjamin)
@@ -216,6 +229,11 @@ federer_nadal.save!
 # france_angleterre.save!
 gpm = Bet.new(amount_cents: 1, result: false, event: f1_f, user: edouard)
 gpm.save!
+
+MoneyDispatch.new(pm_32).call
+MoneyDispatch.new(fa_3_0).call
+MoneyDispatch.new(fn_psf).call
+MoneyDispatch.new(f1_f).call
 
 
 

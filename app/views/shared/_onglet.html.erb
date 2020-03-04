@@ -5,7 +5,46 @@
     <li><%= link_to "",chatroom_path(@bet_room.chatroom) , class: "far fa-comments" %></li>
     <li><%= link_to "", friends_bet_room_path(@bet_room), class: "fas fa-users" %></li>
     <li><%= link_to "", edit_bet_room_path(@bet_room), class: "fas fa-cog" %></li>
-    <li><p><%= current_user.amount_cents/100 %>€</p></li>
+    <li>
+      <button class="btn btn-guost" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <p><%= current_user.amount_cents/100 %>€</p>
+      </button>
+    </li>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+
+
+      <div class="row">
+        <div class="col-4">
+          <div class="card-profile">
+            <%= simple_form_for current_user, url: profile_update_path, method: :patch do |f| %>
+              <%= f.input :amount_cents, input_html: {value: 1}, as: :hidden %>
+              <%= f.button :submit, "+ 1 €" , class: "btn btn-primary"%>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card-profile">
+            <%= simple_form_for current_user, url: profile_update_path, method: :patch do |f| %>
+              <%= f.input :amount_cents, input_html: {value: 5}, as: :hidden %>
+              <%= f.button :submit, "+ 5 €" , class: "btn btn-primary"%>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card-profile">
+            <%= simple_form_for current_user, url: profile_update_path, method: :patch do |f| %>
+              <%= f.input :amount_cents, input_html: {value: 10}, as: :hidden %>
+              <%= f.button :submit, "+ 10 €" , class: "btn btn-primary"%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+
   </ul>
 </div>
 

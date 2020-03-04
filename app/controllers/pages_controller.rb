@@ -5,6 +5,9 @@ class PagesController < ApplicationController
   end
 
   def profile
+    @my_bets = current_user.bets
+    @gains = 0
+    @pertes = 0
   end
 
   def update_amount_user
