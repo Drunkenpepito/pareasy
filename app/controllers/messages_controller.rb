@@ -11,7 +11,8 @@ class MessagesController < ApplicationController
     if @message.save
       ChatroomChannel.broadcast_to(
         @chatroom,
-        render_to_string(partial: "message", locals: { message: @message })
+        partial: render_to_string(partial: "message", locals: { message: @message, cable: true }),
+        user: current_user.id
       )
 
       redirect_to chatroom_path(@chatroom)

@@ -6,7 +6,7 @@
         <div class="form-inputs-chat"> -->
       <div id="messages" data-betroom-id="<%= @chatroom.id %>">
         <% @chatroom.messages.each do |message| %>
-          <%= render 'messages/message', message: message %>
+          <%= render 'messages/message', message: message, cable: false %>
         <% end %>
       </div>
 
