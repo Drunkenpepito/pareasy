@@ -32,6 +32,7 @@ class FetchEventResultsService
   end
 end
 
+
 # TESTER
 # rails c puis dedans faire:
 
