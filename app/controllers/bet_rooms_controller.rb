@@ -114,10 +114,24 @@ class BetRoomsController < ApplicationController
   def stat
     @bet_room = BetRoom.find(params[:bet_room_id])
     authorize @bet_room
-    @events = @bet_room.events
-    # .where(results: true) || @bet_room.events.where(results: false)
+    @events = @bet_room.events.where(results: [true, false])
     @users = @bet_room.users
-    @score = 0
+    @stats = []
+
+
+    @users.each do |poto|
+      score = 0
+        poto.bets.joins(:event).where(events: { bet_room_id: @bet_room.id }).each do |bet|
+          if bet.winner == true
+            score += (bet.amount_cents * bet.event.bets.count / bet.event.bets.where(winner: true).count) - bet.amount_cents
+          else
+            score -= bet.amount_cents
+          end
+        end
+      @stats << { user: poto, score: score }
+    end
+
+    @stats.sort_by! { |stat| -stat[:score] }
   end
 
   private

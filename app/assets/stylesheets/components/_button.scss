@@ -41,6 +41,21 @@
   100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
 }
 .btn-flat {
+ color: white;
+  padding: 20px 20px;
+  font-size: 20px;
+  // border-radius: 4px;
+  background: #1EDD88;
+  transition: background 0.3s ease;
+  // margin-top: 100px;
+  margin-bottom: 53px;
+  border-radius: 20px;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  margin-top: 80px;
+}
+
+.btn-flat-go {
   color: white;
   padding: 20px 20px;
   font-size: 20px;
@@ -180,7 +195,35 @@
     white-space: nowrap;
 }
 
+<<<<<<< HEAD
+.btn-victoire{
+  font-size: 15px;
+  padding: 2px;
+  color: white;
+  letter-spacing: 2px;
+  margin: auto;
+  width: 300px;
+  position: relative;
+  background-color:#00BB7C;
+
+}
+
+.btn-defaite{
+  font-size: 15px;
+  padding: 2px;
+  color: white;
+  letter-spacing: 2px;
+  margin: auto;
+  width: 300px;
+  position: relative;
+  background-color:#F86260;
+
+}
+
+
+=======
 .text-center {
     text-align: center !important;
     margin-bottom: 3px;
 }
+>>>>>>> master

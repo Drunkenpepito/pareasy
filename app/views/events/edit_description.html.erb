@@ -1,68 +1,260 @@
-<%= render 'shared/onglet' %>
-<div class = "container-select-event">
-  <div class = "arrow-left">
-    <%= link_to "", edit_game_event_path(@event), class:"fas fa-arrow-left", data: {turbolinks: false} %>
+  <%= render 'shared/onglet' %>
+ <div class = "container-select-event-description">
+  <div class = "container-select-event">
+    <div class = "arrow-left">
+      <%= link_to "", edit_game_event_path(@event), class:"fas fa-arrow-left", data: {turbolinks: false} %>
+    </div>
+    <h2>Type de Pari</h2>
   </div>
-  <h2>Type de Pari</h2>
+
+  <div class="cardsEvent">
+    <div class="card-event event-<%= @event.sport %>">
+      <br>
+      <div class="card-event-line2"><%=@event.game %></div>
+    </div>
+  </div>
+
+
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header-bet" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Résultat du match
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description } do |f| %>
+          <%= f.hidden_field :id %>
+          <%= f.hidden_field :bet_type, value: "Résultat du match" %>
+          <%= f.hidden_field :description %>
+          <div class = "container-description">
+            <div data-event="Victoire Domicile" class="list-description">
+              1
+            </div>
+            <div data-event="Match Nul" class="list-description">
+              Nul
+            </div>
+            <div data-event="Victoire Visiteur" class="list-description">
+              2
+            </div>
+          </div>
+          <% f.button :submit, "Next" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header-bet" id="headingTwo">
+      <h2 class="mb-0">
+
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          But pour les 2 équipes
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description_goal } do |f| %>
+          <%= f.hidden_field :id %>
+          <%= f.hidden_field :bet_type, value: "But pour les 2 équipes" %>
+          <%= f.hidden_field :description, class: "coucoulechat" %>
+          <div class = "container-description">
+            <div data-event="Oui" class="list-description-goal">
+              Oui
+            </div>
+            <div data-event="Non" class="list-description-goal">
+              Non
+            </div>
+            <% f.button :submit, "Next" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header-bet" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Nombre total de buts
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        <%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description, class: "form-inline" } do |f| %>
+          <!-- <div class="row no-gutters"> -->
+
+          <%= f.hidden_field :id %>
+          <%= f.hidden_field :bet_type, value: "Nombre total de buts" %>
+
+          <div class="goal-total">
+            <%= f.input_field :description, placeholder:"0", label: false, as: :numeric,class: "form-control input-goal", min: 0, max: 20  %>
+            <%= f.button :submit, "Next", class: "list-description-button button-goal" %>
+          </div>
+          <!-- <div class="container-description-inline">
+            <div class = "input-goal"> -->
+      <!--         <div class="col-4 input-goal">
+
+              <%#= f.input :description, placeholder:"0", label: false, as: :numeric, input_html: { min: 0, max: 20, class: "input-goal" }  %>
+              </div> -->
+            <!-- </div>
+            <div class = "button-goal"> -->
+      <!--         <div class="col-8">
+
+              <%#= f.button :submit, "Next", class: "list-description-button button-goal"%>
+              </div> -->
+            <!-- </div>
+          </div> -->
+          <!-- </div> -->
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header-bet" id="headingFour">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Score exact
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+      <div class="card-body">
+        <%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description } do |f| %>
+           <%= f.hidden_field :id %>
+           <%= f.hidden_field :bet_type, value: "Score exact" %>
+           <%= f.hidden_field :description %>
+           <div class="team-names">
+             <div><%= @event.game.split("vs").map{ |t| t.strip }.first %></div>
+             <div> vs </div>
+             <div><%= @event.game.split("vs").map{ |t| t.strip }.last %></div>
+           </div>
+           <div class="team-names">
+             <%= f.input :home_team_score, label: false, as: :numeric, input_html: { min: 0, max: 10 }  %>
+             <div> - </div>
+             <%= f.input :away_team_score, label: false, as: :numeric, input_html: { min: 0, max: 10 }  %>
+           </div>
+           <div class="text-center">
+             <%= f.button :submit, class: "list-description-button button-goal" %>
+           </div>
+         <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<h3>
-  Résultat du match
-</h3>
-<%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description } do |f| %>
-  <%= f.hidden_field :id %>
-  <%= f.hidden_field :bet_type, value: "Résultat du match" %>
-  <%= f.hidden_field :description %>
-  <div data-event="Victoire de l'équipe à domicile" class="list-description">
-    1
-  </div>
-  <div data-event="Match Nul" class="list-description">
-    Nul
-  </div>
-  <div data-event="Victoire de l'équipe à l'extérieur" class="list-description">
-    2
-  </div>
-  <% f.button :submit, "Next" %>
-<% end %>
 
-<h3>
-  Nombre total de buts
-</h3>
-<%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description } do |f| %>
-  <%= f.hidden_field :id %>
-  <%= f.hidden_field :bet_type, value: "Nombre total de buts" %>
-  <%= f.input :description, placeholder:"Nombre total de buts", label: false, as: :numeric, input_html: { min: 0, max: 20 }  %>
-  <%= f.button :submit, "Next" %>
-<% end %>
 
-<h3>
-  But pour les 2 équipes
-</h3>
-<%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description } do |f| %>
-  <%= f.hidden_field :id %>
-  <%= f.hidden_field :bet_type, value: "But pour les 2 équipes" %>
-  <%= f.hidden_field :description %>
-  <div data-event="Oui" class="list-description">
-    Oui
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+  <h3>
+    Résultat du match
+  </h3>
+  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description } do |f| %>
+      <%= f.hidden_field :id %>
+      <%= f.hidden_field :bet_type, value: "Résultat du match" %>
+      <%= f.hidden_field :description %>
+      <div class = "container-description">
+        <div data-event="Victoire de l'équipe à domicile" class="list-description">
+          1
+        </div>
+        <div data-event="Match Nul" class="list-description">
+          Nul
+        </div>
+        <div data-event="Victoire de l'équipe à l'extérieur" class="list-description">
+          2
+        </div>
+      </div>
+      <% f.button :submit, "Next" %>
+    <% end %>
   </div>
-  <div data-event="Non" class="list-description">
-    Non
-  </div>
-  <% f.button :submit, "Next" %>
-<% end %>
 
-<h3>
-  Score exact
-</h3>
+  <h3>
+    Nombre total de buts
+  </h3>
+  <%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description, class: "form-inline" } do |f| %>
+    <!-- <div class="row no-gutters"> -->
 
-<%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description } do |f| %>
-  <%= f.hidden_field :id %>
-  <%= f.hidden_field :bet_type, value: "Score exact" %>
-  <%= f.hidden_field :description %>
+    <%= f.hidden_field :id %>
+    <%= f.hidden_field :bet_type, value: "Nombre total de buts" %>
 
-  <%= f.input :home_team_score, as: :numeric, input_html: { min: 0, max: 10 }  %>
-  <%= f.input :away_team_score, as: :numeric, input_html: { min: 0, max: 10 }  %>
-  <%= f.button :submit, "Next" %>
-<% end %>
+    <div class="goal-total">
+      <%= f.input_field :description, placeholder:"0", label: false, as: :numeric,class: "form-control input-goal", min: 0, max: 20  %>
+      <%= f.button :submit, "Next", class: "list-description-button button-goal" %>
+    </div>
+    <!-- <div class="container-description-inline">
+      <div class = "input-goal"> -->
+<!--         <div class="col-4 input-goal">
+
+        <%#= f.input :description, placeholder:"0", label: false, as: :numeric, input_html: { min: 0, max: 20, class: "input-goal" }  %>
+        </div> -->
+      <!-- </div>
+      <div class = "button-goal"> -->
+<!--         <div class="col-8">
+
+        <%#= f.button :submit, "Next", class: "list-description-button button-goal"%>
+        </div> -->
+      <!-- </div>
+    </div> -->
+    <!-- </div> -->
+  <% end %>
+
+  <h3>
+    But pour les 2 équipes
+  </h3>
+
+  <%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description_goal } do |f| %>
+    <%= f.hidden_field :id %>
+    <%= f.hidden_field :bet_type, value: "But pour les 2 équipes" %>
+    <%= f.hidden_field :description, class: "coucoulechat" %>
+    <div class = "container-description">
+      <div data-event="Oui" class="list-description-goal">
+        Oui
+      </div>
+      <div data-event="Non" class="list-description-goal">
+        Non
+      </div>
+      <% f.button :submit, "Next" %>
+    </div>
+  <% end %>
+
+  <h3>
+    Score exact
+  </h3>
+
+  <%= simple_form_for @event, url: update_description_event_path, html: { method: :post, id: :edit_description } do |f| %>
+    <%= f.hidden_field :id %>
+    <%= f.hidden_field :bet_type, value: "Score exact" %>
+    <%= f.hidden_field :description %>
+    <div class="team-names">
+      <div><%= @event.game.split("vs").map{ |t| t.strip }.first %></div>
+      <div> vs </div>
+      <div><%= @event.game.split("vs").map{ |t| t.strip }.last %></div>
+    </div>
+    <div class="team-names">
+      <%= f.input :home_team_score, label: false, as: :numeric, input_html: { min: 0, max: 10 }  %>
+      <div> - </div>
+      <%= f.input :away_team_score, label: false, as: :numeric, input_html: { min: 0, max: 10 }  %>
+    </div>
+    <div class="text-center">
+      <%= f.button :submit, class: "list-description-button button-goal" %>
+    </div>
+  <% end %>
+</div>
 
 
