@@ -452,7 +452,6 @@ t1 = Event.new(
   game_start_at: DateTime.new(2020,9,7,15,00,00),
   bet_room: bet_room2,
   author: laure,
-  results: false
   )
 
 t1.save!
@@ -465,7 +464,6 @@ t2= Event.new(
   game_start_at: DateTime.new(2020,9,7,15,00,00),
   bet_room: bet_room2,
   author: nicolas,
-  results: false
   )
 
 t2.save!
@@ -478,7 +476,6 @@ t3 = Event.new(
   game_start_at: DateTime.new(2020,9,7,15,00,00),
   bet_room: bet_room2,
   author: florent,
-  results: false
   )
 
 t3.save!
@@ -504,7 +501,6 @@ t5 = Event.new(
   game_start_at: DateTime.new(2020,9,7,15,00,00),
   bet_room: bet_room2,
   author: alexandre,
-  results: true
   )
 
 t5.save!
@@ -517,7 +513,6 @@ t6 = Event.new(
   game_start_at: DateTime.new(2020,9,7,15,00,00),
   bet_room: bet_room2,
   author: francois,
-  results: false
   )
 
 t6.save!
@@ -610,6 +605,16 @@ p35 = Bet.new(amount_cents: 14, result: true, event: br92_d , user: benjamin)
 p35.save!
 p36 = Bet.new(amount_cents: 14, result: false, event: br92_d , user: francois)
 p36.save!
+p37 = Bet.new(amount_cents: 3, result: false, event: t1 , user: xavier)
+p37.save!
+p38 = Bet.new(amount_cents: 3, result: false, event: t2 , user: benjamin)
+p38.save!
+p39 = Bet.new(amount_cents: 3, result: false, event: t3 , user: pierre)
+p39.save!
+p40 = Bet.new(amount_cents: 3, result: false, event: t5 , user: edouard)
+p40.save!
+p41 = Bet.new(amount_cents: 3, result: false, event: t6 , user: marie)
+p41.save!
 
 puts ' bets created'
 
