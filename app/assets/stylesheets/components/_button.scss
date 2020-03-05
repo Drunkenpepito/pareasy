@@ -41,6 +41,21 @@
   100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
 }
 .btn-flat {
+ color: white;
+  padding: 20px 20px;
+  font-size: 20px;
+  // border-radius: 4px;
+  background: #1EDD88;
+  transition: background 0.3s ease;
+  // margin-top: 100px;
+  margin-bottom: 53px;
+  border-radius: 20px;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  margin-top: 80px;
+}
+
+.btn-flat-go {
   color: white;
   padding: 20px 20px;
   font-size: 20px;
