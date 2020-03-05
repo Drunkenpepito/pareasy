@@ -41,7 +41,7 @@
   100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
 }
 .btn-flat {
-  color: white;
+ color: white;
   padding: 20px 20px;
   font-size: 20px;
   // border-radius: 4px;
@@ -52,7 +52,36 @@
   border-radius: 20px;
   font-family: Georgia, serif;
   font-weight: bold;
-  margin-top: 22px;
+  margin-top: 80px;
+}
+
+.btn-flat-go {
+  color: white;
+  padding: 20px 20px;
+  font-size: 20px;
+  background: #8080808a;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+  margin-bottom: 0px;
+  border-radius: 20px;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  margin-top: 80px;
+  background-size: cover;
+  background-position: center;
+  height: 152px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  color: white;
+  font-size: 65px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin-top: 32px;
 }
 
 .btn-profil{
@@ -80,7 +109,9 @@
 
 .mes_paris_font {
   font-size: 30px;
-  margin-top: 15px;
+  margin-top: 111px;
+  margin-right: 205px;
+  margin-bottom: -20px;
 }
 
 .btn-secondary {
@@ -162,9 +193,9 @@
 
 .dropdown-toggle {
     white-space: nowrap;
-    margin-top: -50px;
 }
 
+<<<<<<< HEAD
 .btn-victoire{
   font-size: 15px;
   padding: 2px;
@@ -190,3 +221,9 @@
 }
 
 
+=======
+.text-center {
+    text-align: center !important;
+    margin-bottom: 3px;
+}
+>>>>>>> master

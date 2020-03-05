@@ -24,8 +24,9 @@ require("channels")
 import "bootstrap";
 import "../component/card.js";
 import { displayNumberOfFriends } from "../component/display_number_of_friends";
+import { chatroomScroll } from "../component/chatroom_scroll";
 
 document.addEventListener('turbolinks:load', () => {
   displayNumberOfFriends();
+   chatroomScroll();
 });
-
