@@ -25,8 +25,39 @@ import "bootstrap";
 import "../component/card.js";
 import { displayNumberOfFriends } from "../component/display_number_of_friends";
 import { chatroomScroll } from "../component/chatroom_scroll";
+import Swal from 'sweetalert2';
+
+
+const confirmationMessage = () => {
+
+  const elementsClicked = document.querySelectorAll(".list-description-bet")
+
+  elementsClicked.forEach((element) => {
+    element.addEventListener("click", () => {
+      localStorage.betCreate = "yes"
+    })
+  })
+
+
+  const element = document.querySelector("#confirm-banner")
+
+  if (element && localStorage.betCreate === "yes") {
+      localStorage.betCreate = "no"
+      Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Bravo pour ton pari',
+      showConfirmButton: false,
+      timer: 1500
+      })
+    }
+}
 
 document.addEventListener('turbolinks:load', () => {
   displayNumberOfFriends();
-   chatroomScroll();
+  chatroomScroll();
+  confirmationMessage();
 });
+
+
+
