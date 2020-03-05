@@ -11,18 +11,13 @@
 
 
     </br>
-
-    <div class="cardsProfile">
+ <div class="cardsProfile">
       <div class="card-profile">
         <p class="text-center"> Gains :
-          <% if @gains > 0 %>
-            <%= @gains %>
-          <% else %>
-            0€
-          <% end %>
+            <%= @gain_total %> €
         </p>
         <p class="text-center"> Pertes :
-          0€
+          <%= @pertes_total %> €
         </p>
       </div>
 
@@ -55,6 +50,8 @@
 
     </div>
 
+
+
   </div>
 </div>
 
@@ -71,28 +68,22 @@
             </tr>
           </thead>
           <tbody>
-            <% @my_bets.each do |bet| %>
+            <% @gain_des_paris.each do |gain_du_pari| %>
               <tr>
-                <td><%= bet.event.bet_room.name %></td>
-                <td><%= bet.event.game %></br><%= bet.event.description %></td>
+                <td><%= gain_du_pari[:event].bet_room.name %></td>
+                <td><%= gain_du_pari[:event].game %></br><%= gain_du_pari[:event].description %></td>
                 <td>
-                  <% if bet.result == bet.event.results %>
+                  <% if gain_du_pari[:bet].result == gain_du_pari[:event].results %>
                     🏅
-                  <% elsif bet.result != bet.event.results %>
+                  <% elsif gain_du_pari[:bet].result != gain_du_pari[:event].results %>
                     👎
                   <% end %>
                 </td>
+
                 <td>
-                  <% if bet.result == bet.event.results %>
-                      <% if bet.event.bets.where(winner: true).count != 0%>
-                        <%= gain = (bet.amount_cents * bet.event.users.count / bet.event.bets.where(winner: true).count) - bet.amount_cents %> €
-                        <% @gains += gain %>
-                      <% else %>
-                        <%= gain = 0 %>
-                      <% end %>
-                  <% else %>
-                    <%= - bet.amount_cents %> €
-                  <% end %>
+
+                    <%= gain_du_pari[:gain] %>
+
                 </td>
               </tr>
             <% end %>
