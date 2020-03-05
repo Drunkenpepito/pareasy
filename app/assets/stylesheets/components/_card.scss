@@ -113,8 +113,8 @@
     // font-size: 10px;
     width: 30px;
     height: 30px;
-    background-color: red;
-    color: white;
+    background-color: #1edd88;
+    color: black;
     border-radius: 50%;
     -webkit-transform: skewX(0deg) !important;
     transform: skewX(0deg) !important;
@@ -688,16 +688,23 @@
 
 }
 
-#accordion {
-button {
-    box-shadow: 9px 5px 0 #0e0000;
+#bet_rooms-stat #accordion {
+  button {
+    // box-shadow: 9px 5px 0 #0e0000;
     margin-bottom: 10px;
     width: 88%;
-    transform: skew(-20deg, 0);
+    padding: 15px 5px;
+    // transform: skew(-20deg, 0);
+    &:focus {
+      box-shadow: none;
+    }
   }
 
 }
 
+#bet_rooms-show nav {
+    margin: 0;
+}
 
 .inclined {
   background-color: rgb(23, 200, 124);

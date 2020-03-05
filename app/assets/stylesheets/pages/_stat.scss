@@ -1,5 +1,50 @@
+
+  // div .backblue{
+  //   background: linear-gradient(#6382c4, #314570);
+  //   letter-spacing: 2px;
+  // }
+
+
+nav {
+    margin: 30px;
+    padding-top: 25px;
+
+  .nav-tabs {
+
+    justify-content: center;
+    border: none;
+    // margin: 20px 0;
+
+    .nav-item {
+      color: black;
+      border: none;
+      background: transparent;
+      text-transform: capitalize;
+    }
+    .nav-link.active {
+      border-bottom: 4px solid #1edd88;
+      background: transparent;
+      color: black;
+    }
+
   div .backblue{
     background: linear-gradient(#6382c4, #314570);
     letter-spacing: 2px;
 
+
   }
+}
+
+table  {
+
+  h4 {
+    font-size: 16px;
+    margin-bottom: 0;
+    color: white;
+  }
+
+  h5 {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+}
