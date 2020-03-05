@@ -8,15 +8,18 @@
     <div class="card-event event-classement ">
       <div class="card-event-line2 text-center ">
 
-        <button class="btn btn-guost btn-lg" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" data-toggle="false" aria-controls="collapseOne">
+        <a class=" .text-info btn btn-guost btn-lg" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" data-toggle="false" aria-controls="collapseOne">
           <h2 class="row blink_me ">
-            Classement
+            Vérifie ton classement!
           </h2>
-        </button>
+        </a>
 
       </div>
     </div>
   </div>
+
+
+
 
 
   <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
@@ -28,21 +31,11 @@
              <th scope="col">€</th>
            </tr>
          </thead>
-        <% @users.each do |poto| %>
+        <% @stats.each do |stat| %>
          <tbody>
              <tr>
-               <td> <%= poto.username %> </td>
-               <td>
-                  <% score = 0 %>
-                  <% poto.bets.joins(:event).where(events: { bet_room_id: @bet_room.id }).each do |bet| %>
-                    <% if bet.winner == true %>
-                      <% score += (bet.amount_cents * bet.event.bets.count / bet.event.bets.where(winner: true).count) - bet.amount_cents %>
-                    <% else %>
-                      <% score -= bet.amount_cents %>
-                    <% end %>
-                  <% end %>
-                  <%= score %>
-               </td>
+              <td> <%= stat[:user].username %> </td>
+              <td> <%= stat[:score] %> </td>
              </tr>
          </tbody>
        <% end %>
@@ -65,13 +58,19 @@
 
       <div class="card-event">
         <div class="card-event-line1 text-center">
-            <button class="btn btn-pouet btn-lg " data-toggle="collapse" data-target="#collapseOne-<%= event.id %>" aria-expanded="true" data-toggle="false" aria-controls="collapseOne">
-            <%= cl_image_tag event.bets.first.user.photo.key, class: "md avatar-pouet   "%>
+            <button data-toggle="collapse" data-target="#collapseOne-<%= event.id %>" aria-expanded="true" data-toggle="false" aria-controls="collapseOne"
+              class="
+              <% if event.winners.include?(current_user) %>
+                btn btn-victoire btn-lg
+              <% elsif !event.winners.include?(current_user) && event.users.include?(current_user)%>
+                btn btn-defaite btn-lg
+              <% else %>
+                btn btn-pouet btn-lg
+              <% end %>
+            ">
+
               <span ><strong><%= event.game %></strong></span>
-              <div><%= event.description %></div>
-                <% if event.winners.include?(current_user) %> <span class="justify-content-end">🏆</span>
-                <% else event.winners.include?(current_user) %> <span class="justify-content-end"> 👎</span>
-                <% end %>
+                <div><%= event.description %></div>
               </span >
                 <% if event.results == true %>
                   <span class="justify-content-end">✅</span>
@@ -114,9 +113,9 @@
                 </td>
                 <td>
                   <% if event.winners.include?(poto) && event.winners.count != 0 %>
-                      <%= event.bets.first.amount_cents * event.users.count / event.winners.count %> €
+                      <%= (event.bets.first.amount_cents * event.users.count / event.winners.count) - event.bets.first.amount_cents %> €
                   <% else %>
-                    0 €
+                    <%= - event.bets.first.amount_cents %> €
                   <% end %>
                 </td>
               </tr>
