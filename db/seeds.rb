@@ -135,6 +135,8 @@ chatroom2 = Chatroom.new(name: "Roland garros team!")
 bet_room2.chatroom = chatroom2
 bet_room2.save!
 
+
+
 puts ' bet rooms created'
 
 puts "Creating participation"
@@ -533,80 +535,80 @@ federer_nadal = Bet.new(amount_cents: 6, result: false, event: fn_psf, user: ben
 federer_nadal.save!
 france_angleterre = Bet.new(amount_cents: 2, result: true, event: fa_bo, user: pierre)
 france_angleterre.save!
-gpm = Bet.new(amount_cents: 1, result: false, event: f1_f, user: edouard)
+gpm = Bet.new(amount_cents: 2, result: false, event: f1_f, user: edouard)
 gpm.save!
-p1 = Bet.new(amount_cents: 1, result: true, event: tsf_d , user: francois)
+p1 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: francois)
 p1.save!
-p2 = Bet.new(amount_cents: 2, result: false, event: tsf_d , user: alexandre)
+p2 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: alexandre)
 p2.save!
-p3 = Bet.new(amount_cents: 3, result: true, event: tsf_d , user: guillaume)
+p3 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: guillaume)
 p3.save!
-p4 = Bet.new(amount_cents: 4, result: false, event: tsf_d , user: florent)
+p4 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: florent)
 p4.save!
 p5 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: nicolas)
 p5.save!
-p6 = Bet.new(amount_cents: 6, result: false, event: tsf_d , user: laure)
+p6 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: laure)
 p6.save!
 p7 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: elena)
 p7.save!
-p8 = Bet.new(amount_cents: 4, result: false, event: tsf_d , user: pierre)
+p8 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: pierre)
 p8.save!
-p9 = Bet.new(amount_cents: 3, result: true, event: tsf_d , user: astrid)
+p9 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: astrid)
 p9.save!
-p10 = Bet.new(amount_cents: 2, result: false, event: tsf_d , user: diane)
+p10 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: diane)
 p10.save!
-p11 = Bet.new(amount_cents: 1, result: true, event: tsf_d , user: pauline)
+p11 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: pauline)
 p11.save!
-p12 = Bet.new(amount_cents: 2, result: false, event: tsf_d , user: tom)
+p12 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: tom)
 p12.save!
-p13 = Bet.new(amount_cents: 3, result: true, event: tsf_d , user: hugues)
+p13 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: hugues)
 p13.save!
-p14 = Bet.new(amount_cents: 4, result: false, event: tsf_d , user: marie)
+p14 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: marie)
 p14.save!
 p15 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: edouard)
 p15.save!
-p16= Bet.new(amount_cents: 4, result: false, event: tsf_d , user: xavier)
+p16= Bet.new(amount_cents: 5, result: false, event: tsf_d , user: xavier)
 p16.save!
-p17 = Bet.new(amount_cents: 3, result: true, event: tsf_d , user: benjamin)
+p17 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: benjamin)
 p17.save!
-p18 = Bet.new(amount_cents: 2, result: false, event: tsf_d , user: paul)
+p18 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: paul)
 p18.save!
 
-p19 = Bet.new(amount_cents: 1, result: true, event: t4 , user: xavier)
+p19 = Bet.new(amount_cents: 3, result: true, event: t4 , user: xavier)
 p19.save!
-p20 = Bet.new(amount_cents: 2, result: false, event: t4 , user: benjamin)
+p20 = Bet.new(amount_cents: 3, result: false, event: t4 , user: benjamin)
 p20.save!
 p21 = Bet.new(amount_cents: 3, result: true, event: t4 , user: edouard)
 p21.save!
-p22 = Bet.new(amount_cents: 4, result: false, event: t4 , user: pierre)
+p22 = Bet.new(amount_cents: 3, result: false, event: t4 , user: pierre)
 p22.save!
-p23 = Bet.new(amount_cents: 5, result: true, event: t4 , user: elena)
+p23 = Bet.new(amount_cents: 3, result: true, event: t4 , user: elena)
 p23.save!
-p24 = Bet.new(amount_cents: 6, result: false, event: t4 , user: pauline)
+p24 = Bet.new(amount_cents: 3, result: false, event: t4 , user: pauline)
 p24.save!
-p25 = Bet.new(amount_cents: 5, result: true, event: t4 , user: marie)
+p25 = Bet.new(amount_cents: 3, result: true, event: t4 , user: marie)
 p25.save!
-p26 = Bet.new(amount_cents: 4, result: false, event: t4 , user: diane)
+p26 = Bet.new(amount_cents: 3, result: false, event: t4 , user: diane)
 p26.save!
-p27 = Bet.new(amount_cents: 3, result: true, event: br92_d , user: astrid)
+p27 = Bet.new(amount_cents: 14, result: true, event: br92_d , user: astrid)
 p27.save!
-p28 = Bet.new(amount_cents: 2, result: false, event: br92_d , user: diane)
+p28 = Bet.new(amount_cents: 14, result: false, event: br92_d , user: diane)
 p28.save!
-p29 = Bet.new(amount_cents: 1, result: true, event: br92_d , user: pauline)
+p29 = Bet.new(amount_cents: 14, result: true, event: br92_d , user: pauline)
 p29.save!
-p30 = Bet.new(amount_cents: 2, result: false, event: br92_d , user: tom)
+p30 = Bet.new(amount_cents: 14, result: false, event: br92_d , user: tom)
 p30.save!
-p31 = Bet.new(amount_cents: 3, result: true, event: br92_d , user: hugues)
+p31 = Bet.new(amount_cents: 14, result: true, event: br92_d , user: hugues)
 p31.save!
-p32 = Bet.new(amount_cents: 4, result: false, event: br92_d , user: marie)
+p32 = Bet.new(amount_cents: 14, result: false, event: br92_d , user: marie)
 p32.save!
-p33 = Bet.new(amount_cents: 5, result: true, event: br92_d , user: edouard)
+p33 = Bet.new(amount_cents: 14, result: true, event: br92_d , user: edouard)
 p33.save!
-p34= Bet.new(amount_cents: 4, result: false, event: br92_d , user: xavier)
+p34= Bet.new(amount_cents: 14, result: false, event: br92_d , user: xavier)
 p34.save!
-p35 = Bet.new(amount_cents: 3, result: true, event: br92_d , user: benjamin)
+p35 = Bet.new(amount_cents: 14, result: true, event: br92_d , user: benjamin)
 p35.save!
-p36 = Bet.new(amount_cents: 2, result: false, event: br92_d , user: francois)
+p36 = Bet.new(amount_cents: 14, result: false, event: br92_d , user: francois)
 p36.save!
 
 puts ' bets created'
