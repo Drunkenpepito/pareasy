@@ -1,3 +1,4 @@
+
 <div class="container-fluid chatroom-layout" data-user-id="<%= current_user.id %>">
 <!--   <div class="row">
     <div class="col-sm-12"> -->
@@ -5,7 +6,7 @@
    <!--    <div class="form-chat">
         <div class="form-inputs-chat"> -->
       <div id="messages" data-betroom-id="<%= @chatroom.id %>">
-        <% @chatroom.messages.each do |message| %>
+        <% @chatroom.messages.order(created_at: :asc).each do |message| %>
           <%= render 'messages/message', message: message, cable: false %>
         <% end %>
       </div>
