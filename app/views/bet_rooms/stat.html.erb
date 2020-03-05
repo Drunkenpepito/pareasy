@@ -2,21 +2,21 @@
 <!-- classement general -->
 
 
-<div class="backblue" id="accordion">
+<div id="accordion ">
 
-  <div class="cardsEvent">
-    <div class="card-event ">
-      <div class="card-event-classement text-center ">
+  <!-- <div class="cardsEvent"> -->
+   <!--  <div class="card-event "> -->
+      <div class="text-center  ">
 
-        <a class=" .text-info btn btn-guost btn-lg" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" data-toggle="false" aria-controls="collapseOne">
-          <h1 class="row blink_me ">
+        <a class=" btn btn-guost btn-lg" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" data-toggle="false" aria-controls="collapseOne">
+          <h1 class=" inclined row blink_me mt-3 mb-3 ">
             Classement!
           </h1>
         </a>
 
       </div>
-    </div>
-  </div>
+  <!--   </div> -->
+<!--   </div> -->
 
 
 
@@ -34,7 +34,7 @@
         <% @stats.each do |stat| %>
          <tbody>
              <tr>
-              <td> <%= stat[:user].username %> </td>
+              <td> <%= stat[:user].username %>  </td>
               <td> <%= stat[:score] %> </td>
              </tr>
          </tbody>
@@ -54,7 +54,7 @@
 <% @events.each do |event| %>
   <% if  event.bets != []%>
 
-    <div class="backblue" id="accordion">
+    <div  id="accordion">
 
       <div class="card-event">
         <div class="card-event-line1 text-center">
