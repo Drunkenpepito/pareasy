@@ -128,7 +128,7 @@ chatroom = Chatroom.new(name: "Paris entre potes")
 bet_room.chatroom = chatroom
 bet_room.save!
 
-bet_room2 = BetRoom.new(name: "Roland garros team!")
+bet_room2 = BetRoom.new(name: "Team Rolland!")
 bet_room2_pic = URI.open("https://res.cloudinary.com/dz8mhj8vj/image/upload/v1583341698/Roland-Garros_uyeyoz.jpg")
 bet_room2.photo.attach(io: bet_room2_pic, filename: 'some-image2.jpg', content_type: 'image/jpg')
 chatroom2 = Chatroom.new(name: "Roland garros team!")

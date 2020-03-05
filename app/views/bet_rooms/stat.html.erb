@@ -10,7 +10,25 @@
 
         <a class=" btn btn-guost btn-lg" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" data-toggle="false" aria-controls="collapseOne">
           <h1 class=" inclined row blink_me mt-3 mb-3 ">
-            Classement!
+            <%= @stats[0][:user].username  %> est en tête !
+            <% userstat = @stats.find {|s| s[:user] == current_user} %>
+            <% @stats.each_with_index do |item, index| %>
+              <% if item == userstat %>
+                <% userstat[:place] = index + 1 %>
+              <% end %>
+            <% end %>
+
+      tu es placé <%= userstat[:place] %>
+
+
+
+
+
+
+
+
+
+            -
           </h1>
         </a>
 
@@ -33,7 +51,7 @@
          </thead>
          <tbody>
           <% @stats.each do |stat| %>
-               <tr>
+               <tr class="<% if stat[:user] == current_user %>text-light bg-dark<% end %>">
                 <td> <%= stat[:user].username %>  </td>
                 <td> <%= stat[:score] %> </td>
                </tr>
@@ -112,7 +130,7 @@
                     👎
                   <% end %>
                 </td>
-                <td>
+                <td >
                   <% if event.winners.include?(poto) && event.winners.count != 0 %>
                       <%= (event.bets.first.amount_cents * event.users.count / event.winners.count) - event.bets.first.amount_cents %> €
                   <% else %>
@@ -123,7 +141,6 @@
             <% end %>
           </tbody>
         </table>
-
 
       </div> <!-- fin du collapse -->
 
