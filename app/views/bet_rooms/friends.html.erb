@@ -11,7 +11,7 @@
               <%= f.association :users, as: :check_boxes, label_method: lambda { |user| render "bet_rooms/new_form_label", user: user }, label: false, wrapper_html: { class: "friends-input" } %>
             </div>
             <div class="edit-btns">
-                <%= f.button :submit, "Update!", class: "btn-back btn-flat"%>
+                <%= f.button :submit, "Ajouter", class: "btn-back btn-flat"%>
                 <%= link_to "Annuler", bet_room_path, class: "btn-back btn-flat btn-cancel" %>
             </div>
           <% end %>
