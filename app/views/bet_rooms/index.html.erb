@@ -16,7 +16,6 @@
         <div class="col-6">
           <%= link_to bet_room_path(room) do %>
             <% unless room.photo.attachment.nil? %>
-
               <div class="room-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path room.photo.key, crop: :fill %>') ">
                 <% if room.pending_events(current_user) > 0 %>
                   <span class="notif"><%= room.pending_events(current_user) %></span>
@@ -26,7 +25,7 @@
                   <div class=" text-white mb-3" style="max-width: 18rem">
                     <div class="card-header"><%= room.name %></div>
                     <div class="card-body">
-                      <p class="card-text"><%= room.users.count %> potes</p>
+                      <p class="card-text"><%= room.users.count %> <i class="fas fa-users"></i></p>
                     </div>
                   </div>
                 </div>
@@ -40,5 +39,4 @@
       <% end %>
     </div>
   </div>
-
 </div>
