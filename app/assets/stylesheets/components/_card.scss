@@ -408,9 +408,9 @@
       }
 
       &.event-classement {
-          background-image: -webkit-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.png'));
-          background-image: -o-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.png'));
-          background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('Trophee.jpg'));
+          // background-image: -webkit-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.png'));
+          // background-image: -o-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('rugby.png'));
+          // background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(image-path('Trophee.jpg'));
       }
 
 
@@ -446,15 +446,13 @@
       }
 
       .card-event-classement{
-        display:flex;
-        color:white;
+        display: flex;
+        color:  white;
         justify-content: center;
         font-size: 20px;
         font-weight: bold;
         margin: 0;
-        .row{
-              margin-top: 45px;
-        }
+
       }
 
       // }
@@ -606,5 +604,14 @@ button {
     width: 88%;
     transform: skew(-20deg, 0);
   }
+
 }
 
+
+.inclined {
+  background-color: rgb(23, 200, 124);
+  left: -50;
+  height: 30px;
+  width: 100%;
+  transform: rotate(-7deg);
+}
