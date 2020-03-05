@@ -48,7 +48,7 @@ const confirmationMessage = () => {
       icon: 'success',
       title: 'Bravo pour ton pari',
       showConfirmButton: false,
-      timer: 1500
+      timer: 2000
       })
     }
 }

@@ -4,14 +4,9 @@
   <h2 class="mes_paris_font">Mes rooms
   </h2>
 
-
-
-
   <div class="container_cards">
     <div class="row">
-      <div class="col-6">
-        <%= link_to "+", new_bet_room_path, class: "btn btn-flat-go" %>
-      </div>
+
       <% @bet_rooms.each do |room| %>
         <div class="col-6">
           <%= link_to bet_room_path(room) do %>
@@ -29,15 +24,14 @@
                     </div>
                   </div>
                 </div>
-
               </div>
-
             <% end %>
-
           <% end %>
         </div>
       <% end %>
     </div>
   </div>
-
+  <div class="col-6 d-flex align-items-center justify-content-center">
+        <%= link_to "+", new_bet_room_path, class: "btn btn-flat-go" %>
+      </div>
 </div>

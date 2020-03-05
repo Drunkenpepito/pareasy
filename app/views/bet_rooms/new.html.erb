@@ -1,22 +1,22 @@
 <div class="container-fluid text-center">
   <div class="row">
     <div class="col-sm-12">
-      <h2 class="title-new">Creez votre Bet Room</h2>
+      <h2 class="title-creer-votre-bet">Creez votre Bet Room</h2>
       <div class="form">
-        <div class="form-inputs-new">
+        <div class="form-inputs-new-bet-room">
           <%= simple_form_for(@bet_room) do |f| %>
 
             <div class="input-name">
               <%= f.input :name, label: false, placeholder: 'Nom de la Room'%>
             </div>
-            <h3>Amis - <span id= "friends-counter"></span></h3>
+            <h3 class="form-inputs-new-bet-room">Amis - <span id= "friends-counter"></span></h3>
 
 
             <div class="friends-list">
               <%= f.association :users, as: :check_boxes, label_method: lambda { |user| render "bet_rooms/new_form_label", user: user }, label: false, wrapper_html: { class: "friends-input" } %>
 
             </div>
-            <h3>Photos</h3>
+            <h3 class="form-inputs-new-bet-room">Photos</h3>
             <%= f.input :photo, label: false, as: :file %>
             <%= f.button :submit, "Go!", class: "btn-back btn-flat"%>
           <% end %>
