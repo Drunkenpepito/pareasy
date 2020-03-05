@@ -23,15 +23,17 @@
     display: flex;
     padding: 1px 35px;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     font-size: 40px;
     color: white;
-    background: #6225E6;
+    background: #1edd88;
     transition: 1s;
-    box-shadow: 6px 6px 0 black;
+    box-shadow: 6px 6px 0 white;
     transform: skewX(-15deg);
+    font-size: 20px;
   span {
-    transform: skewX(15deg)
+    padding: 7px 0;
+    transform: skewX(15deg);
   }
 }
 
@@ -41,7 +43,9 @@
 
 .cta:hover {
     transition: 0.5s;
-    box-shadow: 10px 10px 0 #1edd88;;
+    box-shadow: 10px 10px 0 white;
+    color: white;
+    // padding: 0px 0px 1px 35px;
 }
 
 .cta span:nth-child(2) {
@@ -93,7 +97,7 @@ path.two {
         fill: white;
     }
     50% {
-        fill: #FBC638;
+        fill: #1edd88;
     }
     100% {
         fill: white;
