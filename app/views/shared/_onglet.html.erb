@@ -1,5 +1,5 @@
 <div class = "onglet">
-  <ul>
+  <ul class="d-flex justify-content-between">
    <li><%= link_to "", bet_room_path(@bet_room), class: "far fa-futbol" %></li>
     <li><%= link_to "", bet_room_stat_path(@bet_room), class: "fas fa-chart-pie" %></li>
     <li><%= link_to "",chatroom_path(@bet_room.chatroom) , class: "far fa-comments", data: { turbolinks: false } %></li>
@@ -7,7 +7,6 @@
     <li><%= link_to "", edit_bet_room_path(@bet_room), class: "fas fa-cog" %></li>
     <li>
       <button class="btn btn-guost" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        <p><%= current_user.amount_cents/100 %>€</p>
       </button>
     </li>
     </p>
