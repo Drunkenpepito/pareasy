@@ -37,12 +37,12 @@
 
 
 .friends-list {
-  height: 200px;
-  border-radius: 6px;
+  height: 330px;
+  border-radius: 20px;
   overflow: scroll;
   background-color: #FFFFFF;
   padding: 20px;
-  box-shadow: 2px 2px 5px 2px #0b0d13e0;
+  box-shadow: 2px 2px 0px 2px #1EDD88;
 }
 
 .friends-list-edit {
@@ -60,9 +60,15 @@
 }
 
 .form-inputs-new h3 {
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 30px;
   color: white;
+}
+
+.form-inputs-new-bet-room h3 {
+  margin-top: 20px;
+  color: black;
+  font-size: 22px;
 }
 
 .form-inputs-new legend {
@@ -72,6 +78,11 @@
 
 .title-new {
   margin-top: 60px;
+}
+
+.title-creer-votre-bet {
+  margin-top: 60px;
+  margin-bottom: -70px;
 }
 
 .input-name {

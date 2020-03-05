@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-classement" role="tab" aria-controls="nav-classement" aria-selected="true">classement</a>
@@ -6,6 +7,52 @@
 </nav>
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-classement" role="tabpanel" aria-labelledby="nav-classement-tab">
+=======
+
+<!-- classement general -->
+
+
+<div id="accordion ">
+
+  <!-- <div class="cardsEvent"> -->
+   <!--  <div class="card-event "> -->
+      <div class="text-center  ">
+
+        <a class=" btn btn-guost btn-lg" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" data-toggle="false" aria-controls="collapseOne">
+          <h1 class=" inclined row blink_me mt-3 mb-3 ">
+            <%= @stats[0][:user].username  %> est en tête !
+            <% userstat = @stats.find {|s| s[:user] == current_user} %>
+            <% @stats.each_with_index do |item, index| %>
+              <% if item == userstat %>
+                <% userstat[:place] = index + 1 %>
+              <% end %>
+            <% end %>
+
+      tu es placé <%= userstat[:place] %>
+
+
+
+
+
+
+
+
+
+            -
+          </h1>
+        </a>
+
+      </div>
+  <!--   </div> -->
+<!--   </div> -->
+
+
+
+
+
+  <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+
+>>>>>>> master
     <table class="table table-dark table-stat">
          <thead>
            <tr>
@@ -15,9 +62,15 @@
          </thead>
          <tbody>
           <% @stats.each do |stat| %>
+<<<<<<< HEAD
                <tr>
                 <td> <h5> <%= stat[:user].username %> </h5> </td>
                 <td> <h5><%= stat[:score] %> </h5></td>
+=======
+               <tr class="<% if stat[:user] == current_user %>text-light bg-dark<% end %>">
+                <td> <%= stat[:user].username %>  </td>
+                <td> <%= stat[:score] %> </td>
+>>>>>>> master
                </tr>
          <% end %>
         </tbody>
@@ -138,8 +191,43 @@
 <!--   </div> -->
 
 
+<<<<<<< HEAD
 
 
+=======
+        <table class="table table-dark table-stat">
+          <thead>
+            <tr>
+              <th scope="col">👦</th>
+              <th scope="col">🎲</th>
+              <th scope="col">€</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% event.users.each do |poto| %>
+              <tr>
+                <td><%= cl_image_tag poto.photo.key, class: "md avatar-diane "%></td>
+                <td>
+                  <% if event.winners.include?(poto)%>
+                    🏅
+                  <% else %>
+                    👎
+                  <% end %>
+                </td>
+                <td >
+                  <% if event.winners.include?(poto) && event.winners.count != 0 %>
+                      <%= (event.bets.first.amount_cents * event.users.count / event.winners.count) - event.bets.first.amount_cents %> €
+                  <% else %>
+                    <%= - event.bets.first.amount_cents %> €
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+      </div> <!-- fin du collapse -->
+>>>>>>> master
 
 <!--   <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
 
