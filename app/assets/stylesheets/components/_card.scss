@@ -344,6 +344,7 @@
 
 
   .card-event {
+    position: relative;
     background-size: cover;
     background-repeat:   no-repeat;
     background-position: center center;
@@ -437,10 +438,12 @@
         font-size: 20px;
         font-weight: bold;
         margin-top: 5px;
-        margin-bottom: 25px;
 
       }
       .card-event-line4{
+        position: absolute;
+        bottom: -18px;
+        width: 100%;
         display:flex;
         color:white;
         justify-content: space-evenly;
