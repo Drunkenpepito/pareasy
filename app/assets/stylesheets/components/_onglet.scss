@@ -3,7 +3,7 @@
   ul {
     list-style-type: none;
     margin: 0px;
-    padding: 18px 24px;
+    padding-top: 5px;
     overflow: hidden;
     background-color: #333;
     position: fixed;
@@ -13,6 +13,7 @@
     overflow:hidden;
     display: inline-block;
     bottom: 0px;
+    height: 80px;
   }
 
   li {

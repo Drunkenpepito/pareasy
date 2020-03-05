@@ -20,7 +20,7 @@ end
     end
     winner_count = @event.bets.where(winner: true).count
 
-    if winner_count == 0
+    if winner_count == 0 && player != 0
       price_per_winner = (sum_bets_amount*100) / player
       bets.each do |bet|
         bet.user.update(amount_cents: bet.user.amount_cents.to_i + price_per_winner)
@@ -32,7 +32,7 @@ end
         # user.save
       end
     else
-      price_per_winner = (sum_bets_amount*100) / winner_count
+      price_per_winner = (sum_bets_amount*100) / winner_count if winner_count != 0
       bets.each do |bet|
         if bet.winner
           bet.user.update(amount_cents: bet.user.amount_cents.to_i + price_per_winner)

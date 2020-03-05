@@ -25,6 +25,10 @@
       </ul>
   </div>
      <div class="money">
-    <p><%= current_user.amount_cents/100 %>€</p>
+    <p>
+      <% if current_user%>
+        <%= current_user.amount_cents/100 %>€
+      <% end %>
+    </p>
    </div>
 

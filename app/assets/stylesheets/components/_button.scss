@@ -128,6 +128,7 @@
   width: 300px;
   position: relative;
   background-color:#81a6d2;
+  margin-bottom:6px;
 }
 
 .btn-back {
@@ -195,7 +196,34 @@
     white-space: nowrap;
 }
 
-.text-center {
-    text-align: center !important;
-    margin-bottom: 3px;
+
+.btn-victoire{
+  font-size: 15px;
+  padding: 2px;
+  color: white;
+  letter-spacing: 2px;
+  margin: auto;
+  width: 300px;
+  position: relative;
+  background-color:#00BB7C;
+
 }
+
+.btn-defaite{
+  font-size: 15px;
+  padding: 2px;
+  color: white;
+  letter-spacing: 2px;
+  margin: auto;
+  width: 300px;
+  position: relative;
+  background-color:#F86260;
+
+}
+
+
+// .text-center {
+//     text-align: center !important;
+//     margin-bottom: 3px;
+// }
+

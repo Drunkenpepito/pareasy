@@ -118,26 +118,107 @@ amalia = User.new(email: "amalia@pareasy.com", password: "password", username: "
 amalia_pic = URI.open("https://res.cloudinary.com/dowapfod4/image/upload/v1582205792/wr5yqkpcub8nomda9ewadr5bv3n4.jpg")
 amalia.photo.attach(io: amalia_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
 amalia.save!
-
+puts ' users created'
 
 puts "Creating bet rooms"
-bet_room = BetRoom.new(name: "Paris entre potes")
+bet_room = BetRoom.new(name: "potes du rugby")
 bet_room_pic = URI.open("https://image.shutterstock.com/image-photo/four-friends-taking-selfie-together-260nw-641463781.jpg")
 bet_room.photo.attach(io: bet_room_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
 chatroom = Chatroom.new(name: "Paris entre potes")
 bet_room.chatroom = chatroom
 bet_room.save!
 
+bet_room2 = BetRoom.new(name: "Roland garros team!")
+bet_room2_pic = URI.open("https://res.cloudinary.com/dz8mhj8vj/image/upload/v1583341698/Roland-Garros_uyeyoz.jpg")
+bet_room2.photo.attach(io: bet_room2_pic, filename: 'some-image2.jpg', content_type: 'image/jpg')
+chatroom2 = Chatroom.new(name: "Roland garros team!")
+bet_room2.chatroom = chatroom2
+bet_room2.save!
+
+
+
+puts ' bet rooms created'
+
 puts "Creating participation"
 participation_1 = Participation.new(bet_room: bet_room, user: edouard)
 participation_1.save!
 participation_2 = Participation.new(bet_room: bet_room, user: xavier)
 participation_2.save!
-# participation_3 = Participation.new(bet_room: bet_room, user: pierre)
-# participation_3.save!
+participation_3 = Participation.new(bet_room: bet_room, user: pierre)
+participation_3.save!
 participation_4 = Participation.new(bet_room: bet_room, user: benjamin)
 participation_4.save!
 
+participation_5 = Participation.new(bet_room: bet_room, user: marin)
+participation_5.save!
+participation_6 = Participation.new(bet_room: bet_room, user: paul)
+participation_6.save!
+participation_7 = Participation.new(bet_room: bet_room, user: marie)
+participation_7.save!
+participation_8 = Participation.new(bet_room: bet_room, user: hugues)
+participation_8.save!
+
+participation_9 = Participation.new(bet_room: bet_room, user: tom)
+participation_9.save!
+participation_10 = Participation.new(bet_room: bet_room, user: pauline)
+participation_10.save!
+participation_11 = Participation.new(bet_room: bet_room, user: diane)
+participation_11.save!
+
+participation_12 = Participation.new(bet_room: bet_room, user: amalia)
+participation_12.save!
+participation_13 = Participation.new(bet_room: bet_room, user: laure)
+participation_13.save!
+participation_14 = Participation.new(bet_room: bet_room, user: nicolas)
+participation_14.save!
+participation_15 = Participation.new(bet_room: bet_room, user: florent)
+participation_15.save!
+
+participation_16 = Participation.new(bet_room: bet_room, user: guillaume)
+participation_16.save!
+participation_17 = Participation.new(bet_room: bet_room, user: alexandre)
+participation_17.save!
+participation_18 = Participation.new(bet_room: bet_room, user: francois)
+participation_18.save!
+participation_19 = Participation.new(bet_room: bet_room, user: elena)
+participation_19.save!
+participation_20 = Participation.new(bet_room: bet_room, user: astrid)
+participation_20.save!
+
+
+
+
+
+
+participation_12 = Participation.new(bet_room: bet_room2, user: astrid)
+participation_12.save!
+
+participation_13 = Participation.new(bet_room: bet_room2, user: florent)
+participation_13.save!
+participation_14 = Participation.new(bet_room: bet_room2, user: nicolas)
+participation_14.save!
+participation_15 = Participation.new(bet_room: bet_room2, user: laure)
+participation_15.save!
+participation_16 = Participation.new(bet_room: bet_room2, user: pierre)
+participation_16.save!
+participation_17 = Participation.new(bet_room: bet_room2, user: elena)
+participation_17.save!
+participation_18 = Participation.new(bet_room: bet_room2, user: pauline)
+participation_18.save!
+participation_19 = Participation.new(bet_room: bet_room2, user: marie)
+participation_19.save!
+participation_20 = Participation.new(bet_room: bet_room2, user: diane)
+participation_20.save!
+participation_21 = Participation.new(bet_room: bet_room2, user: edouard)
+participation_21.save!
+participation_22 = Participation.new(bet_room: bet_room2, user: benjamin)
+participation_22.save!
+participation_23 = Participation.new(bet_room: bet_room2, user: xavier)
+participation_23.save!
+
+
+
+puts ' participations created'
 
 puts 'Creating events'
 
@@ -163,7 +244,8 @@ fa_3_0 = Event.new(
   description: "3 - 0",
   game_start_at: DateTime.new(2020,5,4,20,45,00),
   bet_room: bet_room,
-  author: edouard
+  author: edouard,
+  results: false,
   )
 
 fa_3_0.save!
@@ -215,6 +297,232 @@ f1_f.save!
 
 p "#{f1_f.sport} event created!"
 
+ms_3_0 = Event.new(
+  sport: "Football",
+  league: "Ligue 1",
+  game: "Montpellier vs Strasbourg",
+  description: "3 - 0",
+  game_start_at: DateTime.new(2019,9,7,15,00,00),
+  bet_room: bet_room,
+  author: marin,
+  results: false
+  )
+
+ms_3_0.save!
+
+mr_v = Event.new(
+  sport: "Football",
+  league: "Ligue 1",
+  game: "Monaco vs Reims",
+  description: "Victoire de Monaco",
+  game_start_at: DateTime.new(2019,9,7,15,00,00),
+  bet_room: bet_room,
+  author: paul,
+  results: true
+  )
+
+mr_v.save!
+
+nl_0_1 = Event.new(
+  sport: "Football",
+  league: "Ligue 1",
+  game: "Nantes vs Lille",
+  description: "0 - 1",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room,
+  author: marie,
+  results: false
+  )
+
+nl_0_1.save!
+
+lhc_3_0 = Event.new(
+  sport: "Football",
+  league: "Ligue 1",
+  game: "Le Havre vs Chateauroux",
+  description: "3 - 0",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room,
+  author: hugues,
+  results: false
+  )
+
+lhc_3_0.save!
+
+ac_v = Event.new(
+  sport: "Rugby",
+  league: "Top 14",
+  game: "Agen vs Clermont",
+  description: "Victoire de Agen",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room,
+  author: tom,
+  results: false
+  )
+
+ac_v.save!
+
+tsf_d = Event.new(
+  sport: "Rugby",
+  league: "Top 14",
+  game: "Toulon vs Stade francais",
+  description: "Defaite de Toulon",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room,
+  author: pauline,
+  results: false
+  )
+
+tsf_d.save!
+
+bl_d = Event.new(
+  sport: "Rugby",
+  league: "Top 14",
+  game: "Brive vs Lyon",
+  description: "Defaite de Lyon",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room,
+  author: diane,
+  results: true
+  )
+
+bl_d.save!
+
+bbc_v = Event.new(
+  sport: "Rugby",
+  league: "Top 14",
+  game: "Bordeaux Bègles vs Castres",
+  description: "Victoire de Castres",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room,
+  author: diane,
+  results: false
+  )
+
+bbc_v.save!
+
+bt_v = Event.new(
+  sport: "Rugby",
+  league: "Top 14",
+  game: "Bayone vs Toulouse",
+  description: "Victoire de Toulouse",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room,
+  author: xavier,
+  results: false
+  )
+
+bt_v.save!
+
+hsf_v = Event.new(
+  sport: "Rugby",
+  league: "Top 14",
+  game: "Le HAC vs Stade francais",
+  description: "Victoire du HAC",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room,
+  author: pierre,
+  results: true
+  )
+
+hsf_v.save!
+
+br92_d = Event.new(
+  sport: "Rugby",
+  league: "Top 14",
+  game: "Bayonne vs Racing 92",
+  description: "Defaite de Bayonne",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room,
+  author: benjamin,
+  results: true
+  )
+
+br92_d.save!
+
+
+
+
+
+t1 = Event.new(
+  sport: "Tennis",
+  league: "Rolland Garros",
+  game: "Djocovic vs Zverev",
+  description: "Defaite de Zverev",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room2,
+  author: laure,
+  results: false
+  )
+
+t1.save!
+
+t2= Event.new(
+  sport: "Tennis",
+  league: "Rolland Garros",
+  game: "Thiem vs Khachanov",
+  description: "Defaite de Thiem",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room2,
+  author: nicolas,
+  results: false
+  )
+
+t2.save!
+
+t3 = Event.new(
+  sport: "Tennis",
+  league: "Rolland Garros",
+  game: "Wawrinka vs Federer",
+  description: "Victoire de Federer",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room2,
+  author: florent,
+  results: false
+  )
+
+t3.save!
+
+t4 = Event.new(
+  sport: "Tennis",
+  league: "Rolland Garros",
+  game: "Nishikori vs Nadal",
+  description: "Defaite de Nishikori",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room2,
+  author: guillaume,
+  results: true
+  )
+
+t4.save!
+
+t5 = Event.new(
+  sport: "Tennis",
+  league: "Rolland Garros",
+  game: "Furic vs Blanchy",
+  description: "Defaite de Blanchy",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room2,
+  author: alexandre,
+  results: true
+  )
+
+t5.save!
+
+t6 = Event.new(
+  sport: "Tennis",
+  league: "Rolland Garros",
+  game: "Nadal vs Sharapova",
+  description: "Defaite de Nadal",
+  game_start_at: DateTime.new(2020,9,7,15,00,00),
+  bet_room: bet_room2,
+  author: francois,
+  results: false
+  )
+
+t6.save!
+puts ' events created'
+
 puts 'Creating bets'
 
 paris_marseille = Bet.new(amount_cents: 4, result: true, event: pm_32, user: edouard)
@@ -225,15 +533,104 @@ france_allemagne = Bet.new(amount_cents: 5, result: true, event: fa_3_0, user: x
 france_allemagne.save!
 federer_nadal = Bet.new(amount_cents: 6, result: false, event: fn_psf, user: benjamin)
 federer_nadal.save!
-# france_angleterre = Bet.new(amount_cents: 2, result: true, event: fa_bo, user: pierre)
-# france_angleterre.save!
-gpm = Bet.new(amount_cents: 1, result: false, event: f1_f, user: edouard)
+france_angleterre = Bet.new(amount_cents: 2, result: true, event: fa_bo, user: pierre)
+france_angleterre.save!
+gpm = Bet.new(amount_cents: 2, result: false, event: f1_f, user: edouard)
 gpm.save!
+p1 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: francois)
+p1.save!
+p2 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: alexandre)
+p2.save!
+p3 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: guillaume)
+p3.save!
+p4 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: florent)
+p4.save!
+p5 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: nicolas)
+p5.save!
+p6 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: laure)
+p6.save!
+p7 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: elena)
+p7.save!
+p8 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: pierre)
+p8.save!
+p9 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: astrid)
+p9.save!
+p10 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: diane)
+p10.save!
+p11 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: pauline)
+p11.save!
+p12 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: tom)
+p12.save!
+p13 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: hugues)
+p13.save!
+p14 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: marie)
+p14.save!
+p15 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: edouard)
+p15.save!
+p16= Bet.new(amount_cents: 5, result: false, event: tsf_d , user: xavier)
+p16.save!
+p17 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: benjamin)
+p17.save!
+p18 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: paul)
+p18.save!
+
+p19 = Bet.new(amount_cents: 3, result: true, event: t4 , user: xavier)
+p19.save!
+p20 = Bet.new(amount_cents: 3, result: false, event: t4 , user: benjamin)
+p20.save!
+p21 = Bet.new(amount_cents: 3, result: true, event: t4 , user: edouard)
+p21.save!
+p22 = Bet.new(amount_cents: 3, result: false, event: t4 , user: pierre)
+p22.save!
+p23 = Bet.new(amount_cents: 3, result: true, event: t4 , user: elena)
+p23.save!
+p24 = Bet.new(amount_cents: 3, result: false, event: t4 , user: pauline)
+p24.save!
+p25 = Bet.new(amount_cents: 3, result: true, event: t4 , user: marie)
+p25.save!
+p26 = Bet.new(amount_cents: 3, result: false, event: t4 , user: diane)
+p26.save!
+p27 = Bet.new(amount_cents: 14, result: true, event: br92_d , user: astrid)
+p27.save!
+p28 = Bet.new(amount_cents: 14, result: false, event: br92_d , user: diane)
+p28.save!
+p29 = Bet.new(amount_cents: 14, result: true, event: br92_d , user: pauline)
+p29.save!
+p30 = Bet.new(amount_cents: 14, result: false, event: br92_d , user: tom)
+p30.save!
+p31 = Bet.new(amount_cents: 14, result: true, event: br92_d , user: hugues)
+p31.save!
+p32 = Bet.new(amount_cents: 14, result: false, event: br92_d , user: marie)
+p32.save!
+p33 = Bet.new(amount_cents: 14, result: true, event: br92_d , user: edouard)
+p33.save!
+p34= Bet.new(amount_cents: 14, result: false, event: br92_d , user: xavier)
+p34.save!
+p35 = Bet.new(amount_cents: 14, result: true, event: br92_d , user: benjamin)
+p35.save!
+p36 = Bet.new(amount_cents: 14, result: false, event: br92_d , user: francois)
+p36.save!
+
+puts ' bets created'
+
+puts ' Money dispatch...'
 
 MoneyDispatch.new(pm_32).call
+puts ' pm_32'
 MoneyDispatch.new(fa_3_0).call
+puts ' fa_3_0'
 MoneyDispatch.new(fn_psf).call
+puts ' fn_psf'
 MoneyDispatch.new(f1_f).call
+puts ' f1_f'
+MoneyDispatch.new(tsf_d).call
+puts ' tsf_d'
+MoneyDispatch.new(t4).call
+puts ' t4'
+MoneyDispatch.new(br92_d).call
+puts ' br92_d'
+
+
 
 
 

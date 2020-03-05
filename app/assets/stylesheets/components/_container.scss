@@ -16,6 +16,21 @@
 
 .content-wrapper {
   min-height: calc(100vh - 70px - 80px);
+  margin-top: 80px;
+}
+
+h1 {
+  margin-top: 100px;
+}
+
+
+.container-select-event-description{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.container-description-inline{
+  display: flex;
 }
 
 
