@@ -153,7 +153,7 @@
 }
 
 .list-description{
-  margin: 17px 0px;
+  // margin: 17px 0px;
   background-size: cover;
   background-position: center;
   height: 54px;
@@ -161,17 +161,18 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: white;
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 98px;
+  width: 83px;
+  background-color: #1edd88;
 }
 
 .list-description-goal{
-  margin: 17px 0px;
+  // margin: 17px 0px;
   background-size: cover;
   background-position: center;
   height: 54px;
@@ -179,13 +180,14 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: white;
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 98px;
+  background-color: #1edd88;
 }
 
 .list-description-button{
@@ -197,19 +199,20 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: white;
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   // width: 100%;
+  background-color: #1edd88;
 }
 
 .goal-total {
   display: flex;
   align-items: stretch;
-  justify-content: flex-end;
+  justify-content: flex-start;
 
   .input-goal {
     flex-basis: 25%;
@@ -217,7 +220,7 @@
     height: auto;
   }
   .list-description-button {
-    flex-basis: 50%;
+    flex-basis: 70%;
   }
 }
 
@@ -244,14 +247,21 @@
     input {
       display: inline-block;
       margin-bottom: 15px;
+      width: 80%;
     }
   }
+}
+
+.btn-event-description{
+  width: 100%;
+  text-align: left;
 }
 
 .container-description{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .list-description-bet{
@@ -263,16 +273,15 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: white;
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 98px;
+  width: 83px;
+  background-color: #1edd88;
 }
-
-
 
 .settup-bet{
 
@@ -318,7 +327,24 @@
 .card-header-bet {
   font-size: 14px;
   border-bottom: 0px;
+
+  h2{
+    color: black;
+    margin-top: 0px;
+  }
+
+  a{
+    color: black;
+  }
+
+  #bet-type{
+    color: black;
+    text-decoration: none;
+    font-size: 21px;
+    margin-top: 0px;
+  }
 }
+
 
 .card-text:last-child {
   margin-bottom: 0px;
@@ -413,6 +439,7 @@
         font-size: 20px;
         font-weight: bold;
         margin: 0;
+
         .row{
               margin-top: 45px;
         }
@@ -463,6 +490,10 @@
       font-size: 16px;
       font-weight: bold;
       margin: 0;
+
+        .card-event-bet{
+
+        }
       }
 
       .card-event-line6{
@@ -474,7 +505,9 @@
       padding-bottom: 0px;
       }
 
-
+      .card-event-description{
+        font-size: 30px;
+      }
 
   }
 //

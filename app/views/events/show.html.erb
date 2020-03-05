@@ -10,13 +10,13 @@
         <div class="cardsEvent">
           <div class="card-event event-<%= @event.sport %>">
             <br>
-            <div class="card-event-line2"><%=@event.game %></div>
-            <div class="card-event-line2"><%=@event.bet_type %></div>
-            <div class="card-event-line3"><%=@event.description %></div>
+            <div class="card-event-bet"><%=@event.game %></div>
+            <div class="card-event-bet"><%=@event.bet_type %></div>
+            <div class="card-event-bet"><%=@event.description %></div>
           </div>
         </div>
 
-  <h2>Cet événement va se passer ou non ?</h2>
+  <h2>Combien souhaites-tu miser ?</h2>
   <%#= simple_form_for [@event, @bet] do |f| %>
     <%#= f.input :amount_cents, label: false, placeholder: "Combien souhaites-tu miser ?", input_html: { min: '0', max: '10' } %>
     <%#= f.input :result, as: :boolean, checked_value: true, unchecked_value: false %>
@@ -30,22 +30,22 @@
     <%= f.hidden_field :amount_cents %>
     <div class = "container-description">
       <div data-event="1" class="list-description-bet">
-        1
+        1€
       </div>
       <div data-event="2" class="list-description-bet">
-        2
+        2€
       </div>
       <div data-event="4" class="list-description-bet">
-        4
+        4€
       </div>
       <div data-event="6" class="list-description-bet">
-        6
+        6€
       </div>
        <div data-event="8" class="list-description-bet">
-        8
+        8€
       </div>
        <div data-event="10" class="list-description-bet">
-        10
+        10€
       </div>
       <% f.button :submit, "Next" %>
     </div>
