@@ -1,10 +1,10 @@
 <%= render 'shared/onglet' %>
-<div class = "container-select-event">
-  <div class = "arrow-left">
-    <%= link_to "", new_sport_bet_room_events_path(@event.bet_room), class:"fas fa-arrow-left", data: {turbolinks: false} %>
-  </div>
+<!-- <div class = "arrow-left">
+  <%#= link_to "", new_sport_bet_room_events_path(@event.bet_room), class:"fas fa-arrow-left", data: {turbolinks: false} %>
+</div> -->
   <h2>Compétition</h2>
-</div>
+<!-- <div class = "container-select-event">
+</div> -->
 
 
 <%= simple_form_for @event, url: update_league_event_path(@event), html: { method: :post, id: :edit_league } do |f| %>
@@ -12,31 +12,31 @@
   <%= f.hidden_field :thesportdb_league_id %>
   <div data-event="4334" class="list-league">
     <img src="https://www.thesportsdb.com/images/media/league/badge/8f5jmf1516458074.png" alt="">
-    Ligue 1
+    <h3>Ligue 1</h3>
   </div>
   <div data-event="4328" class="list-league">
     <img src="https://www.thesportsdb.com/images/media/league/badge/i6o0kh1549879062.png" alt="">
-    Premier League
+    <h3>Premier League</h3>
   </div>
   <div data-event="4335" class="list-league">
     <img src="https://www.thesportsdb.com/images/media/league/badge/7onmyv1534768460.png" alt="">
-    Liga
+    <h3>Liga</h3>
   </div>
   <div data-event="4331" class="list-league">
     <img src="https://www.thesportsdb.com/images/media/league/badge/0j55yv1534764799.png" alt="">
-    Bundesliga
+    <h3>Bundesliga</h3>
   </div>
   <div data-event="4332" class="list-league">
     <img src="https://www.thesportsdb.com/images/media/league/badge/ocy2fe1566216901.png" alt="">
-    Serie A
+    <h3>Serie A</h3>
   </div>
   <div data-event="4480" class="list-league">
     <img src="https://www.thesportsdb.com/images/media/league/badge/dtp1dl1534767233.png" alt="">
-    Champions League
+    <h3>Champions League</h3>
   </div>
   <div data-event="4481" class="list-league">
     <img src="https://www.thesportsdb.com/images/media/league/badge/hr7j521534767345.png" alt="">
-    Europa League
+    <h3>Europa League</h3>
   </div>
   <% f.button :submit, "Next" %>
 <% end %>
