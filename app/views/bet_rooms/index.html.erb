@@ -15,8 +15,8 @@
       <% @bet_rooms.each do |room| %>
         <div class="col-6">
           <%= link_to bet_room_path(room) do %>
-            <% unless room.photo.attachment.nil? %>
-              <div class="room-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path room.photo.key, crop: :fill %>') ">
+          <% image = room.photo.attachment.present? ? cl_image_path(room.photo.key, crop: :fill) : image_path("Pareasy.png") %>
+              <div class="room-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image %>') ">
                 <% if room.pending_events(current_user) > 0 %>
                   <span class="notif"><%= room.pending_events(current_user) %></span>
                 <% end %>
@@ -31,8 +31,6 @@
                 </div>
 
               </div>
-
-            <% end %>
 
           <% end %>
         </div>
