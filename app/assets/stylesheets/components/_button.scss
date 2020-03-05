@@ -193,7 +193,8 @@
   }
 
 .dropdown-toggle {
-    white-space: nowrap;
+  white-space: nowrap;
+  color: white
 }
 
 .btn-victoire{
@@ -219,3 +220,9 @@
   background-color:#F86260;
 
 }
+
+.text-center {
+    text-align: center !important;
+    margin-bottom: 3px;
+}
+
