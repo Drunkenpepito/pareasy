@@ -1,41 +1,23 @@
-
-<!-- classement general -->
-
-
-<div id="accordion ">
-
-  <!-- <div class="cardsEvent"> -->
-   <!--  <div class="card-event "> -->
-      <div class="text-center  ">
-
-        <a class=" btn btn-guost btn-lg" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" data-toggle="false" aria-controls="collapseOne">
-          <h1 class=" inclined row blink_me mt-3 mb-3 ">
-            Classement!
-          </h1>
-        </a>
-
-      </div>
-  <!--   </div> -->
-<!--   </div> -->
-
-
-
-
-
-  <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
-
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-classement" role="tab" aria-controls="nav-classement" aria-selected="true">classement</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-historique" role="tab" aria-controls="nav-historique" aria-selected="false">historique</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-classement" role="tabpanel" aria-labelledby="nav-classement-tab">
     <table class="table table-dark table-stat">
          <thead>
            <tr>
-             <th scope="col"> Poto </th>
-             <th scope="col">€</th>
+             <th scope="col"> <h4> Poto </h4></th>
+             <th scope="col"><h4>€</h4></th>
            </tr>
          </thead>
          <tbody>
           <% @stats.each do |stat| %>
                <tr>
-                <td> <%= stat[:user].username %>  </td>
-                <td> <%= stat[:score] %> </td>
+                <td> <h5> <%= stat[:user].username %> </h5> </td>
+                <td> <h5><%= stat[:score] %> </h5></td>
                </tr>
          <% end %>
         </tbody>
@@ -43,7 +25,92 @@
      </table>
 
   </div>
+  <div class="tab-pane fade" id="nav-historique" role="tabpanel" aria-labelledby="nav-historique-tab">
 
+    <% @events.each do |event| %>
+      <% if  event.bets != []%>
+
+        <div  id="accordion">
+
+          <div class="card-event">
+            <div class="card-event-line1 text-center">
+                <button data-toggle="collapse" data-target="#collapseOne-<%= event.id %>" aria-expanded="true" data-toggle="false" aria-controls="collapseOne"
+                  class="
+                  <% if event.winners.include?(current_user) %>
+                    btn btn-victoire btn-lg
+                  <% elsif !event.winners.include?(current_user) && event.users.include?(current_user)%>
+                    btn btn-defaite btn-lg
+                  <% else %>
+                    btn btn-pouet btn-lg
+                  <% end %>
+                ">
+
+                  <span ><strong><%= event.game %></strong></span>
+                    <div><%= event.description %></div>
+                  </span >
+                    <%# if event.results == true %>
+                      <!-- <span class="justify-content-end">✅</span> -->
+                    <%# else %>
+                      <!-- <span class="justify-content-end">❌</span> -->
+                    <%# end %>
+                </button>
+            </div>
+          </div>
+
+
+          <div id="collapseOne-<%= event.id %>" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+            <!-- <div class="card-body ">
+              <div class="cardsEvent">
+                <div class="card-event">
+                  <div class="card-event-line2"><h2><strong> Résultat ! </strong></h2></div>
+                  <div class="card-event-line2"><%=event.game %></div>
+                  <div class="card-event-line3"><%=event.description %></div>
+                </div>
+              </div>
+            </div> -->
+
+            <table class="table table-dark table-stat">
+              <thead>
+                <tr>
+                  <th scope="col">👦</th>
+                  <th scope="col">🎲</th>
+                  <th scope="col">€</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% event.users.each do |poto| %>
+                  <tr>
+                    <td><%= cl_image_tag poto.photo.key, class: "md avatar-diane "%></td>
+                    <td>
+                      <% if event.winners.include?(poto)%>
+                        🏅
+                      <% else %>
+                        👎
+                      <% end %>
+                    </td>
+                    <td>
+                      <% if event.winners.include?(poto) && event.winners.count != 0 %>
+                          <%= (event.bets.first.amount_cents * event.users.count / event.winners.count) - event.bets.first.amount_cents %> €
+                      <% else %>
+                        <%= - event.bets.first.amount_cents %> €
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+
+
+          </div> <!-- fin du collapse -->
+
+        </div>
+      <% end %>
+    <% end %>  <!-- end de la bouce event -->
+
+
+
+
+</div>
 </div>
 
 
@@ -51,85 +118,38 @@
 
 
 
-<% @events.each do |event| %>
-  <% if  event.bets != []%>
-
-    <div  id="accordion">
-
-      <div class="card-event">
-        <div class="card-event-line1 text-center">
-            <button data-toggle="collapse" data-target="#collapseOne-<%= event.id %>" aria-expanded="true" data-toggle="false" aria-controls="collapseOne"
-              class="
-              <% if event.winners.include?(current_user) %>
-                btn btn-victoire btn-lg
-              <% elsif !event.winners.include?(current_user) && event.users.include?(current_user)%>
-                btn btn-defaite btn-lg
-              <% else %>
-                btn btn-pouet btn-lg
-              <% end %>
-            ">
-
-              <span ><strong><%= event.game %></strong></span>
-                <div><%= event.description %></div>
-              </span >
-                <% if event.results == true %>
-                  <span class="justify-content-end">✅</span>
-                <% else %>
-                  <span class="justify-content-end">❌</span>
-                <% end %>
-            </button>
-        </div>
-      </div>
+<!-- classement general -->
 
 
-      <div id="collapseOne-<%= event.id %>" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
-        <div class="card-body ">
-          <div class="cardsEvent">
-            <div class="card-event">
-              <div class="card-event-line2"><h2><strong> Résultat ! </strong></h2></div>
-              <div class="card-event-line2"><%=event.game %></div>
-              <div class="card-event-line3"><%=event.description %></div>
-            </div>
-          </div>
-        </div>
+<!-- <div id="accordion "> -->
 
-        <table class="table table-dark table-stat">
-          <thead>
-            <tr>
-              <th scope="col">👦</th>
-              <th scope="col">🎲</th>
-              <th scope="col">€</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% event.users.each do |poto| %>
-              <tr>
-                <td><%= cl_image_tag poto.photo.key, class: "md avatar-diane "%></td>
-                <td>
-                  <% if event.winners.include?(poto)%>
-                    🏅
-                  <% else %>
-                    👎
-                  <% end %>
-                </td>
-                <td>
-                  <% if event.winners.include?(poto) && event.winners.count != 0 %>
-                      <%= (event.bets.first.amount_cents * event.users.count / event.winners.count) - event.bets.first.amount_cents %> €
-                  <% else %>
-                    <%= - event.bets.first.amount_cents %> €
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+  <!-- <div class="cardsEvent"> -->
+   <!--  <div class="card-event "> -->
+ <!--      <div class="text-center  ">
+
+        <a class=" btn btn-guost btn-lg" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" data-toggle="false" aria-controls="collapseOne">
+          <h1 class=" inclined row blink_me mt-3 mb-3 ">
+            Classement!
+          </h1>
+        </a>
+
+      </div> -->
+  <!--   </div> -->
+<!--   </div> -->
 
 
-      </div> <!-- fin du collapse -->
 
-    </div>
-  <% end %>
-<% end %>  <!-- end de la bouce event -->
+
+
+<!--   <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+
+
+  </div>
+
+</div>
+ -->
+
+
 
 
 
