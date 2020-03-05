@@ -2,7 +2,7 @@
   <div class="message-container other-message" data-user-id=<%= message.user_id %> >
     <i class="author">
       <span><%= message.user.username %></span>
-      <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+      <small><%= message.created_at.strftime("%m/%d/%y, %Hh%M") %></small>
     </i>
     <div  class=" d-flex ">
       <%= cl_image_tag message.user.photo.key %>
@@ -13,7 +13,7 @@
   <div class="message-container <%= message.user == current_user ? 'my-message' : 'other-message' %>" data-user-id=<%= message.user_id %> >
     <i class="author">
       <span><%= message.user.username %></span>
-      <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+      <small><%= message.created_at.strftime("%m/%d/%y, %Hh%M") %></small>
     </i>
     <div  class=" d-flex ">
         <% if message.user != current_user %>
