@@ -84,8 +84,12 @@
                 </td>
                 <td>
                   <% if bet.result == bet.event.results %>
-                      <%= gain = (bet.amount_cents * bet.event.users.count / bet.event.bets.where(winner: true).count) - bet.amount_cents %> €
-                      <% @gains += gain %>
+                      <% if bet.event.bets.where(winner: true).count != 0%>
+                        <%= gain = (bet.amount_cents * bet.event.users.count / bet.event.bets.where(winner: true).count) - bet.amount_cents %> €
+                        <% @gains += gain %>
+                      <% else %>
+                        <%= gain = 0 %>
+                      <% end %>
                   <% else %>
                     <%= - bet.amount_cents %> €
                   <% end %>

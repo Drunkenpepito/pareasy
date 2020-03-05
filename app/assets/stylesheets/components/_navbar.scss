@@ -30,4 +30,37 @@
   width: 100%;
 }
 
+.money {
+  position: absolute;
+  right: 50px;
+  top: 30px;
+  background: #1EDD88;
+  display: -webkit-box;
+  display: flex;
+  font-size: 20px;
+  font-weight: bolder;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 30;
+}
 
+
+.money p{
+margin: 0;
+}
+
+
+.logo-pareasy {
+  display: block;
+  position: absolute;
+  top: 21px;
+  left: 33px;
+  width: 161px;
+  z-index: 30;
+}
