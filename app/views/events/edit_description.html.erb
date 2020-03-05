@@ -1,12 +1,12 @@
-  <%= render 'shared/onglet' %>
- <div class = "container-select-event-description">
-  <div class = "container-select-event">
-    <div class = "arrow-left">
-      <%= link_to "", edit_game_event_path(@event), class:"fas fa-arrow-left", data: {turbolinks: false} %>
-    </div>
-    <h2>Choisis ton pari</h2>
-  </div>
+<%= render 'shared/onglet' %>
+<!-- <div class = "container-select-event"> -->
+<!--   <div class = "arrow-left">
+    <%#= link_to "", edit_game_event_path(@event), class:"fas fa-arrow-left", data: {turbolinks: false} %>
+  </div> -->
+  <h2>Choisis ton pari</h2>
+<!-- </div> -->
 
+ <div class = "container-select-event-description">
   <div class="cardsEvent">
     <div class="card-event event-<%= @event.sport %>" id = "card-event-description">
       <br>
@@ -40,13 +40,13 @@
              <div><%= @event.game.split("vs").map{ |t| t.strip }.last %></div>
            </div>
           <div class = "container-description">
-            <div data-event="Victoire <%= @event.game.split("vs").map{ |t| t.strip }.first %>" class="list-description">
+            <div data-event="Victoire Domicile" class="list-description">
               Gagne
             </div>
             <div data-event="Match Nul" class="list-description">
               Nul
             </div>
-            <div data-event="Victoire <%= @event.game.split("vs").map{ |t| t.strip }.last %>" class="list-description">
+            <div data-event="Victoire Visiteur" class="list-description">
               Gagne
             </div>
           </div>

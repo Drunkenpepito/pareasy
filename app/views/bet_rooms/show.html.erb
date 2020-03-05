@@ -16,7 +16,7 @@
 
     </div>
     <h1><%= @bet_room.name %></h1>
-    <div class="container text-center">
+    <div class="container text-center" id="confirm-banner">
       <%#= link_to "Lance un Pari ", new_sport_bet_room_events_path(@bet_room), class: "btn btn-flat", data: {turbolinks: false} %>
       <%= render 'shared/button' %>
     </div>
@@ -29,7 +29,7 @@
     </h2>
   </div>
 
-  <div class="container text-center"><%= link_to "Donne le résultat de tes paris", bet_room_events_path(@bet_room), class: "btn btn-ghost" %></div>
+<!--   <div class="container text-center"><%#= link_to "Donne le résultat de tes paris", bet_room_events_path(@bet_room), class: "btn btn-ghost" %></div> -->
 
 <% @events.each do |event| %>
   <% unless event.bets.empty? || event.bets.first.amount_cents == 0 || event.bets.where(user_id: current_user).empty? %>
@@ -38,7 +38,7 @@
       <div class="cardsEvent">
         <div class="card-event event-<%= event.sport %>">
           <div class="card-event-line1">
-            <span><%#=event.sport %></span>
+            <span><%=event.sport %></span>
             <span>
               <% if event.bets.count > 0 %>
                 <%#=event.bets.first.user.username%>
@@ -57,7 +57,7 @@
           <div class="card-event-line5">
             <span>
               <button class="btn btn-5 btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= event.users.distinct.count %> Gamers
+                <%= event.users.distinct.count %> <i class="fas fa-users"></i>
               </button>
 
               <div class="dropdown-menu">
@@ -116,7 +116,7 @@
             <div class="card-event-line5">
               <span>
                 <button class="btn btn-5 btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <%= event.users.distinct.count %> Gamers
+                  <%= event.users.distinct.count %> <i class="fas fa-users"></i>
                 </button>
 
                 <div class="dropdown-menu">
