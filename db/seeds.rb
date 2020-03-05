@@ -254,7 +254,7 @@ p "#{fa_3_0.sport} event created!"
 
 
 fn_psf = Event.new(
-  sport: "Tennis",
+  sport: "tennis",
   league: "Roland Garros",
   game: "Federer vs Nadal",
   description: "6 - 4",
@@ -445,7 +445,7 @@ br92_d.save!
 
 
 t1 = Event.new(
-  sport: "Tennis",
+  sport: "tennis",
   league: "Rolland Garros",
   game: "Djocovic vs Zverev",
   description: "Defaite de Zverev",
@@ -458,7 +458,7 @@ t1 = Event.new(
 t1.save!
 
 t2= Event.new(
-  sport: "Tennis",
+  sport: "tennis",
   league: "Rolland Garros",
   game: "Thiem vs Khachanov",
   description: "Defaite de Thiem",
@@ -471,7 +471,7 @@ t2= Event.new(
 t2.save!
 
 t3 = Event.new(
-  sport: "Tennis",
+  sport: "tennis",
   league: "Rolland Garros",
   game: "Wawrinka vs Federer",
   description: "Victoire de Federer",
@@ -484,7 +484,7 @@ t3 = Event.new(
 t3.save!
 
 t4 = Event.new(
-  sport: "Tennis",
+  sport: "tennis",
   league: "Rolland Garros",
   game: "Nishikori vs Nadal",
   description: "Defaite de Nishikori",
@@ -497,7 +497,7 @@ t4 = Event.new(
 t4.save!
 
 t5 = Event.new(
-  sport: "Tennis",
+  sport: "tennis",
   league: "Rolland Garros",
   game: "Furic vs Blanchy",
   description: "Defaite de Blanchy",
@@ -510,7 +510,7 @@ t5 = Event.new(
 t5.save!
 
 t6 = Event.new(
-  sport: "Tennis",
+  sport: "tennis",
   league: "Rolland Garros",
   game: "Nadal vs Sharapova",
   description: "Defaite de Nadal",
@@ -543,11 +543,11 @@ p2 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: alexandre)
 p2.save!
 p3 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: guillaume)
 p3.save!
-p4 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: florent)
+p4 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: florent)
 p4.save!
 p5 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: nicolas)
 p5.save!
-p6 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: laure)
+p6 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: laure)
 p6.save!
 p7 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: elena)
 p7.save!
@@ -555,19 +555,19 @@ p8 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: pierre)
 p8.save!
 p9 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: astrid)
 p9.save!
-p10 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: diane)
+p10 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: diane)
 p10.save!
 p11 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: pauline)
 p11.save!
-p12 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: tom)
+p12 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: tom)
 p12.save!
 p13 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: hugues)
 p13.save!
-p14 = Bet.new(amount_cents: 5, result: false, event: tsf_d , user: marie)
+p14 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: marie)
 p14.save!
 p15 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: edouard)
 p15.save!
-p16= Bet.new(amount_cents: 5, result: false, event: tsf_d , user: xavier)
+p16= Bet.new(amount_cents: 5, result: true, event: tsf_d , user: xavier)
 p16.save!
 p17 = Bet.new(amount_cents: 5, result: true, event: tsf_d , user: benjamin)
 p17.save!
@@ -578,15 +578,15 @@ p19 = Bet.new(amount_cents: 3, result: true, event: t4 , user: xavier)
 p19.save!
 p20 = Bet.new(amount_cents: 3, result: false, event: t4 , user: benjamin)
 p20.save!
-p21 = Bet.new(amount_cents: 3, result: true, event: t4 , user: edouard)
+p21 = Bet.new(amount_cents: 3, result: false, event: t4 , user: edouard)
 p21.save!
 p22 = Bet.new(amount_cents: 3, result: false, event: t4 , user: pierre)
 p22.save!
-p23 = Bet.new(amount_cents: 3, result: true, event: t4 , user: elena)
+p23 = Bet.new(amount_cents: 3, result: false, event: t4 , user: elena)
 p23.save!
 p24 = Bet.new(amount_cents: 3, result: false, event: t4 , user: pauline)
 p24.save!
-p25 = Bet.new(amount_cents: 3, result: true, event: t4 , user: marie)
+p25 = Bet.new(amount_cents: 3, result: false, event: t4 , user: marie)
 p25.save!
 p26 = Bet.new(amount_cents: 3, result: false, event: t4 , user: diane)
 p26.save!
