@@ -24,11 +24,11 @@ class FetchEventResultsService
       scores = "#{home_score} - #{away_score}"
     elsif @event.bet_type == "Résultat du match"
       if home_score > away_score
-        scores = "Victoire de l'équipe à domicile"
+        scores = "Victoire Domicile"
       elsif home_score == away_score
         scores = "Match Nul"
       elsif home_score < away_score
-        scores = "Victoire de l'équipe à l'extérieur"
+        scores = "Victoire Visiteur"
       end
     elsif @event.bet_type == "Nombre total de buts"
       sum = home_score + away_score
