@@ -31,14 +31,14 @@
              <th scope="col">€</th>
            </tr>
          </thead>
-        <% @stats.each do |stat| %>
          <tbody>
-             <tr>
-              <td> <%= stat[:user].username %>  </td>
-              <td> <%= stat[:score] %> </td>
-             </tr>
-         </tbody>
-       <% end %>
+          <% @stats.each do |stat| %>
+               <tr>
+                <td> <%= stat[:user].username %>  </td>
+                <td> <%= stat[:score] %> </td>
+               </tr>
+         <% end %>
+        </tbody>
 
      </table>
 
