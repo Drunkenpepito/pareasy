@@ -15,28 +15,37 @@
       <% @bet_rooms.each do |room| %>
         <div class="col-6">
           <%= link_to bet_room_path(room) do %>
-            <div class="room-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path room.photo.key, crop: :fill %>') ">
-              <% if room.pending_events(current_user) > 0 %>
-                <span class="notif"><%= room.pending_events(current_user) %></span>
-              <% end %>
+            <% unless room.photo.attachment.nil? %>
 
-              <div class="card-category">
-                <div class=" text-white mb-3" style="max-width: 18rem">
-                  <div class="card-header"><%= room.name %></div>
-                  <div class="card-body">
-                    <p class="card-text"><%= room.users.count %> potes</p>
+              <div class="room-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path room.photo.key, crop: :fill %>') ">
+                <% if room.pending_events(current_user) > 0 %>
+                  <span class="notif"><%= room.pending_events(current_user) %></span>
+                <% end %>
+
+                <div class="card-category">
+                  <div class=" text-white mb-3" style="max-width: 18rem">
+                    <div class="card-header"><%= room.name %></div>
+                    <div class="card-body">
+                      <p class="card-text"><%= room.users.count %> potes</p>
+                    </div>
                   </div>
                 </div>
+
               </div>
 
-            </div>
+            <% end %>
+
           <% end %>
         </div>
       <% end %>
     </div>
   </div>
 
+ <!--  <%# unless user.photo.attachment.nil? %>
+    <%= cl_image_tag user.photo.key %>
+    <%= user.username %>
 
+ -->
 
 
 
