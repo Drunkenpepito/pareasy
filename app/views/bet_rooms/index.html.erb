@@ -2,7 +2,7 @@
 <div class="container1 text-center">
 
 <div class="d-flex pt-5 align-items-center">
-  <h2 class="m-0 mr-3">Mes rooms</h2>
+  <h2 class="m-0 mr-3">Mes Groupes</h2>
   <span><%= link_to "+", new_bet_room_path, class: "btn btn-flat-go" %></span>
 </div>
 
@@ -13,19 +13,13 @@
         <div class="col-6">
           <%= link_to bet_room_path(room) do %>
           <% image = room.photo.attachment.present? ? cl_image_path(room.photo.key, crop: :fill) : image_path("Pareasy.png") %>
-              <div class="room-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image %>') ">
+              <div class="room-card position-relative d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image %>') ">
                 <% if room.pending_events(current_user) > 0 %>
                   <span class="notif"><%= room.pending_events(current_user) %></span>
                 <% end %>
 
-                <div class="card-category">
-                  <div class=" text-white mb-3" style="max-width: 18rem">
-                    <div class="card-header"><%= room.name %></div>
-                    <div class="card-body">
-                      <p class="card-text"><%= room.users.count %> <i class="fas fa-users"></i></p>
-                    </div>
-                  </div>
-                </div>
+                <h3 class="text-white m-0"><%= room.name %></h3>
+                <p class="position-absolute text-white"><%= room.users.count %> <i class="fas fa-users"></i></p>
               </div>
           <% end %>
         </div>
