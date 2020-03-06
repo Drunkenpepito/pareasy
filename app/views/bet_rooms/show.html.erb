@@ -1,7 +1,7 @@
 <%= render 'shared/onglet' %>
 
     <h1 class="m-0 text-center mb-4"><%= @bet_room.name %></h1>
-    <%= link_to 'Nouveau pari', new_sport_bet_room_events_path(@bet_room), style:"text-decoration:none", class: "btn-flat text-center", data: {turbolinks: false} %>
+    <%= link_to 'Nouveau pari', new_sport_bet_room_events_path(@bet_room), style:"text-decoration:none", class: "btn-flat text-center", id: "confirm-banner", data: {turbolinks: false} %>
 
 <!--     <div class="btn-flat">
 
