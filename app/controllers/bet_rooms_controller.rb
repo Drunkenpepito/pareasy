@@ -120,6 +120,7 @@ class BetRoomsController < ApplicationController
     @users.each do |poto|
       score = 0
         poto.bets.joins(:event).where(events: { bet_room_id: @bet_room.id }).each do |bet|
+
           if bet.winner == true
             score += (bet.amount_cents * bet.event.bets.count / bet.event.bets.where(winner: true).count) - bet.amount_cents
           else
