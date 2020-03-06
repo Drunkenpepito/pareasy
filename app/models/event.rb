@@ -6,6 +6,8 @@ class Event < ApplicationRecord
 
   attr_accessor :home_team_score, :away_team_score
 
+  scope :upcoming, -> { where(results: nil) }
+
   def user_bet_on_it
     count = 0
       unless @event.nil? || @event.bets.nil? || @event.bets.first.nil? || @event.bets.first.amount_cents == 0 || @event.bets.where(user_id: current_user).empty?
