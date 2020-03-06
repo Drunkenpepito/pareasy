@@ -1,3 +1,4 @@
+<%= render 'shared/onglet' %>
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-classement" role="tab" aria-controls="nav-classement" aria-selected="true">classement</a>
@@ -12,15 +13,27 @@
     <table class="table table-dark table-stat">
        <thead>
          <tr>
-           <th scope="col"> <h4> Poto </h4></th>
+           <th scope="col"> <h4>Amis</h4></th>
            <th scope="col"><h4>€</h4></th>
          </tr>
        </thead>
        <tbody>
+        <% sum = 0 %>
         <% @stats.each do |stat| %>
+          <% sum += 1 %>
              <tr>
-              <td> <h5> <%= stat[:user].username %> </h5> </td>
-              <td> <h5><%= stat[:score] %> </h5></td>
+              <% if stat == @stats.first %>
+                <td> <h5> 🥇 <%= stat[:user].username %> </h5> </td>
+              <% elsif stat == @stats[1] %>
+                <td> <h5> 🥈 <%= stat[:user].username %> </h5> </td>
+              <% elsif stat == @stats[2] %>
+                <td> <h5> 🥉 <%= stat[:user].username %> </h5> </td>
+              <% elsif stat == @stats.last %>
+                <td> <h5> 🐐 <%= stat[:user].username %> </h5> </td>
+              <% else %>
+                <td> <h5> <%= stat[:user].username %> </h5> </td>
+              <% end %>
+              <td> <h5> <%= stat[:score] %></h5></td>
              </tr>
        <% end %>
       </tbody>

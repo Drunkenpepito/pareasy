@@ -132,6 +132,7 @@ class BetRoomsController < ApplicationController
     end
 
     @stats.sort_by! { |stat| -stat[:score] }
+
   end
 
   private
