@@ -10,13 +10,19 @@
         <div class="cardsEvent">
           <div class="card-event event-<%= @event.sport %>">
             <br>
-            <div class="card-event-bet"><%=@event.game %></div>
-            <div class="card-event-bet"><%=@event.bet_type %></div>
-            <div class="card-event-bet"><%=@event.description %></div>
+            <div class="card-event-bet" id = "match">
+              <p><%=@event.game %></p>
+            </div>
+            <div class="card-event-bet">
+              <p><%=@event.bet_type %></p>
+            </div>
+            <div class="card-event-bet">
+              <p><%=@event.description %></p>
+            </div>
           </div>
         </div>
 
-  <h2>Combien souhaites-tu miser ?</h2>
+  <h2>Choisis la mise</h2>
   <%#= simple_form_for [@event, @bet] do |f| %>
     <%#= f.input :amount_cents, label: false, placeholder: "Combien souhaites-tu miser ?", input_html: { min: '0', max: '10' } %>
     <%#= f.input :result, as: :boolean, checked_value: true, unchecked_value: false %>

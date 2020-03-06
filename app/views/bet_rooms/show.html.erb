@@ -1,29 +1,8 @@
 <%= render 'shared/onglet' %>
-<%# if @bet_room.photo.attachment.nil? %>
-
-  <!-- <div class="banner" style="background-color: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)); "> -->
-<%# else %>
-  <!-- <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @bet_room.photo.key, height: 200, width: 300%>') "> -->
-
-<%# end %>
-  <!-- <div class="container "> -->
-    <!-- <div class="edit-delete"> -->
-      <%#= link_to " Edit", edit_bet_room_path, :class => "fas fa-pencil-alt" %>
-      <%#= link_to " Delete", bet_room_path, method: :delete, data: {:confirm => 'Are you sure?'}, :class => "fas fa-trash-alt" %>
-
-
- <!-- chatroom_path(@bet_room.chatroom) -->
-
-    <!-- </div> -->
 
     <h1 class="m-0 text-center"><%= @bet_room.name %></h1>
 
-    <!-- <div class="container text-center" id="confirm-banner"> -->
-      <%#= link_to "Lance un Pari ", new_sport_bet_room_events_path(@bet_room), class: "btn btn-flat", data: {turbolinks: false} %>
       <%= render 'shared/button' %>
-    <!-- </div> -->
-  <!-- </div> -->
-<!-- </div> -->
 
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -33,6 +12,10 @@
   </nav>
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-ongoing" role="tabpanel" aria-labelledby="nav-ongoing-tab">
+      <% if @events.empty? %>
+        <p class = "text-center mt-4">Tu n'as pas de pari en cours</p>
+      <% end %>
+
       <% @events.each do |event| %>
         <% unless event.bets.empty? || event.bets.first.amount_cents == 0 || event.bets.where(user_id: current_user).empty? %>
           <% if event.results.nil? %>
@@ -87,6 +70,9 @@
     </div>
     <div class="tab-pane fade" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
       <div class="cardsEvent">
+        <% if @events.empty? %>
+          <p class = "text-center mt-4">Tes potes n'ont pas proposé de pari</p>
+        <% end %>
           <% @events.each do |event| %>
             <% unless event.nil? || event.bets.nil? || event.bets.first.nil? || event.bets.first.amount_cents == 0  %>
               <% if event.results.nil? && event.bets.where(user_id: current_user.id).empty? %>
