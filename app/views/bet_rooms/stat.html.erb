@@ -24,7 +24,8 @@
         <% sum = 0 %>
         <% @stats.each do |stat| %>
           <% sum += 1 %>
-             <tr>
+          <% tr_user = (stat[:user] == current_user) ? "user-is-currentuser" : "" %>
+             <tr class="<%= tr_user %>">
               <% if stat == @stats.first %>
                 <td> <h5> 🥇 <%= stat[:user].username %> </h5> </td>
               <% elsif stat == @stats[1] %>

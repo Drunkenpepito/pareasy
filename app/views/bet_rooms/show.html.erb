@@ -1,8 +1,12 @@
 <%= render 'shared/onglet' %>
 
-    <h1 class="m-0 text-center"><%= @bet_room.name %></h1>
+    <h1 class="m-0 text-center mb-4"><%= @bet_room.name %></h1>
+    <%= link_to 'Nouveau pari', new_sport_bet_room_events_path(@bet_room), style:"text-decoration:none", class: "btn-flat", data: {turbolinks: false} %>
 
-      <%= render 'shared/button' %>
+<!--     <div class="btn-flat">
+
+    </div> -->
+      <%#= render 'shared/button' %>
 
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
