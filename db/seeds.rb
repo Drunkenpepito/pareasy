@@ -257,7 +257,7 @@ fn_psf = Event.new(
   sport: "tennis",
   league: "Roland Garros",
   game: "Federer vs Nadal",
-  description: "6 - 4",
+  description: "Victoire de Nadal",
   game_start_at: DateTime.new(2020,4,4,14,30,00),
   bet_room: bet_room,
   author: edouard
@@ -322,6 +322,30 @@ mr_v = Event.new(
   )
 
 mr_v.save!
+
+pouet = Event.new(
+  sport: "Football",
+  league: "Ligue 1",
+  game: "PSG vs OM",
+  description: "Victoire de PSG",
+  game_start_at: DateTime.new(2019,9,7,15,00,00),
+  bet_room: bet_room,
+  author: pierre,
+  )
+
+pouet.save!
+
+pouet2 = Event.new(
+  sport: "Rugby",
+  league: "Top 14",
+  game: "Agen VS Stade francais",
+  description: "Victoire de Agen",
+  game_start_at: DateTime.new(2019,9,7,15,00,00),
+  bet_room: bet_room,
+  author: pierre,
+  )
+
+pouet2.save!
 
 nl_0_1 = Event.new(
   sport: "Football",
