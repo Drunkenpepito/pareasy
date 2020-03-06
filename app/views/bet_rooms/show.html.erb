@@ -1,8 +1,12 @@
 <%= render 'shared/onglet' %>
 
-    <h1 class="m-0 text-center"><%= @bet_room.name %></h1>
+    <h1 class="m-0 text-center mb-4"><%= @bet_room.name %></h1>
+    <%= link_to 'Nouveau pari', new_sport_bet_room_events_path(@bet_room), style:"text-decoration:none", class: "btn-flat text-center", data: {turbolinks: false} %>
 
-      <%= render 'shared/button' %>
+<!--     <div class="btn-flat">
+
+    </div> -->
+      <%#= render 'shared/button' %>
 
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -12,7 +16,7 @@
   </nav>
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-ongoing" role="tabpanel" aria-labelledby="nav-ongoing-tab">
-      <% if @events.empty? %>
+      <% if @upcoming_user_events.empty? %>
         <p class = "text-center mt-4">Tu n'as pas de pari en cours</p>
       <% end %>
 
@@ -70,9 +74,10 @@
     </div>
     <div class="tab-pane fade" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
       <div class="cardsEvent">
-        <% if @events.empty? %>
+        <% if @proposed_events.empty? %>
           <p class = "text-center mt-4">Tes potes n'ont pas proposé de pari</p>
         <% end %>
+
           <% @events.each do |event| %>
             <% unless event.nil? || event.bets.nil? || event.bets.first.nil? || event.bets.first.amount_cents == 0  %>
               <% if event.results.nil? && event.bets.where(user_id: current_user.id).empty? %>

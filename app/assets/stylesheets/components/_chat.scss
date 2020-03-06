@@ -1,7 +1,14 @@
+#chatrooms-show .content-wrapper {
+  margin-bottom: 0;
+}
+
  .message-container {
   width: 60%;
  }
 
+form#new_message {
+    height: 0px;
+}
 
  .message-container p {
   background: #1EDD88 none repeat scroll 0 0;
@@ -11,6 +18,11 @@
   margin: 20px 0px;
   padding: 5px 10px 5px 12px;
   width: 100%;
+  word-break: break-all;
+}
+
+.message_content {
+    margin: 0;
 }
 
 #messages {
@@ -58,8 +70,8 @@
 
   }
   #messages {
-    flex-grow: 1;
     overflow: scroll;
+    height: 60vh;
   }
 }
 
