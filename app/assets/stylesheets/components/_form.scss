@@ -18,12 +18,12 @@
   .form_friend {
   size: 50px;
   margin: 10px;
-  height: 100vh;
+  // height: 100vh;
   background: none;
-  padding: 10px 20px;
-  margin-top: 50px;
+  padding: 0px 20px;
+  // margin-top: 50px;
   border-radius: 3px;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  // box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   h2 {
     font-weight: bold;
     margin-bottom: 30px;
@@ -51,7 +51,12 @@
   overflow: scroll;
   background-color: #FFFFFF;
   padding: 20px;
-  box-shadow: 2px 2px 5px 2px #0b0d13e0;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+
+  legend{
+    display: none;
+
+  }
 
 }
 
@@ -62,7 +67,7 @@
 .form-inputs-new h3 {
   margin-top: 20px;
   margin-bottom: 30px;
-  color: white;
+  color: black;
 }
 
 .form-inputs-new-bet-room h3 {
@@ -103,4 +108,11 @@
 
 .paris-prop2{
   margin-top: 30px;
+}
+
+.edit-btns{
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  justify-content: space-evenly;
 }

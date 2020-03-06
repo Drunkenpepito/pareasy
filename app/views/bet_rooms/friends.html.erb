@@ -2,18 +2,18 @@
 <div class="container-fluid text-center image-edit-friends" >
   <div class="row">
     <div class="col-sm-12">
-      <h2 class="title-new-amis">Modifier la liste d'amis</h2>
+      <h1 class="mb-4 m-0"><%=  @bet_room.name%></h1>
       <div class="form_friend">
-        <div class="form-inputs-new">
+        <div class="form-inputs-new-bet-room">
           <%= simple_form_for(@bet_room) do |f| %>
 
-            <h3>Amis - <span id="friends-counter"></span></h3>
+            <h3>Ajouter des amis - <span id="friends-counter"></span> </h3>
             <div class="friends-list-edit">
               <%= f.association :users, as: :check_boxes, label_method: lambda { |user| render "bet_rooms/new_form_label", user: user }, label: false, wrapper_html: { class: "friends-input" } %>
             </div>
             <div class="edit-btns">
-                <%= f.button :submit, "Ajouter", class: "btn-back btn-flat"%>
-                <%= link_to "Annuler", bet_room_path, class: "btn-back btn-flat btn-cancel" %>
+                <%= f.button :submit, "Ajouter", class: "button-add-delete-friend"%>
+                <%= link_to "Annuler", bet_room_path, class: "button-add-delete-friend", id:"cancel" %>
             </div>
           <% end %>
         </div>

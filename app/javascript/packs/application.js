@@ -46,7 +46,7 @@ const confirmationMessage = () => {
       Swal.fire({
       position: 'top-end',
       icon: 'success',
-      title: 'Bravo pour ton pari',
+      title: 'Pari validé !',
       showConfirmButton: false,
       timer: 2000
       })
