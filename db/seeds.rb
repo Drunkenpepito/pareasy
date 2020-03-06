@@ -121,17 +121,17 @@ amalia.save!
 puts ' users created'
 
 puts "Creating bet rooms"
-bet_room = BetRoom.new(name: "potes du rugby")
+bet_room = BetRoom.new(name: "les potos")
 bet_room_pic = URI.open("https://image.shutterstock.com/image-photo/four-friends-taking-selfie-together-260nw-641463781.jpg")
 bet_room.photo.attach(io: bet_room_pic, filename: 'some-image.jpg', content_type: 'image/jpg')
-chatroom = Chatroom.new(name: "Paris entre potes")
+chatroom = Chatroom.new(name: "les potos")
 bet_room.chatroom = chatroom
 bet_room.save!
 
-bet_room2 = BetRoom.new(name: "Team Rolland!")
-bet_room2_pic = URI.open("https://res.cloudinary.com/dz8mhj8vj/image/upload/v1583341698/Roland-Garros_uyeyoz.jpg")
+bet_room2 = BetRoom.new(name: "Les cousins!")
+bet_room2_pic = URI.open("https://res.cloudinary.com/dz8mhj8vj/image/upload/v1583485040/23451820-t-vacances-vacances-le-concept-de-gens-heureux-groupe-d-amis-sautant-sur-la-plage_psw9sd.jpg")
 bet_room2.photo.attach(io: bet_room2_pic, filename: 'some-image2.jpg', content_type: 'image/jpg')
-chatroom2 = Chatroom.new(name: "Roland garros team!")
+chatroom2 = Chatroom.new(name: "Les cousins!")
 bet_room2.chatroom = chatroom2
 bet_room2.save!
 
