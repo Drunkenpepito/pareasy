@@ -16,7 +16,7 @@
   </nav>
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-ongoing" role="tabpanel" aria-labelledby="nav-ongoing-tab">
-      <% if @events.empty? %>
+      <% if @upcoming_user_events.empty? %>
         <p class = "text-center mt-4">Tu n'as pas de pari en cours</p>
       <% end %>
 
@@ -74,9 +74,10 @@
     </div>
     <div class="tab-pane fade" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
       <div class="cardsEvent">
-        <% if @events.empty? %>
+        <% if @proposed_events.empty? %>
           <p class = "text-center mt-4">Tes potes n'ont pas proposé de pari</p>
         <% end %>
+
           <% @events.each do |event| %>
             <% unless event.nil? || event.bets.nil? || event.bets.first.nil? || event.bets.first.amount_cents == 0  %>
               <% if event.results.nil? && event.bets.where(user_id: current_user.id).empty? %>

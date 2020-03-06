@@ -27,6 +27,10 @@ class BetRoomsController < ApplicationController
     authorize @bet_room
     @events = @bet_room.events
 
+    @upcoming_events      = @events.joins(:bets).upcoming
+    @upcoming_user_events = @upcoming_events.joins(:bets).where(bets: { user_id: current_user.id })
+    @proposed_events      = @events.where.not(id: @upcoming_user_events.pluck(:id))
+
     # fetch results
     @events.each do |event|
       next unless event.results.nil?
@@ -36,13 +40,7 @@ class BetRoomsController < ApplicationController
 
         MoneyDispatch.new(event).call
       end
-
-        # raise
-        # binding.pry
-
     end
-
-
 
     # si le user a remporté au moins un bet, on le reload pour avoir sa cagnotte à jour
     current_user.reload
