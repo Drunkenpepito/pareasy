@@ -5,8 +5,10 @@
       <small><%= message.created_at.strftime("%d/%m/%y, %Hh%M") %></small>
     </i>
     <div  class=" d-flex ">
-      <%= cl_image_tag message.user.photo.key %>
-      <p><%= message.content%></p>
+      <% unless message.user.photo.attachment.nil? %>
+        <%= cl_image_tag message.user.photo.key %>
+        <p><%= message.content%></p>
+      <% end %>
     </div>
   </div>
 <% else %>
@@ -17,7 +19,9 @@
     </i>
     <div  class=" d-flex ">
         <% if message.user != current_user %>
-          <%= cl_image_tag message.user.photo.key %>
+          <% unless message.user.photo.attachment.nil? %>
+            <%= cl_image_tag message.user.photo.key %>
+          <% end %>
         <% end %>
         <p><%= message.content%></p>
     </div>
